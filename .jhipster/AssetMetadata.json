@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240603205841"
+  },
+  "applications": ["azimuteERPSpringAngularMonolith01"],
+  "dto": "mapstruct",
+  "entityTableName": "tb_asset_metadata",
+  "fields": [
+    {
+      "fieldName": "metadataDetails",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "name": "AssetMetadata",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "asset",
+      "otherEntityRelationshipName": "assetMetadata",
+      "relationshipName": "asset",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

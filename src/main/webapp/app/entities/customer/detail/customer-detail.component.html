@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (customer()) {
+      <div>
+        <h2 data-cy="customerDetailsHeading">
+          <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.detail.title">Customer</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ customer()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customerBusinessCode">Customer Business Code</span></dt>
+          <dd>
+            <span>{{ customer()!.customerBusinessCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.name">Name</span></dt>
+          <dd>
+            <span>{{ customer()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.description">Description</span></dt>
+          <dd>
+            <span>{{ customer()!.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.email">Email</span></dt>
+          <dd>
+            <span>{{ customer()!.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.addressDetails">Address Details</span></dt>
+          <dd>
+            <span>{{ customer()!.addressDetails }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.zipCode">Zip Code</span></dt>
+          <dd>
+            <span>{{ customer()!.zipCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.keycloakGroupDetails">Keycloak Group Details</span></dt>
+          <dd>
+            <span>{{ customer()!.keycloakGroupDetails }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.status">Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.CustomerStatusEnum.' + (customer()!.status ?? 'null')">{{
+              {
+                null: '',
+                UNDER_EVALUATION: 'UNDER_EVALUATION',
+                ONBOARDING: 'ONBOARDING',
+                READY_TO_START: 'READY_TO_START',
+                WORKING: 'WORKING',
+                PENDENT: 'PENDENT',
+                IN_FAILURE: 'IN_FAILURE'
+              }[customer()!.status ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.active">Active</span></dt>
+          <dd>
+            <span>{{ customer()!.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customerType">Customer Type</span></dt>
+          <dd>
+            @if (customer()!.customerType) {
+              <div>
+                <a [routerLink]="['/customer-type', customer()!.customerType?.id, 'view']">{{ customer()!.customerType?.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.district">District</span></dt>
+          <dd>
+            @if (customer()!.district) {
+              <div>
+                <a [routerLink]="['/district', customer()!.district?.id, 'view']">{{ customer()!.district?.name }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/customer', customer()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

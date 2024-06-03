@@ -1,0 +1,10 @@
+{
+  "azimuteErpSpringAngularMonolith01App": {
+    "GenderEnum": {
+      "null": "",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE",
+      "OTHER": "OTHER"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+id;inventory_product_id;custom_name;custom_description;price_value;item_size;assets_collection_uuid;is_enabled
+1;20418;majestic chief prelude;../fake-data/blob/hipster.txt;14831.24;S;aw;false
+2;498;joyful gynaecology;../fake-data/blob/hipster.txt;14821.82;M;yowza;false
+3;27268;scholarly;../fake-data/blob/hipster.txt;29648.54;XL;now ew;true
+4;15044;judgementally obtain;../fake-data/blob/hipster.txt;15807.09;L;until following ack;true
+5;7129;slim unlawful gadzooks;../fake-data/blob/hipster.txt;32487.44;M;eek whoa drill;true
+6;9747;psst;../fake-data/blob/hipster.txt;32508.71;L;ha formalise;false
+7;2564;aha ouch;../fake-data/blob/hipster.txt;18529.33;XXL;unkempt;true
+8;19813;naturally;../fake-data/blob/hipster.txt;4541.3;M;yowza;true
+9;24412;gah;../fake-data/blob/hipster.txt;7333.96;XXXL;sans;false
+10;6628;oof;../fake-data/blob/hipster.txt;10575.74;M;aha;false

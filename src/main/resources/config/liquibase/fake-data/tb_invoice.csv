@@ -1,0 +1,11 @@
+id;business_code;original_order_id;invoice_date;due_date;description;tax_value;shipping_value;amount_due_value;number_of_installments_original;number_of_installments_paid;amount_paid_value;status;extra_details
+1;distinguish vic;7599;2024-06-03T08:53:06;2024-06-03T20:57:57;outside regularly;2515.13;8336.82;5228.87;12519;30534;5577.5;CANCELLED;../fake-data/blob/hipster.txt
+2;aboard duh;32518;2024-06-02T23:17:26;2024-06-03T11:01:17;begonia;13692.52;1930.31;5648.47;31157;18713;26377.33;PAID_ONCE;../fake-data/blob/hipster.txt
+3;lively annually;6292;2024-06-03T09:26:35;2024-06-03T12:56:12;solace;22909.93;4696.88;6372.95;13792;21473;30065.82;CANCELLED;../fake-data/blob/hipster.txt
+4;unless remunera;19586;2024-06-03T20:41:16;2024-06-03T01:06:08;fibroblast hm;21065.27;30474.99;15703.79;16407;23970;28889.68;PAID_ONCE;../fake-data/blob/hipster.txt
+5;photocopy;25161;2024-06-03T20:38:49;2024-06-02T21:18:21;notwithstanding out;10337.64;2745.79;2851.65;5313;31603;30094.93;PAID_ONCE;../fake-data/blob/hipster.txt
+6;ha although hap;7627;2024-06-03T11:55:02;2024-06-03T15:50:59;carve over;30409.6;22780.2;6026.11;21246;25885;15686.73;PAYING_IN_INSTALLMENTS;../fake-data/blob/hipster.txt
+7;loyally;16537;2024-06-02T23:25:26;2024-06-03T02:53:42;shortage unto calmly;270.21;15130.19;9187.53;11653;1113;7922.4;PAYING_IN_INSTALLMENTS;../fake-data/blob/hipster.txt
+8;substantial sim;14877;2024-06-03T19:47:58;2024-06-03T08:03:10;supposing downforce against;31793.58;20338.46;21778;30310;30044;5349.47;CANCELLED;../fake-data/blob/hipster.txt
+9;unloosen gah hm;18613;2024-06-03T15:17:33;2024-06-02T21:15:43;bah deliberately;28436.53;21731.11;15865.86;30502;6363;22753.75;CANCELLED;../fake-data/blob/hipster.txt
+10;utilize;29400;2024-06-03T16:10:52;2024-06-03T18:09:35;meh;26665.94;9769.29;7735.3;28412;21826;27618.04;ISSUED;../fake-data/blob/hipster.txt

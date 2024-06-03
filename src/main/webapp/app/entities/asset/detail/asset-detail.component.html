@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (asset()) {
+      <div>
+        <h2 data-cy="assetDetailsHeading"><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.detail.title">Asset</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ asset()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.uid">Uid</span></dt>
+          <dd>
+            <span>{{ asset()!.uid }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.name">Name</span></dt>
+          <dd>
+            <span>{{ asset()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.storageTypeUsed">Storage Type Used</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.StorageTypeEnum.' + (asset()!.storageTypeUsed ?? 'null')">{{
+              {
+                null: '',
+                BLOB_IN_DB: 'BLOB_IN_DB',
+                LOCAL_FILESYSTEM: 'LOCAL_FILESYSTEM',
+                LOCAL_MINIO: 'LOCAL_MINIO',
+                REMOTE_FILESYSTEM: 'REMOTE_FILESYSTEM',
+                REMOTE_MINIO: 'REMOTE_MINIO',
+                AWS_S3: 'AWS_S3',
+                OTHER_CLOUD_STORAGE: 'OTHER_CLOUD_STORAGE'
+              }[asset()!.storageTypeUsed ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.fullFilenamePath">Full Filename Path</span></dt>
+          <dd>
+            <span>{{ asset()!.fullFilenamePath }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.status">Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.StatusAssetEnum.' + (asset()!.status ?? 'null')">{{
+              { null: '', ENABLED: 'ENABLED', DISABLED: 'DISABLED', DELETED: 'DELETED' }[asset()!.status ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.preferredPurpose">Preferred Purpose</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PreferredPurposeEnum.' + (asset()!.preferredPurpose ?? 'null')">{{
+              { null: '', USER_AVATAR: 'USER_AVATAR', LOGO_IMG: 'LOGO_IMG', PHOTO_ALBUM: 'PHOTO_ALBUM', OTHER: 'OTHER' }[
+                asset()!.preferredPurpose ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetContentAsBlob">Asset Content As Blob</span></dt>
+          <dd>
+            @if (asset()!.assetContentAsBlob) {
+              <div>
+                <a
+                  (click)="openFile(asset()!.assetContentAsBlob ?? '', asset()!.assetContentAsBlobContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ asset()!.assetContentAsBlobContentType }}, {{ byteSize(asset()!.assetContentAsBlob ?? '') }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetType">Asset Type</span></dt>
+          <dd>
+            @if (asset()!.assetType) {
+              <div>
+                <a [routerLink]="['/asset-type', asset()!.assetType?.id, 'view']">{{ asset()!.assetType?.name }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.rawAssetProcTmp">Raw Asset Proc Tmp</span></dt>
+          <dd>
+            @if (asset()!.rawAssetProcTmp) {
+              <div>
+                <a [routerLink]="['/raw-asset-proc-tmp', asset()!.rawAssetProcTmp?.id, 'view']">{{ asset()!.rawAssetProcTmp?.name }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/asset', asset()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

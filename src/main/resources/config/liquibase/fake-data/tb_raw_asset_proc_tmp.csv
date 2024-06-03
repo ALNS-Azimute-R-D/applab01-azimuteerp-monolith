@@ -1,0 +1,11 @@
+id;name;status_raw_processing;full_filename_path;asset_raw_content_as_blob;asset_raw_content_as_blob_content_type;extra_details;asset_type_id
+1;indict indeed;UPLOADED;minus;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;1
+2;daily athwart which;UPLOADED;cry;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;2
+3;well-to-do after;UPLOADED;for;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;3
+4;oof;PROCESSING;ick whose;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;4
+5;smirk rear;FAILURE;snake;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;5
+6;toward until necessary;UPLOADING;however vain however;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;6
+7;reach millimeter that;UPLOADING;frequent;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;7
+8;hence how;PROCESSING;unimpressively;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;8
+9;psst realistic cluttered;DONE;er wrong;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;9
+10;lest quaintly asterisk;UPLOADING;geez dry purloin;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;10

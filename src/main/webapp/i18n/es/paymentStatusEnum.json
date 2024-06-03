@@ -1,0 +1,11 @@
+{
+  "azimuteErpSpringAngularMonolith01App": {
+    "PaymentStatusEnum": {
+      "null": "",
+      "OPEN": "OPEN",
+      "DELAYED": "DELAYED",
+      "PAID": "PAID",
+      "CANCELLED": "CANCELLED"
+    }
+  }
+}

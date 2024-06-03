@@ -1,0 +1,49 @@
+{
+  "annotations": {
+    "changelogDate": "20240603211058"
+  },
+  "applications": ["azimuteERPSpringAngularMonolith01"],
+  "dto": "mapstruct",
+  "entityTableName": "tb_stock_level",
+  "fields": [
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ramainingQuantity",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "extraDetails",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "name": "StockLevel",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "acronym",
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "stockLevelsList",
+      "relationshipName": "warehouse",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "productName",
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "stockLevelsList",
+      "relationshipName": "product",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

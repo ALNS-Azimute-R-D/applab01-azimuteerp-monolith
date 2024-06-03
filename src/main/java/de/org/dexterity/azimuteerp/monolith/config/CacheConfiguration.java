@@ -45,6 +45,82 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Country.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Country.class.getName() + ".provincesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Country.class.getName() + ".localitiesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Province.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Province.class.getName() + ".townCitiesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TownCity.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TownCity.class.getName() + ".districtsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.District.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.District.class.getName() + ".personsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.District.class.getName() + ".customersLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Locality.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Tenant.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Tenant.class.getName() + ".organizationsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TypeOfOrganization.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TypeOfOrganization.class.getName() + ".organizationsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".organizationDomainsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".organizationAttributesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".businessUnitsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".childrenOrganizationsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".organizationRolesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Organization.class.getName() + ".organizationMembershipsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.BusinessUnit.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.BusinessUnit.class.getName() + ".childrenBusinessUnitsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationDomain.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationAttribute.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TypeOfPerson.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.TypeOfPerson.class.getName() + ".personsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Person.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Person.class.getName() + ".managedPersonsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Person.class.getName() + ".organizationMembershipsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationRole.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationRole.class.getName() + ".organizationMemberRolesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationMembership.class.getName());
+            createCache(
+                cm,
+                de.org.dexterity.azimuteerp.monolith.domain.OrganizationMembership.class.getName() + ".organizationMemberRolesLists"
+            );
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrganizationMemberRole.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.AssetType.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.AssetType.class.getName() + ".rawAssetsProcsTmps");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.AssetType.class.getName() + ".assets");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.RawAssetProcTmp.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.RawAssetProcTmp.class.getName() + ".assets");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Asset.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.AssetMetadata.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Invoice.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.PaymentMethod.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.PaymentMethod.class.getName() + ".invoicesAsPreferrableLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.PaymentMethod.class.getName() + ".paymentsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Payment.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Warehouse.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Warehouse.class.getName() + ".inventoryTransactionsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Warehouse.class.getName() + ".stockLevelsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Supplier.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Supplier.class.getName() + ".productsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Supplier.class.getName() + ".inventoryTransactionsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Brand.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Brand.class.getName() + ".productsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Product.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Product.class.getName() + ".productsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Product.class.getName() + ".stockLevelsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Product.class.getName() + ".suppliersLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.InventoryTransaction.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.StockLevel.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Customer.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.CustomerType.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.CustomerType.class.getName() + ".customersLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Category.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Category.class.getName() + ".articlesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Category.class.getName() + ".childrenCategoriesLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Article.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Article.class.getName() + ".ordersItemsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Order.class.getName());
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.Order.class.getName() + ".ordersItemsLists");
+            createCache(cm, de.org.dexterity.azimuteerp.monolith.domain.OrderItem.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
