@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/azimuteERPSpringAngularMonolith01
-    username: azimuteERPSpringAngularMonolith01
-    password:
+    url: jdbc:postgresql://postgresql.darueira-devlocal.org.de:5432/DBDarueiraApps01?currentSchema=schm01&ApplicationName=AppLab01AzimuteERPMonolith&ssl=false
+    username: dbadarueiraapps01
+    password: 1a88a1
     hikari:
       poolName: Hikari
       auto-commit: false
