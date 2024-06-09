@@ -146,7 +146,7 @@ spring:
         registration:
           oidc:
             client-id: applab01-azimuteerp-monolith
-            client-secret: mhQRmxxswHdeR5ITeciW5qbBXKenCkDD
+            client-secret: jueRSFFQm3LySVjveVNXTxivnRLh6TI3
             scope: openid, profile, email, offline_access # last one for refresh tokens
       resourceserver:
         jwt:
