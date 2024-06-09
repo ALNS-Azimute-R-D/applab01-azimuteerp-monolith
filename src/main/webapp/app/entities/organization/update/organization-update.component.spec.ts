@@ -53,10 +53,10 @@ describe('Organization Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Tenant query and add missing value', () => {
       const organization: IOrganization = { id: 456 };
-      const tenant: ITenant = { id: 7568 };
+      const tenant: ITenant = { id: 30567 };
       organization.tenant = tenant;
 
-      const tenantCollection: ITenant[] = [{ id: 29008 }];
+      const tenantCollection: ITenant[] = [{ id: 8136 }];
       jest.spyOn(tenantService, 'query').mockReturnValue(of(new HttpResponse({ body: tenantCollection })));
       const additionalTenants = [tenant];
       const expectedCollection: ITenant[] = [...additionalTenants, ...tenantCollection];
@@ -75,10 +75,10 @@ describe('Organization Management Update Component', () => {
 
     it('Should call TypeOfOrganization query and add missing value', () => {
       const organization: IOrganization = { id: 456 };
-      const typeOfOrganization: ITypeOfOrganization = { id: 18202 };
+      const typeOfOrganization: ITypeOfOrganization = { id: 4169 };
       organization.typeOfOrganization = typeOfOrganization;
 
-      const typeOfOrganizationCollection: ITypeOfOrganization[] = [{ id: 30609 }];
+      const typeOfOrganizationCollection: ITypeOfOrganization[] = [{ id: 3361 }];
       jest.spyOn(typeOfOrganizationService, 'query').mockReturnValue(of(new HttpResponse({ body: typeOfOrganizationCollection })));
       const additionalTypeOfOrganizations = [typeOfOrganization];
       const expectedCollection: ITypeOfOrganization[] = [...additionalTypeOfOrganizations, ...typeOfOrganizationCollection];
@@ -97,10 +97,10 @@ describe('Organization Management Update Component', () => {
 
     it('Should call Organization query and add missing value', () => {
       const organization: IOrganization = { id: 456 };
-      const organizationParent: IOrganization = { id: 13387 };
+      const organizationParent: IOrganization = { id: 21558 };
       organization.organizationParent = organizationParent;
 
-      const organizationCollection: IOrganization[] = [{ id: 18028 }];
+      const organizationCollection: IOrganization[] = [{ id: 26537 }];
       jest.spyOn(organizationService, 'query').mockReturnValue(of(new HttpResponse({ body: organizationCollection })));
       const additionalOrganizations = [organizationParent];
       const expectedCollection: IOrganization[] = [...additionalOrganizations, ...organizationCollection];
@@ -119,11 +119,11 @@ describe('Organization Management Update Component', () => {
 
     it('Should update editForm', () => {
       const organization: IOrganization = { id: 456 };
-      const tenant: ITenant = { id: 5016 };
+      const tenant: ITenant = { id: 9095 };
       organization.tenant = tenant;
-      const typeOfOrganization: ITypeOfOrganization = { id: 19237 };
+      const typeOfOrganization: ITypeOfOrganization = { id: 1279 };
       organization.typeOfOrganization = typeOfOrganization;
-      const organizationParent: IOrganization = { id: 30852 };
+      const organizationParent: IOrganization = { id: 21930 };
       organization.organizationParent = organizationParent;
 
       activatedRoute.data = of({ organization });

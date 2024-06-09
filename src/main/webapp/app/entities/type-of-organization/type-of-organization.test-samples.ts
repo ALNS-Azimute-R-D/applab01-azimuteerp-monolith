@@ -4,29 +4,28 @@ export const sampleWithRequiredData: ITypeOfOrganization = {
   id: 3809,
   acronym: 'likewise casserole p',
   name: 'slimy lope',
-  description: '../fake-data/blob/hipster.txt',
+  description: 'furthermore',
 };
 
 export const sampleWithPartialData: ITypeOfOrganization = {
-  id: 986,
-  acronym: 'lasso',
-  name: 'photoshop',
-  description: '../fake-data/blob/hipster.txt',
-  businessHandlerClazz: 'lively bloom',
+  id: 16059,
+  acronym: 'photoshop',
+  name: 'lively bloom',
+  description: 'puzzle screamer gadzooks',
 };
 
 export const sampleWithFullData: ITypeOfOrganization = {
-  id: 26215,
-  acronym: 'instead',
-  name: 'from meh',
-  description: '../fake-data/blob/hipster.txt',
-  businessHandlerClazz: 'drool venerated',
+  id: 4647,
+  acronym: 'mostly rotating',
+  name: 'grave reconsideration or',
+  description: 'bleak beside',
+  businessHandlerClazz: 'behind joshingly phew',
 };
 
 export const sampleWithNewData: NewTypeOfOrganization = {
-  acronym: 'to blank fossilise',
-  name: 'commonly',
-  description: '../fake-data/blob/hipster.txt',
+  acronym: 'airship',
+  name: 'cramp',
+  description: 'sympathetically',
   id: null,
 };
 

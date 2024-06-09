@@ -15,7 +15,7 @@ describe('Article e2e test', () => {
   const articlePageUrlPattern = new RegExp('/article(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const articleSample = { inventoryProductId: 19803, itemSize: 'XL' };
+  const articleSample = { inventoryProductId: 4199, itemSize: 'XXL', activationStatus: 'BLOCKED' };
 
   let article;
 
@@ -160,26 +160,24 @@ describe('Article e2e test', () => {
     });
 
     it('should create an instance of Article', () => {
-      cy.get(`[data-cy="inventoryProductId"]`).type('23096');
-      cy.get(`[data-cy="inventoryProductId"]`).should('have.value', '23096');
+      cy.get(`[data-cy="inventoryProductId"]`).type('11745');
+      cy.get(`[data-cy="inventoryProductId"]`).should('have.value', '11745');
 
-      cy.get(`[data-cy="customName"]`).type('winged droopy');
-      cy.get(`[data-cy="customName"]`).should('have.value', 'winged droopy');
+      cy.get(`[data-cy="skuCode"]`).type('indeed incidentally repress');
+      cy.get(`[data-cy="skuCode"]`).should('have.value', 'indeed incidentally repress');
 
-      cy.get(`[data-cy="customDescription"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="customDescription"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customName"]`).type('neglected meh');
+      cy.get(`[data-cy="customName"]`).should('have.value', 'neglected meh');
 
-      cy.get(`[data-cy="priceValue"]`).type('33.41');
-      cy.get(`[data-cy="priceValue"]`).should('have.value', '33.41');
+      cy.get(`[data-cy="customDescription"]`).type('crinkle who');
+      cy.get(`[data-cy="customDescription"]`).should('have.value', 'crinkle who');
 
-      cy.get(`[data-cy="itemSize"]`).select('S');
+      cy.get(`[data-cy="priceValue"]`).type('28573.06');
+      cy.get(`[data-cy="priceValue"]`).should('have.value', '28573.06');
 
-      cy.get(`[data-cy="assetsCollectionUUID"]`).type('cemetery gadzooks whistle');
-      cy.get(`[data-cy="assetsCollectionUUID"]`).should('have.value', 'cemetery gadzooks whistle');
+      cy.get(`[data-cy="itemSize"]`).select('M');
 
-      cy.get(`[data-cy="isEnabled"]`).should('not.be.checked');
-      cy.get(`[data-cy="isEnabled"]`).click();
-      cy.get(`[data-cy="isEnabled"]`).should('be.checked');
+      cy.get(`[data-cy="activationStatus"]`).select('ON_HOLD');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

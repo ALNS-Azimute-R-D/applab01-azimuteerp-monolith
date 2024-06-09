@@ -4,7 +4,7 @@
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
-    <logger name="de.org.dexterity.azimuteerp.monolith" level="INFO"/>
+    <logger name="org.dexterity.darueira.azimuteerp.monolith.spring" level="INFO"/>
 
     <logger name="tech.jhipster" level="WARN"/>
 

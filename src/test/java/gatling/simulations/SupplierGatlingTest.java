@@ -110,9 +110,6 @@ public class SupplierGatlingTest extends Simulation {
                                 "{" +
                                 "\"acronym\": \"SAMPLE_TEXT\"" +
                                 ", \"companyName\": \"SAMPLE_TEXT\"" +
-                                ", \"representativeLastName\": \"SAMPLE_TEXT\"" +
-                                ", \"representativeFirstName\": \"SAMPLE_TEXT\"" +
-                                ", \"jobTitle\": \"SAMPLE_TEXT\"" +
                                 ", \"streetAddress\": \"SAMPLE_TEXT\"" +
                                 ", \"houseNumber\": \"SAMPLE_TEXT\"" +
                                 ", \"locationName\": \"SAMPLE_TEXT\"" +
@@ -120,13 +117,12 @@ public class SupplierGatlingTest extends Simulation {
                                 ", \"stateProvince\": \"SAMPLE_TEXT\"" +
                                 ", \"zipPostalCode\": \"SAMPLE_TEXT\"" +
                                 ", \"countryRegion\": \"SAMPLE_TEXT\"" +
-                                ", \"webPage\": null" +
                                 ", \"pointLocation\": null" +
                                 ", \"mainEmail\": \"SAMPLE_TEXT\"" +
-                                ", \"landPhoneNumber\": \"SAMPLE_TEXT\"" +
-                                ", \"mobilePhoneNumber\": \"SAMPLE_TEXT\"" +
-                                ", \"faxNumber\": \"SAMPLE_TEXT\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"phoneNumber1\": \"SAMPLE_TEXT\"" +
+                                ", \"phoneNumber2\": \"SAMPLE_TEXT\"" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

@@ -11,13 +11,9 @@
         <jhi-alert></jhi-alert>
 
         <dl class="row-md jh-entity-details">
-          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.id">Id</span></dt>
           <dd>
             <span>{{ asset()!.id }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.uid">Uid</span></dt>
-          <dd>
-            <span>{{ asset()!.uid }}</span>
           </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.name">Name</span></dt>
           <dd>
@@ -51,9 +47,15 @@
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.preferredPurpose">Preferred Purpose</span></dt>
           <dd>
             <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PreferredPurposeEnum.' + (asset()!.preferredPurpose ?? 'null')">{{
-              { null: '', USER_AVATAR: 'USER_AVATAR', LOGO_IMG: 'LOGO_IMG', PHOTO_ALBUM: 'PHOTO_ALBUM', OTHER: 'OTHER' }[
-                asset()!.preferredPurpose ?? 'null'
-              ]
+              {
+                null: '',
+                USER_AVATAR: 'USER_AVATAR',
+                LOGO_IMG: 'LOGO_IMG',
+                PHOTO_ALBUM: 'PHOTO_ALBUM',
+                ANY_OFFICE_FILE_TYPE: 'ANY_OFFICE_FILE_TYPE',
+                EXECUTABLE_PROGRAM_BINARY: 'EXECUTABLE_PROGRAM_BINARY',
+                OTHER: 'OTHER'
+              }[asset()!.preferredPurpose ?? 'null']
             }}</span>
           </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetContentAsBlob">Asset Content As Blob</span></dt>
@@ -69,6 +71,20 @@
               </div>
             }
           </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.activationStatus">Activation Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (asset()!.activationStatus ?? 'null')">{{
+              {
+                null: '',
+                INACTIVE: 'INACTIVE',
+                ACTIVE: 'ACTIVE',
+                ON_HOLD: 'ON_HOLD',
+                PENDENT: 'PENDENT',
+                BLOCKED: 'BLOCKED',
+                INVALID: 'INVALID'
+              }[asset()!.activationStatus ?? 'null']
+            }}</span>
+          </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetType">Asset Type</span></dt>
           <dd>
             @if (asset()!.assetType) {
@@ -83,6 +99,15 @@
               <div>
                 <a [routerLink]="['/raw-asset-proc-tmp', asset()!.rawAssetProcTmp?.id, 'view']">{{ asset()!.rawAssetProcTmp?.name }}</a>
               </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetCollection">Asset Collection</span></dt>
+          <dd>
+            @for (assetCollection of asset()!.assetCollections; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/asset-collection', assetCollection.id, 'view']">{{ assetCollection?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
             }
           </dd>
         </dl>

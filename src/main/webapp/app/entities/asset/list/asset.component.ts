@@ -52,7 +52,7 @@ export class AssetComponent implements OnInit {
   protected modalService = inject(NgbModal);
   protected ngZone = inject(NgZone);
 
-  trackId = (_index: number, item: IAsset): number => this.assetService.getAssetIdentifier(item);
+  trackId = (_index: number, item: IAsset): string => this.assetService.getAssetIdentifier(item);
 
   ngOnInit(): void {
     this.subscription = combineLatest([this.activatedRoute.queryParamMap, this.activatedRoute.data])

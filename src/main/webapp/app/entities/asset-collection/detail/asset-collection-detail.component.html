@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (assetCollection()) {
+      <div>
+        <h2 data-cy="assetCollectionDetailsHeading">
+          <span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.detail.title">Asset Collection</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ assetCollection()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.name">Name</span></dt>
+          <dd>
+            <span>{{ assetCollection()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.fullFilenamePath">Full Filename Path</span></dt>
+          <dd>
+            <span>{{ assetCollection()!.fullFilenamePath }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.activationStatus">Activation Status</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="
+                'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (assetCollection()!.activationStatus ?? 'null')
+              "
+              >{{
+                {
+                  null: '',
+                  INACTIVE: 'INACTIVE',
+                  ACTIVE: 'ACTIVE',
+                  ON_HOLD: 'ON_HOLD',
+                  PENDENT: 'PENDENT',
+                  BLOCKED: 'BLOCKED',
+                  INVALID: 'INVALID'
+                }[assetCollection()!.activationStatus ?? 'null']
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.asset">Asset</span></dt>
+          <dd>
+            @for (asset of assetCollection()!.assets; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/asset', asset.id, 'view']">{{ asset?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.assetCollection.article">Article</span></dt>
+          <dd>
+            @for (article of assetCollection()!.articles; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/article', article.id, 'view']">{{ article?.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/asset-collection', assetCollection()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

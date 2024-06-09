@@ -15,7 +15,7 @@ describe('InventoryTransaction e2e test', () => {
   const inventoryTransactionPageUrlPattern = new RegExp('/inventory-transaction(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  // const inventoryTransactionSample = {"invoiceId":24683,"quantity":22484};
+  // const inventoryTransactionSample = {"invoiceId":29343,"quantity":21266,"activationStatus":"ON_HOLD"};
 
   let inventoryTransaction;
   // let supplier;
@@ -32,7 +32,7 @@ describe('InventoryTransaction e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/suppliers',
-      body: {"acronym":"till good-natured consequently","companyName":"ha","representativeLastName":"until pace lasting","representativeFirstName":"self-assured","jobTitle":"Regional Web Associate","streetAddress":"deceivingly exposure water","houseNumber":"after","locationName":"mouse","city":"Marjolainestad","stateProvince":"rail","zipPostalCode":"prepone on","countryRegion":"deluge career","webPage":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":"8u@:AI.EsO2}","landPhoneNumber":"minor","mobilePhoneNumber":"since quizzical","faxNumber":"yahoo ick","extraDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ="},
+      body: {"acronym":"astride pfft slice","companyName":"amusing","streetAddress":"republic","houseNumber":"unhitch titivate","locationName":"jovial lone demobilize","city":"Fort Annette","stateProvince":"or daily","zipPostalCode":"reluctantly gah","countryRegion":"capital oof where","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":"A}x;@={..\"o.:u+dz8","phoneNumber1":"purvey","phoneNumber2":"aha beyond","customAttributesDetailsJSON":"blond pfft","activationStatus":"INACTIVE"},
     }).then(({ body }) => {
       supplier = body;
     });
@@ -40,7 +40,7 @@ describe('InventoryTransaction e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/products',
-      body: {"productSKU":"dehydrate whose","productName":"socialise","description":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","standardCost":26727.59,"listPrice":24941.06,"reorderLevel":7855,"targetLevel":13292,"quantityPerUnit":"cordon after worst","discontinued":true,"minimumReorderQuantity":24204,"suggestedCategory":"given","attachments":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","attachmentsContentType":"unknown","supplierIds":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ="},
+      body: {"productSKU":"while concerning between","productName":"phooey gadzooks","description":"till publication every","standardCost":6820.48,"listPrice":31283.32,"reorderLevel":8250,"targetLevel":15000,"quantityPerUnit":"wherever deliberately upbeat","discontinued":false,"minimumReorderQuantity":28479,"suggestedCategory":"inside","attachments":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","attachmentsContentType":"unknown","activationStatus":"BLOCKED"},
     }).then(({ body }) => {
       product = body;
     });
@@ -48,7 +48,7 @@ describe('InventoryTransaction e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/warehouses',
-      body: {"acronym":"strictly","name":"er gargantuan","description":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","streetAddress":"redistrict authorized","houseNumber":"picket","locationName":"and into","postalCode":"sedately ","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":"R%8U@irm%S#.Gm3g","landPhoneNumber":"ugh among","mobilePhoneNumber":"indeed however","faxNumber":"allegation","extraDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ="},
+      body: {"acronym":"yippee","name":"tamper or","description":"ticket fitting","streetAddress":"casino","houseNumber":"pish around","locationName":"blah selfishly","postalCode":"versus yi","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":">h/@D8jMM(.+7io_`","landPhoneNumber":"thoroughly","mobilePhoneNumber":"samovar biodegr","faxNumber":"readily","customAttributesDetailsJSON":"ectoderm","activationStatus":"BLOCKED"},
     }).then(({ body }) => {
       warehouse = body;
     });
@@ -259,22 +259,24 @@ describe('InventoryTransaction e2e test', () => {
     });
 
     it.skip('should create an instance of InventoryTransaction', () => {
-      cy.get(`[data-cy="invoiceId"]`).type('30652');
-      cy.get(`[data-cy="invoiceId"]`).should('have.value', '30652');
+      cy.get(`[data-cy="invoiceId"]`).type('32642');
+      cy.get(`[data-cy="invoiceId"]`).should('have.value', '32642');
 
-      cy.get(`[data-cy="transactionCreatedDate"]`).type('2024-06-03T19:36');
+      cy.get(`[data-cy="transactionCreatedDate"]`).type('2024-06-07T16:41');
       cy.get(`[data-cy="transactionCreatedDate"]`).blur();
-      cy.get(`[data-cy="transactionCreatedDate"]`).should('have.value', '2024-06-03T19:36');
+      cy.get(`[data-cy="transactionCreatedDate"]`).should('have.value', '2024-06-07T16:41');
 
-      cy.get(`[data-cy="transactionModifiedDate"]`).type('2024-06-03T08:01');
+      cy.get(`[data-cy="transactionModifiedDate"]`).type('2024-06-07T00:37');
       cy.get(`[data-cy="transactionModifiedDate"]`).blur();
-      cy.get(`[data-cy="transactionModifiedDate"]`).should('have.value', '2024-06-03T08:01');
+      cy.get(`[data-cy="transactionModifiedDate"]`).should('have.value', '2024-06-07T00:37');
 
-      cy.get(`[data-cy="quantity"]`).type('3903');
-      cy.get(`[data-cy="quantity"]`).should('have.value', '3903');
+      cy.get(`[data-cy="quantity"]`).type('17617');
+      cy.get(`[data-cy="quantity"]`).should('have.value', '17617');
 
-      cy.get(`[data-cy="comments"]`).type('nestmate controller likely');
-      cy.get(`[data-cy="comments"]`).should('have.value', 'nestmate controller likely');
+      cy.get(`[data-cy="transactionComments"]`).type('pish finally out');
+      cy.get(`[data-cy="transactionComments"]`).should('have.value', 'pish finally out');
+
+      cy.get(`[data-cy="activationStatus"]`).select('INACTIVE');
 
       cy.get(`[data-cy="supplier"]`).select(1);
       cy.get(`[data-cy="product"]`).select(1);

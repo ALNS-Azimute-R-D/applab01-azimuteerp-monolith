@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603205734"
+    "changelogDate": "20240607191923"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "dto": "mapstruct",
@@ -16,7 +16,7 @@
       "fieldName": "attributeValue",
       "fieldType": "String",
       "fieldValidateRules": ["maxlength"],
-      "fieldValidateRulesMaxlength": "4000"
+      "fieldValidateRulesMaxlength": "4096"
     }
   ],
   "name": "OrganizationAttribute",

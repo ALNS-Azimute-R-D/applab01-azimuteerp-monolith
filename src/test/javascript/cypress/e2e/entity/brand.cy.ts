@@ -15,7 +15,7 @@ describe('Brand e2e test', () => {
   const brandPageUrlPattern = new RegExp('/brand(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const brandSample = { acronym: 'modulo', name: 'while yum boohoo' };
+  const brandSample = { acronym: 'inasmuch nose prompt', name: 'unlike' };
 
   let brand;
 
@@ -160,15 +160,19 @@ describe('Brand e2e test', () => {
     });
 
     it('should create an instance of Brand', () => {
-      cy.get(`[data-cy="acronym"]`).type('quizzically although');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'quizzically although');
+      cy.get(`[data-cy="acronym"]`).type('early');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'early');
 
-      cy.get(`[data-cy="name"]`).type('round nor tyrannise');
-      cy.get(`[data-cy="name"]`).should('have.value', 'round nor tyrannise');
+      cy.get(`[data-cy="name"]`).type('elide');
+      cy.get(`[data-cy="name"]`).should('have.value', 'elide');
 
-      cy.get(`[data-cy="description"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="description"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="description"]`).type('lest understated');
+      cy.get(`[data-cy="description"]`).should('have.value', 'lest understated');
 
+      cy.setFieldImageAsBytesOfEntity('logoBrand', 'integration-test.png', 'image/png');
+
+      // since cypress clicks submit too fast before the blob fields are validated
+      cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting
       cy.get(entityCreateSaveButtonSelector).click();
 
       cy.wait('@postEntityRequest').then(({ response }) => {

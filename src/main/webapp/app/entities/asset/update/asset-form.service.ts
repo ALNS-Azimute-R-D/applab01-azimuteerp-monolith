@@ -14,11 +14,10 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type AssetFormGroupInput = IAsset | PartialWithRequiredKeyOf<NewAsset>;
 
-type AssetFormDefaults = Pick<NewAsset, 'id'>;
+type AssetFormDefaults = Pick<NewAsset, 'id' | 'assetCollections'>;
 
 type AssetFormGroupContent = {
   id: FormControl<IAsset['id'] | NewAsset['id']>;
-  uid: FormControl<IAsset['uid']>;
   name: FormControl<IAsset['name']>;
   storageTypeUsed: FormControl<IAsset['storageTypeUsed']>;
   fullFilenamePath: FormControl<IAsset['fullFilenamePath']>;
@@ -26,8 +25,10 @@ type AssetFormGroupContent = {
   preferredPurpose: FormControl<IAsset['preferredPurpose']>;
   assetContentAsBlob: FormControl<IAsset['assetContentAsBlob']>;
   assetContentAsBlobContentType: FormControl<IAsset['assetContentAsBlobContentType']>;
+  activationStatus: FormControl<IAsset['activationStatus']>;
   assetType: FormControl<IAsset['assetType']>;
   rawAssetProcTmp: FormControl<IAsset['rawAssetProcTmp']>;
+  assetCollections: FormControl<IAsset['assetCollections']>;
 };
 
 export type AssetFormGroup = FormGroup<AssetFormGroupContent>;
@@ -47,9 +48,8 @@ export class AssetFormService {
           validators: [Validators.required],
         },
       ),
-      uid: new FormControl(assetRawValue.uid),
       name: new FormControl(assetRawValue.name, {
-        validators: [Validators.required, Validators.maxLength(255)],
+        validators: [Validators.required, Validators.maxLength(512)],
       }),
       storageTypeUsed: new FormControl(assetRawValue.storageTypeUsed),
       fullFilenamePath: new FormControl(assetRawValue.fullFilenamePath, {
@@ -59,10 +59,14 @@ export class AssetFormService {
       preferredPurpose: new FormControl(assetRawValue.preferredPurpose),
       assetContentAsBlob: new FormControl(assetRawValue.assetContentAsBlob),
       assetContentAsBlobContentType: new FormControl(assetRawValue.assetContentAsBlobContentType),
+      activationStatus: new FormControl(assetRawValue.activationStatus, {
+        validators: [Validators.required],
+      }),
       assetType: new FormControl(assetRawValue.assetType, {
         validators: [Validators.required],
       }),
       rawAssetProcTmp: new FormControl(assetRawValue.rawAssetProcTmp),
+      assetCollections: new FormControl(assetRawValue.assetCollections ?? []),
     });
   }
 
@@ -83,6 +87,7 @@ export class AssetFormService {
   private getFormDefaults(): AssetFormDefaults {
     return {
       id: null,
+      assetCollections: [],
     };
   }
 }

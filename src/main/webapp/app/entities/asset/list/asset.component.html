@@ -37,14 +37,7 @@
           <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
             <th scope="col" jhiSortBy="id">
               <div class="d-flex">
-                <span jhiTranslate="global.field.id">ID</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="uid">
-              <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.uid">Uid</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.id">Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -91,6 +84,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="activationStatus">
+              <div class="d-flex">
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.activationStatus">Activation Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="assetType.name">
               <div class="d-flex">
                 <span jhiTranslate="azimuteErpSpringAngularMonolith01App.asset.assetType">Asset Type</span>
@@ -112,7 +112,6 @@
               <td>
                 <a [routerLink]="['/asset', asset.id, 'view']">{{ asset.id }}</a>
               </td>
-              <td>{{ asset.uid }}</td>
               <td>{{ asset.name }}</td>
               <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.StorageTypeEnum.' + (asset.storageTypeUsed ?? 'null')">
                 {{
@@ -134,9 +133,15 @@
               </td>
               <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PreferredPurposeEnum.' + (asset.preferredPurpose ?? 'null')">
                 {{
-                  { null: '', USER_AVATAR: 'USER_AVATAR', LOGO_IMG: 'LOGO_IMG', PHOTO_ALBUM: 'PHOTO_ALBUM', OTHER: 'OTHER' }[
-                    asset.preferredPurpose ?? 'null'
-                  ]
+                  {
+                    null: '',
+                    USER_AVATAR: 'USER_AVATAR',
+                    LOGO_IMG: 'LOGO_IMG',
+                    PHOTO_ALBUM: 'PHOTO_ALBUM',
+                    ANY_OFFICE_FILE_TYPE: 'ANY_OFFICE_FILE_TYPE',
+                    EXECUTABLE_PROGRAM_BINARY: 'EXECUTABLE_PROGRAM_BINARY',
+                    OTHER: 'OTHER'
+                  }[asset.preferredPurpose ?? 'null']
                 }}
               </td>
               <td>
@@ -146,6 +151,19 @@
                   >
                   <span>{{ asset.assetContentAsBlobContentType }}, {{ byteSize(asset.assetContentAsBlob) }}</span>
                 }
+              </td>
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (asset.activationStatus ?? 'null')">
+                {{
+                  {
+                    null: '',
+                    INACTIVE: 'INACTIVE',
+                    ACTIVE: 'ACTIVE',
+                    ON_HOLD: 'ON_HOLD',
+                    PENDENT: 'PENDENT',
+                    BLOCKED: 'BLOCKED',
+                    INVALID: 'INVALID'
+                  }[asset.activationStatus ?? 'null']
+                }}
               </td>
               <td>
                 @if (asset.assetType) {

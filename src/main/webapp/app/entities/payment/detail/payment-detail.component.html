@@ -41,21 +41,39 @@
               ]
             }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.status">Status</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.statusPayment">Status Payment</span></dt>
           <dd>
-            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PaymentStatusEnum.' + (payment()!.status ?? 'null')">{{
-              { null: '', OPEN: 'OPEN', DELAYED: 'DELAYED', PAID: 'PAID', CANCELLED: 'CANCELLED' }[payment()!.status ?? 'null']
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PaymentStatusEnum.' + (payment()!.statusPayment ?? 'null')">{{
+              { null: '', OPEN: 'OPEN', DELAYED: 'DELAYED', PAID: 'PAID', CANCELLED: 'CANCELLED' }[payment()!.statusPayment ?? 'null']
             }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.extraDetails">Extra Details</span></dt>
+          <dt>
+            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.customAttributesDetailsJSON"
+              >Custom Attributes Details JSON</span
+            >
+          </dt>
           <dd>
-            <span>{{ payment()!.extraDetails }}</span>
+            <span>{{ payment()!.customAttributesDetailsJSON }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.paymentMethod">Payment Method</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.activationStatus">Activation Status</span></dt>
           <dd>
-            @if (payment()!.paymentMethod) {
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (payment()!.activationStatus ?? 'null')">{{
+              {
+                null: '',
+                INACTIVE: 'INACTIVE',
+                ACTIVE: 'ACTIVE',
+                ON_HOLD: 'ON_HOLD',
+                PENDENT: 'PENDENT',
+                BLOCKED: 'BLOCKED',
+                INVALID: 'INVALID'
+              }[payment()!.activationStatus ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.paymentGateway">Payment Gateway</span></dt>
+          <dd>
+            @if (payment()!.paymentGateway) {
               <div>
-                <a [routerLink]="['/payment-method', payment()!.paymentMethod?.id, 'view']">{{ payment()!.paymentMethod?.code }}</a>
+                <a [routerLink]="['/payment-gateway', payment()!.paymentGateway?.id, 'view']">{{ payment()!.paymentGateway?.aliasCode }}</a>
               </div>
             }
           </dd>

@@ -109,14 +109,10 @@ public class CustomerGatlingTest extends Simulation {
                             StringBody(
                                 "{" +
                                 "\"customerBusinessCode\": \"SAMPLE_TEXT\"" +
-                                ", \"name\": \"SAMPLE_TEXT\"" +
-                                ", \"description\": null" +
-                                ", \"email\": \"SAMPLE_TEXT\"" +
-                                ", \"addressDetails\": \"SAMPLE_TEXT\"" +
-                                ", \"zipCode\": \"SAMPLE_TEXT\"" +
-                                ", \"keycloakGroupDetails\": \"SAMPLE_TEXT\"" +
-                                ", \"status\": \"UNDER_EVALUATION\"" +
-                                ", \"active\": null" +
+                                ", \"fullname\": \"SAMPLE_TEXT\"" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"customerStatus\": \"UNDER_EVALUATION\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

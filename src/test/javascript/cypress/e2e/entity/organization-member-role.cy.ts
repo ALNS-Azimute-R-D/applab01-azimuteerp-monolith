@@ -15,7 +15,7 @@ describe('OrganizationMemberRole e2e test', () => {
   const organizationMemberRolePageUrlPattern = new RegExp('/organization-member-role(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  // const organizationMemberRoleSample = {"joinedAt":"2024-06-03"};
+  // const organizationMemberRoleSample = {"joinedAt":"2024-06-07"};
 
   let organizationMemberRole;
   // let organizationMembership;
@@ -31,7 +31,7 @@ describe('OrganizationMemberRole e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/organization-memberships',
-      body: {"joinedAt":"2024-06-02","activationStatus":"PENDENT"},
+      body: {"joinedAt":"2024-06-06","activationStatus":"PENDENT"},
     }).then(({ body }) => {
       organizationMembership = body;
     });
@@ -236,9 +236,9 @@ describe('OrganizationMemberRole e2e test', () => {
     });
 
     it.skip('should create an instance of OrganizationMemberRole', () => {
-      cy.get(`[data-cy="joinedAt"]`).type('2024-06-02');
+      cy.get(`[data-cy="joinedAt"]`).type('2024-06-06');
       cy.get(`[data-cy="joinedAt"]`).blur();
-      cy.get(`[data-cy="joinedAt"]`).should('have.value', '2024-06-02');
+      cy.get(`[data-cy="joinedAt"]`).should('have.value', '2024-06-06');
 
       cy.get(`[data-cy="organizationMembership"]`).select(1);
       cy.get(`[data-cy="organizationRole"]`).select(1);

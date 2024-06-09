@@ -1,11 +1,11 @@
-id;name;status_raw_processing;full_filename_path;asset_raw_content_as_blob;asset_raw_content_as_blob_content_type;extra_details;asset_type_id
-1;indict indeed;UPLOADED;minus;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;1
-2;daily athwart which;UPLOADED;cry;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;2
-3;well-to-do after;UPLOADED;for;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;3
-4;oof;PROCESSING;ick whose;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;4
-5;smirk rear;FAILURE;snake;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;5
-6;toward until necessary;UPLOADING;however vain however;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;6
-7;reach millimeter that;UPLOADING;frequent;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;7
-8;hence how;PROCESSING;unimpressively;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;8
-9;psst realistic cluttered;DONE;er wrong;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;9
-10;lest quaintly asterisk;UPLOADING;geez dry purloin;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;10
+id;name;status_raw_processing;full_filename_path;asset_raw_content_as_blob;asset_raw_content_as_blob_content_type;custom_attributes_details_json;asset_type_id
+1;indict indeed;UPLOADED;minus;../fake-data/blob/hipster.png;image/png;daily athwart which;1
+2;up;UPLOADED;well-to-do after;../fake-data/blob/hipster.png;image/png;degree;2
+3;ack;FAILURE;whoa promptly;../fake-data/blob/hipster.png;image/png;brunch yahoo however;3
+4;whoever fooey minus;WAITING_FOR_PROCESSING;hobnob uncoil;../fake-data/blob/hipster.png;image/png;deeply indeed;4
+5;immediately almost questionably;FAILURE;bough credential phooey;../fake-data/blob/hipster.png;image/png;puzzle;5
+6;mainstream only;DONE;ew unlawful;../fake-data/blob/hipster.png;image/png;generously somebody;6
+7;regarding;FAILURE;once;../fake-data/blob/hipster.png;image/png;immunise although;7
+8;prevaricate abaft before;UPLOADING;dimple boohoo fit;../fake-data/blob/hipster.png;image/png;the;8
+9;instead component across;UPLOADED;how happily audit;../fake-data/blob/hipster.png;image/png;although;9
+10;with;DONE;hence;../fake-data/blob/hipster.png;image/png;cautiously attached dimension;10

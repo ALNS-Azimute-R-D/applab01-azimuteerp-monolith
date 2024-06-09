@@ -15,7 +15,7 @@ describe('StockLevel e2e test', () => {
   const stockLevelPageUrlPattern = new RegExp('/stock-level(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  // const stockLevelSample = {"lastModifiedDate":"2024-06-03T19:21:44.285Z","ramainingQuantity":15539};
+  // const stockLevelSample = {"lastModifiedDate":"2024-06-07T12:36:54.711Z","remainingQuantity":16643};
 
   let stockLevel;
   // let warehouse;
@@ -31,7 +31,7 @@ describe('StockLevel e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/warehouses',
-      body: {"acronym":"wearily","name":"surprisingly","description":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","streetAddress":"patronise","houseNumber":"adventurously","locationName":"barring","postalCode":"speedily ","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":"L@Wi].lag|'","landPhoneNumber":"readily","mobilePhoneNumber":"ectoderm","faxNumber":"beach gosh attr","extraDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ="},
+      body: {"acronym":"vernacular since toward","name":"willfully rib beneath","description":"beyond","streetAddress":"wherever","houseNumber":"hence","locationName":"box consequently","postalCode":"as except","pointLocation":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","pointLocationContentType":"unknown","mainEmail":"Xa@sW*Q2.htu+","landPhoneNumber":"fooey hence hye","mobilePhoneNumber":"legacy promptly","faxNumber":"extinction bene","customAttributesDetailsJSON":"supposing","activationStatus":"BLOCKED"},
     }).then(({ body }) => {
       warehouse = body;
     });
@@ -39,7 +39,7 @@ describe('StockLevel e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/products',
-      body: {"productSKU":"riot paragraph awkwardly","productName":"motion","description":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","standardCost":28274.94,"listPrice":28595.02,"reorderLevel":7159,"targetLevel":12354,"quantityPerUnit":"until","discontinued":false,"minimumReorderQuantity":31214,"suggestedCategory":"wetly gosh","attachments":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","attachmentsContentType":"unknown","supplierIds":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ="},
+      body: {"productSKU":"promote gah silly","productName":"fatally","description":"creamy","standardCost":19489.53,"listPrice":15705.54,"reorderLevel":14444,"targetLevel":29243,"quantityPerUnit":"yuck truly","discontinued":false,"minimumReorderQuantity":1180,"suggestedCategory":"until direction","attachments":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","attachmentsContentType":"unknown","activationStatus":"ACTIVE"},
     }).then(({ body }) => {
       product = body;
     });
@@ -236,15 +236,15 @@ describe('StockLevel e2e test', () => {
     });
 
     it.skip('should create an instance of StockLevel', () => {
-      cy.get(`[data-cy="lastModifiedDate"]`).type('2024-06-03T19:16');
+      cy.get(`[data-cy="lastModifiedDate"]`).type('2024-06-07T01:58');
       cy.get(`[data-cy="lastModifiedDate"]`).blur();
-      cy.get(`[data-cy="lastModifiedDate"]`).should('have.value', '2024-06-03T19:16');
+      cy.get(`[data-cy="lastModifiedDate"]`).should('have.value', '2024-06-07T01:58');
 
-      cy.get(`[data-cy="ramainingQuantity"]`).type('2909');
-      cy.get(`[data-cy="ramainingQuantity"]`).should('have.value', '2909');
+      cy.get(`[data-cy="remainingQuantity"]`).type('10053');
+      cy.get(`[data-cy="remainingQuantity"]`).should('have.value', '10053');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="commonAttributesDetailsJSON"]`).type('windy soon');
+      cy.get(`[data-cy="commonAttributesDetailsJSON"]`).should('have.value', 'windy soon');
 
       cy.get(`[data-cy="warehouse"]`).select(1);
       cy.get(`[data-cy="product"]`).select(1);

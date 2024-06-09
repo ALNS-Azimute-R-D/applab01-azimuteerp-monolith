@@ -16,14 +16,14 @@ describe('Person e2e test', () => {
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const personSample = {
-    firstName: 'Zena',
-    lastName: 'McLaughlin',
-    birthDate: '2024-06-03',
+    firstname: 'blindly till',
+    lastname: 'for which',
+    birthDate: '2024-06-06',
     gender: 'OTHER',
-    streetAddress: 'interestingly times below',
-    postalCode: 'when drin',
-    mainEmail: '001X]@"u)#!.K4u',
-    activationStatus: 'INVALID',
+    streetAddress: 'cavernous',
+    postalCode: 'except en',
+    mainEmail: '(7@d5itg.Do+',
+    activationStatus: 'INACTIVE',
   };
 
   let person;
@@ -68,6 +68,16 @@ describe('Person e2e test', () => {
     });
 
     cy.intercept('GET', '/api/organization-memberships', {
+      statusCode: 200,
+      body: [],
+    });
+
+    cy.intercept('GET', '/api/suppliers', {
+      statusCode: 200,
+      body: [],
+    });
+
+    cy.intercept('GET', '/api/customers', {
       statusCode: 200,
       body: [],
     });
@@ -218,61 +228,64 @@ describe('Person e2e test', () => {
     });
 
     it('should create an instance of Person', () => {
-      cy.get(`[data-cy="firstName"]`).type('Marty');
-      cy.get(`[data-cy="firstName"]`).should('have.value', 'Marty');
+      cy.get(`[data-cy="firstname"]`).type('clever brief');
+      cy.get(`[data-cy="firstname"]`).should('have.value', 'clever brief');
 
-      cy.get(`[data-cy="lastName"]`).type('Shanahan');
-      cy.get(`[data-cy="lastName"]`).should('have.value', 'Shanahan');
+      cy.get(`[data-cy="lastname"]`).type('vivacious prejudge');
+      cy.get(`[data-cy="lastname"]`).should('have.value', 'vivacious prejudge');
 
-      cy.get(`[data-cy="birthDate"]`).type('2024-06-03');
+      cy.get(`[data-cy="fullname"]`).type('slot ah');
+      cy.get(`[data-cy="fullname"]`).should('have.value', 'slot ah');
+
+      cy.get(`[data-cy="birthDate"]`).type('2024-06-07');
       cy.get(`[data-cy="birthDate"]`).blur();
-      cy.get(`[data-cy="birthDate"]`).should('have.value', '2024-06-03');
+      cy.get(`[data-cy="birthDate"]`).should('have.value', '2024-06-07');
 
-      cy.get(`[data-cy="gender"]`).select('MALE');
+      cy.get(`[data-cy="gender"]`).select('OTHER');
 
-      cy.get(`[data-cy="codeBI"]`).type('between ferociously');
-      cy.get(`[data-cy="codeBI"]`).should('have.value', 'between ferociously');
+      cy.get(`[data-cy="codeBI"]`).type('drink ack likely');
+      cy.get(`[data-cy="codeBI"]`).should('have.value', 'drink ack likely');
 
-      cy.get(`[data-cy="codeNIF"]`).type('cheerfully given');
-      cy.get(`[data-cy="codeNIF"]`).should('have.value', 'cheerfully given');
+      cy.get(`[data-cy="codeNIF"]`).type('but');
+      cy.get(`[data-cy="codeNIF"]`).should('have.value', 'but');
 
-      cy.get(`[data-cy="streetAddress"]`).type('aide green');
-      cy.get(`[data-cy="streetAddress"]`).should('have.value', 'aide green');
+      cy.get(`[data-cy="streetAddress"]`).type('aboard furthermore');
+      cy.get(`[data-cy="streetAddress"]`).should('have.value', 'aboard furthermore');
 
-      cy.get(`[data-cy="houseNumber"]`).type('trust');
-      cy.get(`[data-cy="houseNumber"]`).should('have.value', 'trust');
+      cy.get(`[data-cy="houseNumber"]`).type('pledge shut phew');
+      cy.get(`[data-cy="houseNumber"]`).should('have.value', 'pledge shut phew');
 
-      cy.get(`[data-cy="locationName"]`).type('rigidly robe person');
-      cy.get(`[data-cy="locationName"]`).should('have.value', 'rigidly robe person');
+      cy.get(`[data-cy="locationName"]`).type('evaporate');
+      cy.get(`[data-cy="locationName"]`).should('have.value', 'evaporate');
 
-      cy.get(`[data-cy="postalCode"]`).type('boldly fl');
-      cy.get(`[data-cy="postalCode"]`).should('have.value', 'boldly fl');
+      cy.get(`[data-cy="postalCode"]`).type('alongside');
+      cy.get(`[data-cy="postalCode"]`).should('have.value', 'alongside');
 
-      cy.get(`[data-cy="mainEmail"]`).type('tEp$]E@R<n.1{g1eE');
-      cy.get(`[data-cy="mainEmail"]`).should('have.value', 'tEp$]E@R<n.1{g1eE');
+      cy.get(`[data-cy="mainEmail"]`).type('$u(}@2G!~#.!!PR');
+      cy.get(`[data-cy="mainEmail"]`).should('have.value', '$u(}@2G!~#.!!PR');
 
-      cy.get(`[data-cy="landPhoneNumber"]`).type('correctly obnox');
-      cy.get(`[data-cy="landPhoneNumber"]`).should('have.value', 'correctly obnox');
+      cy.get(`[data-cy="landPhoneNumber"]`).type('meanwhile blah');
+      cy.get(`[data-cy="landPhoneNumber"]`).should('have.value', 'meanwhile blah');
 
-      cy.get(`[data-cy="mobilePhoneNumber"]`).type('predecease');
-      cy.get(`[data-cy="mobilePhoneNumber"]`).should('have.value', 'predecease');
+      cy.get(`[data-cy="mobilePhoneNumber"]`).type('um huzzah busil');
+      cy.get(`[data-cy="mobilePhoneNumber"]`).should('have.value', 'um huzzah busil');
 
-      cy.get(`[data-cy="occupation"]`).type('furl');
-      cy.get(`[data-cy="occupation"]`).should('have.value', 'furl');
+      cy.get(`[data-cy="occupation"]`).type('ew ingratiate');
+      cy.get(`[data-cy="occupation"]`).should('have.value', 'ew ingratiate');
 
-      cy.get(`[data-cy="preferredLanguage"]`).type('qua p');
-      cy.get(`[data-cy="preferredLanguage"]`).should('have.value', 'qua p');
+      cy.get(`[data-cy="preferredLanguage"]`).type('vanda');
+      cy.get(`[data-cy="preferredLanguage"]`).should('have.value', 'vanda');
 
-      cy.get(`[data-cy="usernameInOAuth2"]`).type('equal rhubarb scrummage');
-      cy.get(`[data-cy="usernameInOAuth2"]`).should('have.value', 'equal rhubarb scrummage');
+      cy.get(`[data-cy="usernameInOAuth2"]`).type('unlike');
+      cy.get(`[data-cy="usernameInOAuth2"]`).should('have.value', 'unlike');
 
-      cy.get(`[data-cy="userIdInOAuth2"]`).type('surface convulse');
-      cy.get(`[data-cy="userIdInOAuth2"]`).should('have.value', 'surface convulse');
+      cy.get(`[data-cy="userIdInOAuth2"]`).type('clobber immediately heart-throb');
+      cy.get(`[data-cy="userIdInOAuth2"]`).should('have.value', 'clobber immediately heart-throb');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('mitre');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'mitre');
 
-      cy.get(`[data-cy="activationStatus"]`).select('PENDENT');
+      cy.get(`[data-cy="activationStatus"]`).select('INVALID');
 
       cy.setFieldImageAsBytesOfEntity('avatarImg', 'integration-test.png', 'image/png');
 

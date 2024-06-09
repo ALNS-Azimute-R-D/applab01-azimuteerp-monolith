@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
-import { ASC } from 'app/config/navigation.constants';
 import { AssetComponent } from './list/asset.component';
 import { AssetDetailComponent } from './detail/asset-detail.component';
 import { AssetUpdateComponent } from './update/asset-update.component';
@@ -11,9 +10,7 @@ const assetRoute: Routes = [
   {
     path: '',
     component: AssetComponent,
-    data: {
-      defaultSort: 'id,' + ASC,
-    },
+    data: {},
     canActivate: [UserRouteAccessService],
   },
   {

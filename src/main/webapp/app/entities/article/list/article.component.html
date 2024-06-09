@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="skuCode">
+              <div class="d-flex">
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.article.skuCode">Sku Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="customName">
               <div class="d-flex">
                 <span jhiTranslate="azimuteErpSpringAngularMonolith01App.article.customName">Custom Name</span>
@@ -77,16 +84,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="assetsCollectionUUID">
+            <th scope="col" jhiSortBy="activationStatus">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.article.assetsCollectionUUID">Assets Collection UUID</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="isEnabled">
-              <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.article.isEnabled">Is Enabled</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.article.activationStatus">Activation Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -107,14 +107,26 @@
                 <a [routerLink]="['/article', article.id, 'view']">{{ article.id }}</a>
               </td>
               <td>{{ article.inventoryProductId }}</td>
+              <td>{{ article.skuCode }}</td>
               <td>{{ article.customName }}</td>
               <td>{{ article.customDescription }}</td>
               <td>{{ article.priceValue }}</td>
               <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.SizeOptionEnum.' + (article.itemSize ?? 'null')">
                 {{ { null: '', S: 'S', M: 'M', L: 'L', XL: 'XL', XXL: 'XXL', XXXL: 'XXXL' }[article.itemSize ?? 'null'] }}
               </td>
-              <td>{{ article.assetsCollectionUUID }}</td>
-              <td>{{ article.isEnabled }}</td>
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (article.activationStatus ?? 'null')">
+                {{
+                  {
+                    null: '',
+                    INACTIVE: 'INACTIVE',
+                    ACTIVE: 'ACTIVE',
+                    ON_HOLD: 'ON_HOLD',
+                    PENDENT: 'PENDENT',
+                    BLOCKED: 'BLOCKED',
+                    INVALID: 'INVALID'
+                  }[article.activationStatus ?? 'null']
+                }}
+              </td>
               <td>
                 @if (article.mainCategory) {
                   <div>

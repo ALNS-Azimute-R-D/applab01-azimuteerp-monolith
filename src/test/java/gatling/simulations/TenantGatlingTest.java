@@ -113,10 +113,10 @@ public class TenantGatlingTest extends Simulation {
                                 ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"customerBusinessCode\": \"SAMPLE_TEXT\"" +
                                 ", \"businessHandlerClazz\": \"SAMPLE_TEXT\"" +
-                                ", \"mainContactPersonDetails\": null" +
-                                ", \"billingDetails\": null" +
-                                ", \"technicalEnvironmentsDetails\": null" +
-                                ", \"commonCustomAttributesDetails\": null" +
+                                ", \"mainContactPersonDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"billingDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"technicalEnvironmentsDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 ", \"logoImg\": null" +
                                 ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"

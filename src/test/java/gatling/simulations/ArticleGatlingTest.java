@@ -109,12 +109,12 @@ public class ArticleGatlingTest extends Simulation {
                             StringBody(
                                 "{" +
                                 "\"inventoryProductId\": 0" +
+                                ", \"skuCode\": \"SAMPLE_TEXT\"" +
                                 ", \"customName\": \"SAMPLE_TEXT\"" +
-                                ", \"customDescription\": null" +
+                                ", \"customDescription\": \"SAMPLE_TEXT\"" +
                                 ", \"priceValue\": 0" +
                                 ", \"itemSize\": \"S\"" +
-                                ", \"assetsCollectionUUID\": \"SAMPLE_TEXT\"" +
-                                ", \"isEnabled\": null" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

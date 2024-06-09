@@ -113,8 +113,9 @@ public class PaymentGatlingTest extends Simulation {
                                 ", \"paymentPaidDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"paymentAmount\": 0" +
                                 ", \"typeOfPayment\": \"CASH\"" +
-                                ", \"status\": \"OPEN\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"statusPayment\": \"OPEN\"" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

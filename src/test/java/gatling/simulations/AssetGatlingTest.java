@@ -108,13 +108,13 @@ public class AssetGatlingTest extends Simulation {
                         .body(
                             StringBody(
                                 "{" +
-                                "\"uid\": null" +
-                                ", \"name\": \"SAMPLE_TEXT\"" +
+                                "\"name\": \"SAMPLE_TEXT\"" +
                                 ", \"storageTypeUsed\": \"BLOB_IN_DB\"" +
                                 ", \"fullFilenamePath\": \"SAMPLE_TEXT\"" +
                                 ", \"status\": \"ENABLED\"" +
                                 ", \"preferredPurpose\": \"USER_AVATAR\"" +
                                 ", \"assetContentAsBlob\": null" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

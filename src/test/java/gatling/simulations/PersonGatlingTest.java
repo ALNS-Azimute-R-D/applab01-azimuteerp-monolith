@@ -108,8 +108,9 @@ public class PersonGatlingTest extends Simulation {
                         .body(
                             StringBody(
                                 "{" +
-                                "\"firstName\": \"SAMPLE_TEXT\"" +
-                                ", \"lastName\": \"SAMPLE_TEXT\"" +
+                                "\"firstname\": \"SAMPLE_TEXT\"" +
+                                ", \"lastname\": \"SAMPLE_TEXT\"" +
+                                ", \"fullname\": \"SAMPLE_TEXT\"" +
                                 ", \"birthDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"gender\": \"MALE\"" +
                                 ", \"codeBI\": \"SAMPLE_TEXT\"" +
@@ -125,7 +126,7 @@ public class PersonGatlingTest extends Simulation {
                                 ", \"preferredLanguage\": \"SAMPLE_TEXT\"" +
                                 ", \"usernameInOAuth2\": \"SAMPLE_TEXT\"" +
                                 ", \"userIdInOAuth2\": \"SAMPLE_TEXT\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 ", \"activationStatus\": \"INACTIVE\"" +
                                 ", \"avatarImg\": null" +
                                 "}"

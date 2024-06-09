@@ -107,7 +107,12 @@ public class BrandGatlingTest extends Simulation {
                         .headers(headers_http_authenticated)
                         .body(
                             StringBody(
-                                "{" + "\"acronym\": \"SAMPLE_TEXT\"" + ", \"name\": \"SAMPLE_TEXT\"" + ", \"description\": null" + "}"
+                                "{" +
+                                "\"acronym\": \"SAMPLE_TEXT\"" +
+                                ", \"name\": \"SAMPLE_TEXT\"" +
+                                ", \"description\": \"SAMPLE_TEXT\"" +
+                                ", \"logoBrand\": null" +
+                                "}"
                             )
                         )
                         .asJson()

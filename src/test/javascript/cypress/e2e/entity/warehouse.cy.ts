@@ -15,7 +15,13 @@ describe('Warehouse e2e test', () => {
   const warehousePageUrlPattern = new RegExp('/warehouse(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const warehouseSample = { acronym: 'at vampire', name: 'worm but startle', streetAddress: 'huzzah fear keenly', postalCode: 'bah' };
+  const warehouseSample = {
+    acronym: 'given',
+    name: 'ouch',
+    streetAddress: 'vaguely unless prey',
+    postalCode: 'bug meanw',
+    activationStatus: 'INACTIVE',
+  };
 
   let warehouse;
 
@@ -160,43 +166,45 @@ describe('Warehouse e2e test', () => {
     });
 
     it('should create an instance of Warehouse', () => {
-      cy.get(`[data-cy="acronym"]`).type('lovingly hearty');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'lovingly hearty');
+      cy.get(`[data-cy="acronym"]`).type('from intend blah');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'from intend blah');
 
-      cy.get(`[data-cy="name"]`).type('get');
-      cy.get(`[data-cy="name"]`).should('have.value', 'get');
+      cy.get(`[data-cy="name"]`).type('yum instead original');
+      cy.get(`[data-cy="name"]`).should('have.value', 'yum instead original');
 
-      cy.get(`[data-cy="description"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="description"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="description"]`).type('diamond revolving meaty');
+      cy.get(`[data-cy="description"]`).should('have.value', 'diamond revolving meaty');
 
-      cy.get(`[data-cy="streetAddress"]`).type('aside');
-      cy.get(`[data-cy="streetAddress"]`).should('have.value', 'aside');
+      cy.get(`[data-cy="streetAddress"]`).type('pew pfft');
+      cy.get(`[data-cy="streetAddress"]`).should('have.value', 'pew pfft');
 
-      cy.get(`[data-cy="houseNumber"]`).type('rudely bugle');
-      cy.get(`[data-cy="houseNumber"]`).should('have.value', 'rudely bugle');
+      cy.get(`[data-cy="houseNumber"]`).type('why daily optimistic');
+      cy.get(`[data-cy="houseNumber"]`).should('have.value', 'why daily optimistic');
 
-      cy.get(`[data-cy="locationName"]`).type('atop quiet');
-      cy.get(`[data-cy="locationName"]`).should('have.value', 'atop quiet');
+      cy.get(`[data-cy="locationName"]`).type('when even');
+      cy.get(`[data-cy="locationName"]`).should('have.value', 'when even');
 
-      cy.get(`[data-cy="postalCode"]`).type('impassion');
-      cy.get(`[data-cy="postalCode"]`).should('have.value', 'impassion');
+      cy.get(`[data-cy="postalCode"]`).type('pantyhose');
+      cy.get(`[data-cy="postalCode"]`).should('have.value', 'pantyhose');
 
       cy.setFieldImageAsBytesOfEntity('pointLocation', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="mainEmail"]`).type('b}tKF{@RYxF..W[^Aa');
-      cy.get(`[data-cy="mainEmail"]`).should('have.value', 'b}tKF{@RYxF..W[^Aa');
+      cy.get(`[data-cy="mainEmail"]`).type('x3H8Jp@hL5?q.k977Nk');
+      cy.get(`[data-cy="mainEmail"]`).should('have.value', 'x3H8Jp@hL5?q.k977Nk');
 
-      cy.get(`[data-cy="landPhoneNumber"]`).type('repeatedly giga');
-      cy.get(`[data-cy="landPhoneNumber"]`).should('have.value', 'repeatedly giga');
+      cy.get(`[data-cy="landPhoneNumber"]`).type('gadzooks');
+      cy.get(`[data-cy="landPhoneNumber"]`).should('have.value', 'gadzooks');
 
-      cy.get(`[data-cy="mobilePhoneNumber"]`).type('pleasing certai');
-      cy.get(`[data-cy="mobilePhoneNumber"]`).should('have.value', 'pleasing certai');
+      cy.get(`[data-cy="mobilePhoneNumber"]`).type('appreciate mmm');
+      cy.get(`[data-cy="mobilePhoneNumber"]`).should('have.value', 'appreciate mmm');
 
-      cy.get(`[data-cy="faxNumber"]`).type('vibrant slim');
-      cy.get(`[data-cy="faxNumber"]`).should('have.value', 'vibrant slim');
+      cy.get(`[data-cy="faxNumber"]`).type('bitterly astrid');
+      cy.get(`[data-cy="faxNumber"]`).should('have.value', 'bitterly astrid');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('round aw now');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'round aw now');
+
+      cy.get(`[data-cy="activationStatus"]`).select('ACTIVE');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting

@@ -1,33 +1,33 @@
 import { IAsset, NewAsset } from './asset.model';
 
 export const sampleWithRequiredData: IAsset = {
-  id: 29832,
-  name: 'monthly dramatic gadzooks',
+  id: 'eee19117-7f95-4efe-93b3-33c8a73f4686',
+  name: 'safely',
+  activationStatus: 'ON_HOLD',
 };
 
 export const sampleWithPartialData: IAsset = {
-  id: 12437,
-  uid: '5369c8a7-b6fe-4b2b-ac44-251f0baf5e98',
-  name: 'inasmuch tremendously',
-  storageTypeUsed: 'REMOTE_FILESYSTEM',
-  status: 'ENABLED',
-  preferredPurpose: 'PHOTO_ALBUM',
+  id: 'c44251f0-baf5-4e98-b983-c37945b7ef56',
+  name: 'string if',
+  preferredPurpose: 'ANY_OFFICE_FILE_TYPE',
+  activationStatus: 'BLOCKED',
 };
 
 export const sampleWithFullData: IAsset = {
-  id: 23533,
-  uid: '7c7dbdd1-294a-4a0c-9853-6a58d2d08022',
-  name: 'ick sadly',
-  storageTypeUsed: 'OTHER_CLOUD_STORAGE',
-  fullFilenamePath: 'riffle psst',
-  status: 'DISABLED',
-  preferredPurpose: 'OTHER',
+  id: '0c8536a5-8d2d-4080-b224-8bd17e1e1778',
+  name: 'surround braai',
+  storageTypeUsed: 'AWS_S3',
+  fullFilenamePath: 'unless ew ill',
+  status: 'ENABLED',
+  preferredPurpose: 'EXECUTABLE_PROGRAM_BINARY',
   assetContentAsBlob: '../fake-data/blob/hipster.png',
   assetContentAsBlobContentType: 'unknown',
+  activationStatus: 'INVALID',
 };
 
 export const sampleWithNewData: NewAsset = {
-  name: 'open squid',
+  name: 'however apropos gosh',
+  activationStatus: 'ON_HOLD',
   id: null,
 };
 

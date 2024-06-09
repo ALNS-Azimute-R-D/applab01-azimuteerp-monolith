@@ -109,8 +109,8 @@ public class StockLevelGatlingTest extends Simulation {
                             StringBody(
                                 "{" +
                                 "\"lastModifiedDate\": \"2020-01-01T00:00:00.000Z\"" +
-                                ", \"ramainingQuantity\": 0" +
-                                ", \"extraDetails\": null" +
+                                ", \"remainingQuantity\": 0" +
+                                ", \"commonAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 "}"
                             )
                         )

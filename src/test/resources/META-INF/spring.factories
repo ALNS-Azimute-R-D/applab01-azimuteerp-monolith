@@ -1,2 +1,3 @@
-org.springframework.test.context.ContextCustomizerFactory = de.org.dexterity.\
-    azimuteerp.monolith.config.SqlTestContainersSpringContextCustomizerFactory
+org.springframework.test.context.ContextCustomizerFactory = org.dexterity.\
+    darueira.azimuteerp.monolith.spring.config.\
+    SqlTestContainersSpringContextCustomizerFactory

@@ -109,7 +109,6 @@ public class InvoiceGatlingTest extends Simulation {
                             StringBody(
                                 "{" +
                                 "\"businessCode\": \"SAMPLE_TEXT\"" +
-                                ", \"originalOrderId\": 0" +
                                 ", \"invoiceDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"dueDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"description\": \"SAMPLE_TEXT\"" +
@@ -120,7 +119,8 @@ public class InvoiceGatlingTest extends Simulation {
                                 ", \"numberOfInstallmentsPaid\": 0" +
                                 ", \"amountPaidValue\": 0" +
                                 ", \"status\": \"PAID_ONCE\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

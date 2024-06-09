@@ -30,9 +30,9 @@ describe('Province e2e test', () => {
       method: 'POST',
       url: '/api/countries',
       body: {
-        acronym: 'sha',
-        name: 'psst',
-        continent: 'OCEANIA',
+        acronym: 'oof',
+        name: 'motorcycle ah',
+        continent: 'AFRICA',
         geoPolygonArea: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=',
         geoPolygonAreaContentType: 'unknown',
       },

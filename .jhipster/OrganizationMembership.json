@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603205816"
+    "changelogDate": "20240607192323"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "dto": "mapstruct",
@@ -31,7 +31,7 @@
       "relationshipValidateRules": "required"
     },
     {
-      "otherEntityField": "lastName",
+      "otherEntityField": "lastname",
       "otherEntityName": "person",
       "otherEntityRelationshipName": "organizationMembershipsList",
       "relationshipName": "person",

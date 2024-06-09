@@ -1,11 +1,11 @@
-id;uid;name;storage_type_used;full_filename_path;status;preferred_purpose;asset_content_as_blob;asset_content_as_blob_content_type;asset_type_id
-1;cd79ea26-0e5b-4b54-a7ea-8867bb28a48c;step-sister off;LOCAL_FILESYSTEM;unaccountably worriedly;ENABLED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;1
-2;25cf7d92-ccf3-48b8-a5d1-dc9e317e4a92;noisily worth;BLOB_IN_DB;yum amongst;ENABLED;OTHER;../fake-data/blob/hipster.png;image/png;2
-3;3f14a8a1-7529-4bfe-b35d-15db3752deb1;as onto;OTHER_CLOUD_STORAGE;than;DELETED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;3
-4;34b22c29-6b45-4a06-8498-b8b39e08b749;coarse wherever span;LOCAL_FILESYSTEM;although bah loiter;DELETED;LOGO_IMG;../fake-data/blob/hipster.png;image/png;4
-5;8e00ce14-9070-454f-9f3c-407ff8e05bd9;uh-huh best;BLOB_IN_DB;round after ha;DISABLED;OTHER;../fake-data/blob/hipster.png;image/png;5
-6;bf639990-370e-4a45-9eb3-479fa1f4709b;meatball;REMOTE_FILESYSTEM;meanwhile apartment;DELETED;OTHER;../fake-data/blob/hipster.png;image/png;6
-7;0e67b810-0070-4b3d-b8c1-6a85cdc90fee;energetic wiggly rent;OTHER_CLOUD_STORAGE;nor mmm;DELETED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;7
-8;734ac5cd-d7db-44c0-b07c-c9450a4e0b03;ketch mmm;LOCAL_FILESYSTEM;hatbox;ENABLED;PHOTO_ALBUM;../fake-data/blob/hipster.png;image/png;8
-9;1cdc7a81-a667-4a4f-b0d3-b9721f35236c;jovially towards;AWS_S3;tired gadzooks successfully;ENABLED;PHOTO_ALBUM;../fake-data/blob/hipster.png;image/png;9
-10;bf4ad26d-0976-4834-82f0-3e9613c0275d;similar;BLOB_IN_DB;opportunist;DELETED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;10
+id;name;storage_type_used;full_filename_path;status;preferred_purpose;asset_content_as_blob;asset_content_as_blob_content_type;activation_status;asset_type_id
+cd79ea26-0e5b-4b54-a7ea-8867bb28a48c;step-sister off;LOCAL_FILESYSTEM;unaccountably worriedly;ENABLED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;ACTIVE;1
+5cf7d92c-cf38-4b85-ad1d-c9e317e4a92a;duh after;REMOTE_FILESYSTEM;thunderhead helplessly or;DISABLED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;ON_HOLD;2
+529bfe35-d15d-4b37-b52d-eb1d58724193;estate;OTHER_CLOUD_STORAGE;chill;ENABLED;LOGO_IMG;../fake-data/blob/hipster.png;image/png;BLOCKED;3
+22c296b4-5a06-4498-ab8b-39e08b7493aa;till;LOCAL_FILESYSTEM;overlap snarf;ENABLED;ANY_OFFICE_FILE_TYPE;../fake-data/blob/hipster.png;image/png;ACTIVE;4
+0e262fba-15a5-49c8-9b48-e00ce1490705;vitality which below;AWS_S3;stunning;ENABLED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;BLOCKED;5
+e9f4f2c7-da65-4b04-8d79-0cb6dbf63999;usefully;AWS_S3;via;ENABLED;PHOTO_ALBUM;../fake-data/blob/hipster.png;image/png;INACTIVE;6
+9b525432-d688-46d1-b2e8-67749b4b0ef0;beautifully robe;BLOB_IN_DB;perfect eject;ENABLED;EXECUTABLE_PROGRAM_BINARY;../fake-data/blob/hipster.png;image/png;PENDENT;7
+7c34dbc5-df7e-459f-91be-9c03c387ba8a;gadzooks;AWS_S3;fake;DELETED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;INACTIVE;8
+7cc9450a-4e0b-403c-8554-3d077ce5416b;hatbox;LOCAL_FILESYSTEM;muse disconnect;DELETED;USER_AVATAR;../fake-data/blob/hipster.png;image/png;BLOCKED;9
+3b9721f3-5236-4cd7-b8eb-0336a23b6ddb;optimal last contingency;AWS_S3;through editorial yahoo;ENABLED;LOGO_IMG;../fake-data/blob/hipster.png;image/png;BLOCKED;10

@@ -31,7 +31,7 @@ export class AssetService {
     return this.http.patch<IAsset>(`${this.resourceUrl}/${this.getAssetIdentifier(asset)}`, asset, { observe: 'response' });
   }
 
-  find(id: number): Observable<EntityResponseType> {
+  find(id: string): Observable<EntityResponseType> {
     return this.http.get<IAsset>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -40,11 +40,11 @@ export class AssetService {
     return this.http.get<IAsset[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<{}>> {
+  delete(id: string): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  getAssetIdentifier(asset: Pick<IAsset, 'id'>): number {
+  getAssetIdentifier(asset: Pick<IAsset, 'id'>): string {
     return asset.id;
   }
 

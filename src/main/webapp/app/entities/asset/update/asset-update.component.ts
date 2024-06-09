@@ -14,9 +14,12 @@ import { IAssetType } from 'app/entities/asset-type/asset-type.model';
 import { AssetTypeService } from 'app/entities/asset-type/service/asset-type.service';
 import { IRawAssetProcTmp } from 'app/entities/raw-asset-proc-tmp/raw-asset-proc-tmp.model';
 import { RawAssetProcTmpService } from 'app/entities/raw-asset-proc-tmp/service/raw-asset-proc-tmp.service';
+import { IAssetCollection } from 'app/entities/asset-collection/asset-collection.model';
+import { AssetCollectionService } from 'app/entities/asset-collection/service/asset-collection.service';
 import { StorageTypeEnum } from 'app/entities/enumerations/storage-type-enum.model';
 import { StatusAssetEnum } from 'app/entities/enumerations/status-asset-enum.model';
 import { PreferredPurposeEnum } from 'app/entities/enumerations/preferred-purpose-enum.model';
+import { ActivationStatusEnum } from 'app/entities/enumerations/activation-status-enum.model';
 import { AssetService } from '../service/asset.service';
 import { IAsset } from '../asset.model';
 import { AssetFormService, AssetFormGroup } from './asset-form.service';
@@ -33,9 +36,11 @@ export class AssetUpdateComponent implements OnInit {
   storageTypeEnumValues = Object.keys(StorageTypeEnum);
   statusAssetEnumValues = Object.keys(StatusAssetEnum);
   preferredPurposeEnumValues = Object.keys(PreferredPurposeEnum);
+  activationStatusEnumValues = Object.keys(ActivationStatusEnum);
 
   assetTypesSharedCollection: IAssetType[] = [];
   rawAssetProcTmpsSharedCollection: IRawAssetProcTmp[] = [];
+  assetCollectionsSharedCollection: IAssetCollection[] = [];
 
   protected dataUtils = inject(DataUtils);
   protected eventManager = inject(EventManager);
@@ -43,6 +48,7 @@ export class AssetUpdateComponent implements OnInit {
   protected assetFormService = inject(AssetFormService);
   protected assetTypeService = inject(AssetTypeService);
   protected rawAssetProcTmpService = inject(RawAssetProcTmpService);
+  protected assetCollectionService = inject(AssetCollectionService);
   protected activatedRoute = inject(ActivatedRoute);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -52,6 +58,9 @@ export class AssetUpdateComponent implements OnInit {
 
   compareRawAssetProcTmp = (o1: IRawAssetProcTmp | null, o2: IRawAssetProcTmp | null): boolean =>
     this.rawAssetProcTmpService.compareRawAssetProcTmp(o1, o2);
+
+  compareAssetCollection = (o1: IAssetCollection | null, o2: IAssetCollection | null): boolean =>
+    this.assetCollectionService.compareAssetCollection(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ asset }) => {
@@ -126,6 +135,10 @@ export class AssetUpdateComponent implements OnInit {
       this.rawAssetProcTmpsSharedCollection,
       asset.rawAssetProcTmp,
     );
+    this.assetCollectionsSharedCollection = this.assetCollectionService.addAssetCollectionToCollectionIfMissing<IAssetCollection>(
+      this.assetCollectionsSharedCollection,
+      ...(asset.assetCollections ?? []),
+    );
   }
 
   protected loadRelationshipsOptions(): void {
@@ -151,5 +164,18 @@ export class AssetUpdateComponent implements OnInit {
         ),
       )
       .subscribe((rawAssetProcTmps: IRawAssetProcTmp[]) => (this.rawAssetProcTmpsSharedCollection = rawAssetProcTmps));
+
+    this.assetCollectionService
+      .query()
+      .pipe(map((res: HttpResponse<IAssetCollection[]>) => res.body ?? []))
+      .pipe(
+        map((assetCollections: IAssetCollection[]) =>
+          this.assetCollectionService.addAssetCollectionToCollectionIfMissing<IAssetCollection>(
+            assetCollections,
+            ...(this.asset?.assetCollections ?? []),
+          ),
+        ),
+      )
+      .subscribe((assetCollections: IAssetCollection[]) => (this.assetCollectionsSharedCollection = assetCollections));
   }
 }

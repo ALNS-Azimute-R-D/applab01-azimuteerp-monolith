@@ -21,7 +21,7 @@ describe('Asset Management Detail Component', () => {
             {
               path: '**',
               component: AssetDetailComponent,
-              resolve: { asset: () => of({ id: 123 }) },
+              resolve: { asset: () => of({ id: '9fec3727-3421-4967-b213-ba36557ca194' }) },
             },
           ],
           withComponentInputBinding(),
@@ -45,7 +45,7 @@ describe('Asset Management Detail Component', () => {
       const instance = await harness.navigateByUrl('/', AssetDetailComponent);
 
       // THEN
-      expect(instance.asset()).toEqual(expect.objectContaining({ id: 123 }));
+      expect(instance.asset()).toEqual(expect.objectContaining({ id: '9fec3727-3421-4967-b213-ba36557ca194' }));
     });
   });
 

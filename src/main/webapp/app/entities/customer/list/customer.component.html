@@ -49,59 +49,39 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="name">
+            <th scope="col" jhiSortBy="fullname">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.name">Name</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.fullname">Fullname</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="description">
+            <th scope="col" jhiSortBy="customAttributesDetailsJSON">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.description">Description</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customAttributesDetailsJSON"
+                  >Custom Attributes Details JSON</span
+                >
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="email">
+            <th scope="col" jhiSortBy="customerStatus">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.email">Email</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customerStatus">Customer Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="addressDetails">
+            <th scope="col" jhiSortBy="activationStatus">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.addressDetails">Address Details</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.activationStatus">Activation Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="zipCode">
+            <th scope="col" jhiSortBy="buyerPerson.lastname">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.zipCode">Zip Code</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="keycloakGroupDetails">
-              <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.keycloakGroupDetails">Keycloak Group Details</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="status">
-              <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.status">Status</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="active">
-              <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.active">Active</span>
-
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.buyerPerson">Buyer Person</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -127,13 +107,9 @@
                 <a [routerLink]="['/customer', customer.id, 'view']">{{ customer.id }}</a>
               </td>
               <td>{{ customer.customerBusinessCode }}</td>
-              <td>{{ customer.name }}</td>
-              <td>{{ customer.description }}</td>
-              <td>{{ customer.email }}</td>
-              <td>{{ customer.addressDetails }}</td>
-              <td>{{ customer.zipCode }}</td>
-              <td>{{ customer.keycloakGroupDetails }}</td>
-              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.CustomerStatusEnum.' + (customer.status ?? 'null')">
+              <td>{{ customer.fullname }}</td>
+              <td>{{ customer.customAttributesDetailsJSON }}</td>
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.CustomerStatusEnum.' + (customer.customerStatus ?? 'null')">
                 {{
                   {
                     null: '',
@@ -143,10 +119,29 @@
                     WORKING: 'WORKING',
                     PENDENT: 'PENDENT',
                     IN_FAILURE: 'IN_FAILURE'
-                  }[customer.status ?? 'null']
+                  }[customer.customerStatus ?? 'null']
                 }}
               </td>
-              <td>{{ customer.active }}</td>
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (customer.activationStatus ?? 'null')">
+                {{
+                  {
+                    null: '',
+                    INACTIVE: 'INACTIVE',
+                    ACTIVE: 'ACTIVE',
+                    ON_HOLD: 'ON_HOLD',
+                    PENDENT: 'PENDENT',
+                    BLOCKED: 'BLOCKED',
+                    INVALID: 'INVALID'
+                  }[customer.activationStatus ?? 'null']
+                }}
+              </td>
+              <td>
+                @if (customer.buyerPerson) {
+                  <div>
+                    <a [routerLink]="['/person', customer.buyerPerson.id, 'view']">{{ customer.buyerPerson.lastname }}</a>
+                  </div>
+                }
+              </td>
               <td>
                 @if (customer.customerType) {
                   <div>

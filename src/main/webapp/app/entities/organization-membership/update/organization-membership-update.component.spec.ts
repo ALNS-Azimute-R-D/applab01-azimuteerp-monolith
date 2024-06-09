@@ -53,10 +53,10 @@ describe('OrganizationMembership Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Organization query and add missing value', () => {
       const organizationMembership: IOrganizationMembership = { id: 456 };
-      const organization: IOrganization = { id: 8163 };
+      const organization: IOrganization = { id: 16337 };
       organizationMembership.organization = organization;
 
-      const organizationCollection: IOrganization[] = [{ id: 30987 }];
+      const organizationCollection: IOrganization[] = [{ id: 6238 }];
       jest.spyOn(organizationService, 'query').mockReturnValue(of(new HttpResponse({ body: organizationCollection })));
       const additionalOrganizations = [organization];
       const expectedCollection: IOrganization[] = [...additionalOrganizations, ...organizationCollection];
@@ -75,10 +75,10 @@ describe('OrganizationMembership Management Update Component', () => {
 
     it('Should call Person query and add missing value', () => {
       const organizationMembership: IOrganizationMembership = { id: 456 };
-      const person: IPerson = { id: 6126 };
+      const person: IPerson = { id: 21460 };
       organizationMembership.person = person;
 
-      const personCollection: IPerson[] = [{ id: 10480 }];
+      const personCollection: IPerson[] = [{ id: 1286 }];
       jest.spyOn(personService, 'query').mockReturnValue(of(new HttpResponse({ body: personCollection })));
       const additionalPeople = [person];
       const expectedCollection: IPerson[] = [...additionalPeople, ...personCollection];
@@ -97,9 +97,9 @@ describe('OrganizationMembership Management Update Component', () => {
 
     it('Should update editForm', () => {
       const organizationMembership: IOrganizationMembership = { id: 456 };
-      const organization: IOrganization = { id: 23173 };
+      const organization: IOrganization = { id: 6956 };
       organizationMembership.organization = organization;
-      const person: IPerson = { id: 1933 };
+      const person: IPerson = { id: 4121 };
       organizationMembership.person = person;
 
       activatedRoute.data = of({ organizationMembership });

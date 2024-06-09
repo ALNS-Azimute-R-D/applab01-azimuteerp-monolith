@@ -15,24 +15,54 @@ describe('Order e2e test', () => {
   const orderPageUrlPattern = new RegExp('/order(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const orderSample = {
-    businessCode: 'instead from',
-    customerUserId: 'vapid hopeful',
-    placedDate: '2024-06-03T02:35:50.186Z',
-    status: 'PENDING',
-  };
+  // const orderSample = {"businessCode":"geez","placedDate":"2024-06-06T20:12:30.367Z","status":"PENDING","activationStatus":"INVALID"};
 
   let order;
+  // let customer;
 
   beforeEach(() => {
     cy.login(username, password);
   });
+
+  /* Disabled due to incompatibility
+  beforeEach(() => {
+    // create an instance at the required relationship entity:
+    cy.authenticatedRequest({
+      method: 'POST',
+      url: '/api/customers',
+      body: {"customerBusinessCode":"anenst","fullname":"during","customAttributesDetailsJSON":"excitedly pfft","customerStatus":"UNDER_EVALUATION","activationStatus":"ACTIVE"},
+    }).then(({ body }) => {
+      customer = body;
+    });
+  });
+   */
 
   beforeEach(() => {
     cy.intercept('GET', '/api/orders+(?*|)').as('entitiesRequest');
     cy.intercept('POST', '/api/orders').as('postEntityRequest');
     cy.intercept('DELETE', '/api/orders/*').as('deleteEntityRequest');
   });
+
+  /* Disabled due to incompatibility
+  beforeEach(() => {
+    // Simulate relationships api for better performance and reproducibility.
+    cy.intercept('GET', '/api/order-items', {
+      statusCode: 200,
+      body: [],
+    });
+
+    cy.intercept('GET', '/api/invoices', {
+      statusCode: 200,
+      body: [],
+    });
+
+    cy.intercept('GET', '/api/customers', {
+      statusCode: 200,
+      body: [customer],
+    });
+
+  });
+   */
 
   afterEach(() => {
     if (order) {
@@ -44,6 +74,19 @@ describe('Order e2e test', () => {
       });
     }
   });
+
+  /* Disabled due to incompatibility
+  afterEach(() => {
+    if (customer) {
+      cy.authenticatedRequest({
+        method: 'DELETE',
+        url: `/api/customers/${customer.id}`,
+      }).then(() => {
+        customer = undefined;
+      });
+    }
+  });
+   */
 
   it('Orders menu should load Orders page', () => {
     cy.visit('/');
@@ -80,11 +123,15 @@ describe('Order e2e test', () => {
     });
 
     describe('with existing value', () => {
+      /* Disabled due to incompatibility
       beforeEach(() => {
         cy.authenticatedRequest({
           method: 'POST',
           url: '/api/orders',
-          body: orderSample,
+          body: {
+            ...orderSample,
+            customer: customer,
+          },
         }).then(({ body }) => {
           order = body;
 
@@ -100,13 +147,24 @@ describe('Order e2e test', () => {
                 link: '<http://localhost/api/orders?page=0&size=20>; rel="last",<http://localhost/api/orders?page=0&size=20>; rel="first"',
               },
               body: [order],
-            },
+            }
           ).as('entitiesRequestInternal');
         });
 
         cy.visit(orderPageUrl);
 
         cy.wait('@entitiesRequestInternal');
+      });
+       */
+
+      beforeEach(function () {
+        cy.visit(orderPageUrl);
+
+        cy.wait('@entitiesRequest').then(({ response }) => {
+          if (response?.body.length === 0) {
+            this.skip();
+          }
+        });
       });
 
       it('detail button click should load details Order page', () => {
@@ -140,7 +198,7 @@ describe('Order e2e test', () => {
         cy.url().should('match', orderPageUrlPattern);
       });
 
-      it('last delete button click should delete instance of Order', () => {
+      it.skip('last delete button click should delete instance of Order', () => {
         cy.get(entityDeleteButtonSelector).last().click();
         cy.getEntityDeleteDialogHeading('order').should('exist');
         cy.get(entityConfirmDeleteButtonSelector).click();
@@ -164,31 +222,29 @@ describe('Order e2e test', () => {
       cy.getEntityCreateUpdateHeading('Order');
     });
 
-    it('should create an instance of Order', () => {
-      cy.get(`[data-cy="businessCode"]`).type('hairy out');
-      cy.get(`[data-cy="businessCode"]`).should('have.value', 'hairy out');
+    it.skip('should create an instance of Order', () => {
+      cy.get(`[data-cy="businessCode"]`).type('pine yum questionabl');
+      cy.get(`[data-cy="businessCode"]`).should('have.value', 'pine yum questionabl');
 
-      cy.get(`[data-cy="customerUserId"]`).type('subordinate beneath');
-      cy.get(`[data-cy="customerUserId"]`).should('have.value', 'subordinate beneath');
-
-      cy.get(`[data-cy="placedDate"]`).type('2024-06-02T21:19');
+      cy.get(`[data-cy="placedDate"]`).type('2024-06-06T22:17');
       cy.get(`[data-cy="placedDate"]`).blur();
-      cy.get(`[data-cy="placedDate"]`).should('have.value', '2024-06-02T21:19');
+      cy.get(`[data-cy="placedDate"]`).should('have.value', '2024-06-06T22:17');
 
-      cy.get(`[data-cy="totalTaxValue"]`).type('18403.16');
-      cy.get(`[data-cy="totalTaxValue"]`).should('have.value', '18403.16');
+      cy.get(`[data-cy="totalTaxValue"]`).type('32596.43');
+      cy.get(`[data-cy="totalTaxValue"]`).should('have.value', '32596.43');
 
-      cy.get(`[data-cy="totalDueValue"]`).type('21691.7');
-      cy.get(`[data-cy="totalDueValue"]`).should('have.value', '21691.7');
+      cy.get(`[data-cy="totalDueValue"]`).type('4575.9');
+      cy.get(`[data-cy="totalDueValue"]`).should('have.value', '4575.9');
 
-      cy.get(`[data-cy="status"]`).select('CANCELLED');
+      cy.get(`[data-cy="status"]`).select('COMPLETED');
 
-      cy.get(`[data-cy="invoiceId"]`).type('22496');
-      cy.get(`[data-cy="invoiceId"]`).should('have.value', '22496');
-
-      cy.get(`[data-cy="estimatedDeliveryDate"]`).type('2024-06-03T03:57');
+      cy.get(`[data-cy="estimatedDeliveryDate"]`).type('2024-06-07T05:38');
       cy.get(`[data-cy="estimatedDeliveryDate"]`).blur();
-      cy.get(`[data-cy="estimatedDeliveryDate"]`).should('have.value', '2024-06-03T03:57');
+      cy.get(`[data-cy="estimatedDeliveryDate"]`).should('have.value', '2024-06-07T05:38');
+
+      cy.get(`[data-cy="activationStatus"]`).select('INACTIVE');
+
+      cy.get(`[data-cy="customer"]`).select(1);
 
       cy.get(entityCreateSaveButtonSelector).click();
 

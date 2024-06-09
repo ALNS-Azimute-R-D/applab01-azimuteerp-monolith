@@ -117,7 +117,8 @@ public class InventoryTransactionGatlingTest extends Simulation {
                                 ", \"transactionCreatedDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"transactionModifiedDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"quantity\": 0" +
-                                ", \"comments\": \"SAMPLE_TEXT\"" +
+                                ", \"transactionComments\": \"SAMPLE_TEXT\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

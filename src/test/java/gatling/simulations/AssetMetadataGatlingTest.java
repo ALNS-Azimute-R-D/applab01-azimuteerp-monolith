@@ -105,7 +105,7 @@ public class AssetMetadataGatlingTest extends Simulation {
                     http("Create new assetMetadata")
                         .post("/api/asset-metadata")
                         .headers(headers_http_authenticated)
-                        .body(StringBody("{" + "\"metadataDetails\": null" + "}"))
+                        .body(StringBody("{" + "\"metadataDetailsJSON\": \"SAMPLE_TEXT\"" + "}"))
                         .asJson()
                         .check(status().is(201))
                         .check(headerRegex("Location", "(.*)").saveAs("new_assetMetadata_url"))

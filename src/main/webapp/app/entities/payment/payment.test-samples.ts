@@ -3,44 +3,48 @@ import dayjs from 'dayjs/esm';
 import { IPayment, NewPayment } from './payment.model';
 
 export const sampleWithRequiredData: IPayment = {
-  id: 10845,
-  installmentNumber: 17017,
-  paymentDueDate: dayjs('2024-06-03T08:36'),
-  paymentPaidDate: dayjs('2024-06-03T01:08'),
-  paymentAmount: 16060.54,
-  typeOfPayment: 'BANK_TRANSFER',
-  status: 'PAID',
+  id: 17017,
+  installmentNumber: 17084,
+  paymentDueDate: dayjs('2024-06-06T23:33'),
+  paymentPaidDate: dayjs('2024-06-07T07:46'),
+  paymentAmount: 22421.43,
+  typeOfPayment: 'DEBIT',
+  statusPayment: 'OPEN',
+  activationStatus: 'PENDENT',
 };
 
 export const sampleWithPartialData: IPayment = {
-  id: 18677,
-  installmentNumber: 2864,
-  paymentDueDate: dayjs('2024-06-03T05:29'),
-  paymentPaidDate: dayjs('2024-06-03T07:02'),
-  paymentAmount: 20522.46,
-  typeOfPayment: 'DEBIT',
-  status: 'DELAYED',
-  extraDetails: '../fake-data/blob/hipster.txt',
+  id: 21331,
+  installmentNumber: 19224,
+  paymentDueDate: dayjs('2024-06-07T04:30'),
+  paymentPaidDate: dayjs('2024-06-07T06:58'),
+  paymentAmount: 15554.4,
+  typeOfPayment: 'CASH',
+  statusPayment: 'PAID',
+  customAttributesDetailsJSON: 'inasmuch who instructive',
+  activationStatus: 'ON_HOLD',
 };
 
 export const sampleWithFullData: IPayment = {
-  id: 4825,
-  installmentNumber: 22524,
-  paymentDueDate: dayjs('2024-06-02T23:52'),
-  paymentPaidDate: dayjs('2024-06-02T23:58'),
-  paymentAmount: 22913.11,
-  typeOfPayment: 'OTHER',
-  status: 'OPEN',
-  extraDetails: '../fake-data/blob/hipster.txt',
+  id: 25928,
+  installmentNumber: 586,
+  paymentDueDate: dayjs('2024-06-07T19:00'),
+  paymentPaidDate: dayjs('2024-06-07T10:01'),
+  paymentAmount: 31362.29,
+  typeOfPayment: 'CASH',
+  statusPayment: 'OPEN',
+  customAttributesDetailsJSON: 'next across',
+  activationStatus: 'ON_HOLD',
 };
 
 export const sampleWithNewData: NewPayment = {
-  installmentNumber: 16531,
-  paymentDueDate: dayjs('2024-06-03T16:44'),
-  paymentPaidDate: dayjs('2024-06-03T13:29'),
-  paymentAmount: 3770.03,
-  typeOfPayment: 'CREDIT',
-  status: 'OPEN',
+  installmentNumber: 28572,
+  paymentDueDate: dayjs('2024-06-07T02:21'),
+  paymentPaidDate: dayjs('2024-06-07T10:15'),
+  paymentAmount: 11967.93,
+  typeOfPayment: 'DEBIT',
+  statusPayment: 'CANCELLED',
+  activationStatus: 'ACTIVE',
   id: null,
 };
 

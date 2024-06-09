@@ -41,9 +41,30 @@
           <dd>
             <span>{{ inventoryTransaction()!.quantity }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.comments">Comments</span></dt>
+          <dt>
+            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.transactionComments">Transaction Comments</span>
+          </dt>
           <dd>
-            <span>{{ inventoryTransaction()!.comments }}</span>
+            <span>{{ inventoryTransaction()!.transactionComments }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.activationStatus">Activation Status</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="
+                'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (inventoryTransaction()!.activationStatus ?? 'null')
+              "
+              >{{
+                {
+                  null: '',
+                  INACTIVE: 'INACTIVE',
+                  ACTIVE: 'ACTIVE',
+                  ON_HOLD: 'ON_HOLD',
+                  PENDENT: 'PENDENT',
+                  BLOCKED: 'BLOCKED',
+                  INVALID: 'INVALID'
+                }[inventoryTransaction()!.activationStatus ?? 'null']
+              }}</span
+            >
           </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.supplier">Supplier</span></dt>
           <dd>

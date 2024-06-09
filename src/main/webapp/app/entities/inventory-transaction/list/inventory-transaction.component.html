@@ -76,9 +76,18 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="comments">
+            <th scope="col" jhiSortBy="transactionComments">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.comments">Comments</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.transactionComments"
+                  >Transaction Comments</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="activationStatus">
+              <div class="d-flex">
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.inventoryTransaction.activationStatus">Activation Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -114,7 +123,24 @@
               <td>{{ inventoryTransaction.transactionCreatedDate | formatMediumDatetime }}</td>
               <td>{{ inventoryTransaction.transactionModifiedDate | formatMediumDatetime }}</td>
               <td>{{ inventoryTransaction.quantity }}</td>
-              <td>{{ inventoryTransaction.comments }}</td>
+              <td>{{ inventoryTransaction.transactionComments }}</td>
+              <td
+                [jhiTranslate]="
+                  'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (inventoryTransaction.activationStatus ?? 'null')
+                "
+              >
+                {{
+                  {
+                    null: '',
+                    INACTIVE: 'INACTIVE',
+                    ACTIVE: 'ACTIVE',
+                    ON_HOLD: 'ON_HOLD',
+                    PENDENT: 'PENDENT',
+                    BLOCKED: 'BLOCKED',
+                    INVALID: 'INVALID'
+                  }[inventoryTransaction.activationStatus ?? 'null']
+                }}
+              </td>
               <td>
                 @if (inventoryTransaction.supplier) {
                   <div>

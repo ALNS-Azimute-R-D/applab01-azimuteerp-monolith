@@ -9,6 +9,8 @@ import { IAssetType } from 'app/entities/asset-type/asset-type.model';
 import { AssetTypeService } from 'app/entities/asset-type/service/asset-type.service';
 import { IRawAssetProcTmp } from 'app/entities/raw-asset-proc-tmp/raw-asset-proc-tmp.model';
 import { RawAssetProcTmpService } from 'app/entities/raw-asset-proc-tmp/service/raw-asset-proc-tmp.service';
+import { IAssetCollection } from 'app/entities/asset-collection/asset-collection.model';
+import { AssetCollectionService } from 'app/entities/asset-collection/service/asset-collection.service';
 import { IAsset } from '../asset.model';
 import { AssetService } from '../service/asset.service';
 import { AssetFormService } from './asset-form.service';
@@ -23,6 +25,7 @@ describe('Asset Management Update Component', () => {
   let assetService: AssetService;
   let assetTypeService: AssetTypeService;
   let rawAssetProcTmpService: RawAssetProcTmpService;
+  let assetCollectionService: AssetCollectionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -46,17 +49,18 @@ describe('Asset Management Update Component', () => {
     assetService = TestBed.inject(AssetService);
     assetTypeService = TestBed.inject(AssetTypeService);
     rawAssetProcTmpService = TestBed.inject(RawAssetProcTmpService);
+    assetCollectionService = TestBed.inject(AssetCollectionService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
     it('Should call AssetType query and add missing value', () => {
-      const asset: IAsset = { id: 456 };
-      const assetType: IAssetType = { id: 16105 };
+      const asset: IAsset = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
+      const assetType: IAssetType = { id: 28246 };
       asset.assetType = assetType;
 
-      const assetTypeCollection: IAssetType[] = [{ id: 20396 }];
+      const assetTypeCollection: IAssetType[] = [{ id: 27239 }];
       jest.spyOn(assetTypeService, 'query').mockReturnValue(of(new HttpResponse({ body: assetTypeCollection })));
       const additionalAssetTypes = [assetType];
       const expectedCollection: IAssetType[] = [...additionalAssetTypes, ...assetTypeCollection];
@@ -74,11 +78,11 @@ describe('Asset Management Update Component', () => {
     });
 
     it('Should call RawAssetProcTmp query and add missing value', () => {
-      const asset: IAsset = { id: 456 };
-      const rawAssetProcTmp: IRawAssetProcTmp = { id: 3022 };
+      const asset: IAsset = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
+      const rawAssetProcTmp: IRawAssetProcTmp = { id: 20545 };
       asset.rawAssetProcTmp = rawAssetProcTmp;
 
-      const rawAssetProcTmpCollection: IRawAssetProcTmp[] = [{ id: 25731 }];
+      const rawAssetProcTmpCollection: IRawAssetProcTmp[] = [{ id: 9198 }];
       jest.spyOn(rawAssetProcTmpService, 'query').mockReturnValue(of(new HttpResponse({ body: rawAssetProcTmpCollection })));
       const additionalRawAssetProcTmps = [rawAssetProcTmp];
       const expectedCollection: IRawAssetProcTmp[] = [...additionalRawAssetProcTmps, ...rawAssetProcTmpCollection];
@@ -95,18 +99,43 @@ describe('Asset Management Update Component', () => {
       expect(comp.rawAssetProcTmpsSharedCollection).toEqual(expectedCollection);
     });
 
+    it('Should call AssetCollection query and add missing value', () => {
+      const asset: IAsset = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
+      const assetCollections: IAssetCollection[] = [{ id: 18145 }];
+      asset.assetCollections = assetCollections;
+
+      const assetCollectionCollection: IAssetCollection[] = [{ id: 24874 }];
+      jest.spyOn(assetCollectionService, 'query').mockReturnValue(of(new HttpResponse({ body: assetCollectionCollection })));
+      const additionalAssetCollections = [...assetCollections];
+      const expectedCollection: IAssetCollection[] = [...additionalAssetCollections, ...assetCollectionCollection];
+      jest.spyOn(assetCollectionService, 'addAssetCollectionToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ asset });
+      comp.ngOnInit();
+
+      expect(assetCollectionService.query).toHaveBeenCalled();
+      expect(assetCollectionService.addAssetCollectionToCollectionIfMissing).toHaveBeenCalledWith(
+        assetCollectionCollection,
+        ...additionalAssetCollections.map(expect.objectContaining),
+      );
+      expect(comp.assetCollectionsSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
-      const asset: IAsset = { id: 456 };
-      const assetType: IAssetType = { id: 260 };
+      const asset: IAsset = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
+      const assetType: IAssetType = { id: 30511 };
       asset.assetType = assetType;
-      const rawAssetProcTmp: IRawAssetProcTmp = { id: 18274 };
+      const rawAssetProcTmp: IRawAssetProcTmp = { id: 19785 };
       asset.rawAssetProcTmp = rawAssetProcTmp;
+      const assetCollection: IAssetCollection = { id: 30728 };
+      asset.assetCollections = [assetCollection];
 
       activatedRoute.data = of({ asset });
       comp.ngOnInit();
 
       expect(comp.assetTypesSharedCollection).toContain(assetType);
       expect(comp.rawAssetProcTmpsSharedCollection).toContain(rawAssetProcTmp);
+      expect(comp.assetCollectionsSharedCollection).toContain(assetCollection);
       expect(comp.asset).toEqual(asset);
     });
   });
@@ -115,7 +144,7 @@ describe('Asset Management Update Component', () => {
     it('Should call update service on save for existing entity', () => {
       // GIVEN
       const saveSubject = new Subject<HttpResponse<IAsset>>();
-      const asset = { id: 123 };
+      const asset = { id: '9fec3727-3421-4967-b213-ba36557ca194' };
       jest.spyOn(assetFormService, 'getAsset').mockReturnValue(asset);
       jest.spyOn(assetService, 'update').mockReturnValue(saveSubject);
       jest.spyOn(comp, 'previousState');
@@ -138,7 +167,7 @@ describe('Asset Management Update Component', () => {
     it('Should call create service on save for new entity', () => {
       // GIVEN
       const saveSubject = new Subject<HttpResponse<IAsset>>();
-      const asset = { id: 123 };
+      const asset = { id: '9fec3727-3421-4967-b213-ba36557ca194' };
       jest.spyOn(assetFormService, 'getAsset').mockReturnValue({ id: null });
       jest.spyOn(assetService, 'create').mockReturnValue(saveSubject);
       jest.spyOn(comp, 'previousState');
@@ -161,7 +190,7 @@ describe('Asset Management Update Component', () => {
     it('Should set isSaving to false on error', () => {
       // GIVEN
       const saveSubject = new Subject<HttpResponse<IAsset>>();
-      const asset = { id: 123 };
+      const asset = { id: '9fec3727-3421-4967-b213-ba36557ca194' };
       jest.spyOn(assetService, 'update').mockReturnValue(saveSubject);
       jest.spyOn(comp, 'previousState');
       activatedRoute.data = of({ asset });
@@ -197,6 +226,16 @@ describe('Asset Management Update Component', () => {
         jest.spyOn(rawAssetProcTmpService, 'compareRawAssetProcTmp');
         comp.compareRawAssetProcTmp(entity, entity2);
         expect(rawAssetProcTmpService.compareRawAssetProcTmp).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareAssetCollection', () => {
+      it('Should forward to assetCollectionService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(assetCollectionService, 'compareAssetCollection');
+        comp.compareAssetCollection(entity, entity2);
+        expect(assetCollectionService.compareAssetCollection).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

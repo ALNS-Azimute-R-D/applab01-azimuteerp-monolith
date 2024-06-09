@@ -15,7 +15,7 @@ describe('AssetType e2e test', () => {
   const assetTypePageUrlPattern = new RegExp('/asset-type(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const assetTypeSample = { name: 'backlight' };
+  const assetTypeSample = { name: 'off animated' };
 
   let assetType;
 
@@ -160,20 +160,20 @@ describe('AssetType e2e test', () => {
     });
 
     it('should create an instance of AssetType', () => {
-      cy.get(`[data-cy="acronym"]`).type('fetch till');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'fetch till');
+      cy.get(`[data-cy="acronym"]`).type('gleeful realm');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'gleeful realm');
 
-      cy.get(`[data-cy="name"]`).type('occasional oh while');
-      cy.get(`[data-cy="name"]`).should('have.value', 'occasional oh while');
+      cy.get(`[data-cy="name"]`).type('overgeneralize hoist');
+      cy.get(`[data-cy="name"]`).should('have.value', 'overgeneralize hoist');
 
-      cy.get(`[data-cy="description"]`).type('despite segment');
-      cy.get(`[data-cy="description"]`).should('have.value', 'despite segment');
+      cy.get(`[data-cy="description"]`).type('er');
+      cy.get(`[data-cy="description"]`).should('have.value', 'er');
 
-      cy.get(`[data-cy="handlerClazzName"]`).type('er with how');
-      cy.get(`[data-cy="handlerClazzName"]`).should('have.value', 'er with how');
+      cy.get(`[data-cy="handlerClazzName"]`).type('too redress actually');
+      cy.get(`[data-cy="handlerClazzName"]`).should('have.value', 'too redress actually');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('loaf library');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'loaf library');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

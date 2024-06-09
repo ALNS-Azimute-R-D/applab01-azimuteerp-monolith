@@ -21,33 +21,21 @@
           <dd>
             <span>{{ customer()!.customerBusinessCode }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.name">Name</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.fullname">Fullname</span></dt>
           <dd>
-            <span>{{ customer()!.name }}</span>
+            <span>{{ customer()!.fullname }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.description">Description</span></dt>
+          <dt>
+            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customAttributesDetailsJSON"
+              >Custom Attributes Details JSON</span
+            >
+          </dt>
           <dd>
-            <span>{{ customer()!.description }}</span>
+            <span>{{ customer()!.customAttributesDetailsJSON }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.email">Email</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customerStatus">Customer Status</span></dt>
           <dd>
-            <span>{{ customer()!.email }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.addressDetails">Address Details</span></dt>
-          <dd>
-            <span>{{ customer()!.addressDetails }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.zipCode">Zip Code</span></dt>
-          <dd>
-            <span>{{ customer()!.zipCode }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.keycloakGroupDetails">Keycloak Group Details</span></dt>
-          <dd>
-            <span>{{ customer()!.keycloakGroupDetails }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.status">Status</span></dt>
-          <dd>
-            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.CustomerStatusEnum.' + (customer()!.status ?? 'null')">{{
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.CustomerStatusEnum.' + (customer()!.customerStatus ?? 'null')">{{
               {
                 null: '',
                 UNDER_EVALUATION: 'UNDER_EVALUATION',
@@ -56,12 +44,33 @@
                 WORKING: 'WORKING',
                 PENDENT: 'PENDENT',
                 IN_FAILURE: 'IN_FAILURE'
-              }[customer()!.status ?? 'null']
+              }[customer()!.customerStatus ?? 'null']
             }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.active">Active</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.activationStatus">Activation Status</span></dt>
           <dd>
-            <span>{{ customer()!.active }}</span>
+            <span
+              [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (customer()!.activationStatus ?? 'null')"
+              >{{
+                {
+                  null: '',
+                  INACTIVE: 'INACTIVE',
+                  ACTIVE: 'ACTIVE',
+                  ON_HOLD: 'ON_HOLD',
+                  PENDENT: 'PENDENT',
+                  BLOCKED: 'BLOCKED',
+                  INVALID: 'INVALID'
+                }[customer()!.activationStatus ?? 'null']
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.buyerPerson">Buyer Person</span></dt>
+          <dd>
+            @if (customer()!.buyerPerson) {
+              <div>
+                <a [routerLink]="['/person', customer()!.buyerPerson?.id, 'view']">{{ customer()!.buyerPerson?.lastname }}</a>
+              </div>
+            }
           </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.customer.customerType">Customer Type</span></dt>
           <dd>

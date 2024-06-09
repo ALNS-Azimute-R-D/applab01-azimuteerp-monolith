@@ -114,9 +114,9 @@ public class OrganizationGatlingTest extends Simulation {
                                 ", \"name\": \"SAMPLE_TEXT\"" +
                                 ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"businessHandlerClazz\": \"SAMPLE_TEXT\"" +
-                                ", \"mainContactPersonDetails\": null" +
-                                ", \"technicalEnvironmentsDetails\": null" +
-                                ", \"commonCustomAttributesDetails\": null" +
+                                ", \"mainContactPersonDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"technicalEnvironmentsDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 ", \"organizationStatus\": \"UNDER_EVALUATION\"" +
                                 ", \"activationStatus\": \"INACTIVE\"" +
                                 ", \"logoImg\": null" +

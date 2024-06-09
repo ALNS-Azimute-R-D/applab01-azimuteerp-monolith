@@ -30,7 +30,7 @@ describe('OrganizationDomain e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/organizations',
-      body: {"acronym":"discuss","businessCode":"whose","hierarchicalLevel":"homeland although whereas","name":"how","description":"why","businessHandlerClazz":"pro embezzle","mainContactPersonDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","technicalEnvironmentsDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","commonCustomAttributesDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","organizationStatus":"READY_TO_START","activationStatus":"INACTIVE","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
+      body: {"acronym":"faint","businessCode":"gee like","hierarchicalLevel":"astride huzzah galvanize","name":"needy vice","description":"around uh-huh yum","businessHandlerClazz":"recant pasture across","mainContactPersonDetailsJSON":"drat inborn","technicalEnvironmentsDetailsJSON":"yum cicada or","customAttributesDetailsJSON":"enchanting famous for","organizationStatus":"READY_TO_START","activationStatus":"PENDENT","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
     }).then(({ body }) => {
       organization = body;
     });

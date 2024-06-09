@@ -25,20 +25,6 @@
           <dd>
             <span>{{ supplier()!.companyName }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativeLastName">Representative Last Name</span></dt>
-          <dd>
-            <span>{{ supplier()!.representativeLastName }}</span>
-          </dd>
-          <dt>
-            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativeFirstName">Representative First Name</span>
-          </dt>
-          <dd>
-            <span>{{ supplier()!.representativeFirstName }}</span>
-          </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.jobTitle">Job Title</span></dt>
-          <dd>
-            <span>{{ supplier()!.jobTitle }}</span>
-          </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.streetAddress">Street Address</span></dt>
           <dd>
             <span>{{ supplier()!.streetAddress }}</span>
@@ -67,10 +53,6 @@
           <dd>
             <span>{{ supplier()!.countryRegion }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.webPage">Web Page</span></dt>
-          <dd>
-            <span>{{ supplier()!.webPage }}</span>
-          </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.pointLocation">Point Location</span></dt>
           <dd>
             @if (supplier()!.pointLocation) {
@@ -88,27 +70,54 @@
           <dd>
             <span>{{ supplier()!.mainEmail }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.landPhoneNumber">Land Phone Number</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.phoneNumber1">Phone Number 1</span></dt>
           <dd>
-            <span>{{ supplier()!.landPhoneNumber }}</span>
+            <span>{{ supplier()!.phoneNumber1 }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.mobilePhoneNumber">Mobile Phone Number</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.phoneNumber2">Phone Number 2</span></dt>
           <dd>
-            <span>{{ supplier()!.mobilePhoneNumber }}</span>
+            <span>{{ supplier()!.phoneNumber2 }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.faxNumber">Fax Number</span></dt>
+          <dt>
+            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.customAttributesDetailsJSON"
+              >Custom Attributes Details JSON</span
+            >
+          </dt>
           <dd>
-            <span>{{ supplier()!.faxNumber }}</span>
+            <span>{{ supplier()!.customAttributesDetailsJSON }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.extraDetails">Extra Details</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.activationStatus">Activation Status</span></dt>
           <dd>
-            <span>{{ supplier()!.extraDetails }}</span>
+            <span
+              [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (supplier()!.activationStatus ?? 'null')"
+              >{{
+                {
+                  null: '',
+                  INACTIVE: 'INACTIVE',
+                  ACTIVE: 'ACTIVE',
+                  ON_HOLD: 'ON_HOLD',
+                  PENDENT: 'PENDENT',
+                  BLOCKED: 'BLOCKED',
+                  INVALID: 'INVALID'
+                }[supplier()!.activationStatus ?? 'null']
+              }}</span
+            >
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.productsList">Products List</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativePerson">Representative Person</span></dt>
           <dd>
-            @for (productsList of supplier()!.productsLists; track $index; let last = $last) {
+            @if (supplier()!.representativePerson) {
+              <div>
+                <a [routerLink]="['/person', supplier()!.representativePerson?.id, 'view']">{{
+                  supplier()!.representativePerson?.lastname
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.toProduct">To Product</span></dt>
+          <dd>
+            @for (toProduct of supplier()!.toProducts; track $index; let last = $last) {
               <span>
-                <a [routerLink]="['/product', productsList.id, 'view']">{{ productsList?.id }}</a
+                <a [routerLink]="['/product', toProduct.id, 'view']">{{ toProduct?.id }}</a
                 >{{ last ? '' : ', ' }}
               </span>
             }

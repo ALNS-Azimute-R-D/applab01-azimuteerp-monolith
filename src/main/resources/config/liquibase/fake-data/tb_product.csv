@@ -1,11 +1,11 @@
-id;product_sku;product_name;description;standard_cost;list_price;reorder_level;target_level;quantity_per_unit;discontinued;minimum_reorder_quantity;suggested_category;attachments;attachments_content_type;supplier_ids;brand_id
-1;within;uniformity;../fake-data/blob/hipster.txt;14719.74;17643.05;23764;9633;circa mmm;false;29460;when thoroughly or;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;1
-2;daffodil;canine;../fake-data/blob/hipster.txt;18139.92;25705.4;3698;12627;ugh likewise how;false;17004;uselessly lonely provided;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;2
-3;calculating questionably ;for appal um;../fake-data/blob/hipster.txt;1398.87;7964.56;2041;152;ouch yippee;true;22367;wearily;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;3
-4;outside;outside resist;../fake-data/blob/hipster.txt;14902.39;7349.18;12409;640;men;false;28942;osmosis oh revolving;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;4
-5;spotlight hurdle phooey;piece around upbeat;../fake-data/blob/hipster.txt;5494.35;22636.23;25275;29106;indeed definitive;true;23653;yowza jumpy;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;5
-6;promptly;keenly;../fake-data/blob/hipster.txt;2034.86;10341.31;16427;29342;whoever since when;true;2341;grapefruit natural oh;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;6
-7;dowse duh foolishly;ameliorate er;../fake-data/blob/hipster.txt;6901.54;2048.15;8833;14916;handsome anxiously interestingly;false;9086;psst circumscribe;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;7
-8;duh bay regularly;yum represent;../fake-data/blob/hipster.txt;2830.81;14162.29;478;5291;though;true;29846;glance;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;8
-9;finally;instantly;../fake-data/blob/hipster.txt;5271.26;28389.19;27994;31374;vice readily text;true;25448;invalidate unfolded fatally;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;9
-10;cuddly;recede blowgun;../fake-data/blob/hipster.txt;10924.81;6489.8;14715;13804;headbutt whoever mmm;false;15536;boohoo;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.txt;10
+id;product_sku;product_name;description;standard_cost;list_price;reorder_level;target_level;quantity_per_unit;discontinued;minimum_reorder_quantity;suggested_category;attachments;attachments_content_type;activation_status;brand_id
+1;within;uniformity;decisive disturb;18120.48;14877.93;15210;23850;deliberately sans;true;26648;adjust daffodil peaceful;../fake-data/blob/hipster.png;image/png;INACTIVE;1
+2;android curvy;than;ridge;24203.31;19343.19;10609;14833;lonely provided snap;true;11318;before;../fake-data/blob/hipster.png;image/png;BLOCKED;2
+3;until;bury;sidestep;12429.81;32657.71;1398;7964;wisely;true;24691;geez than fine;../fake-data/blob/hipster.png;image/png;INACTIVE;3
+4;distant amongst;oof outside;phew before squander;22793.2;24190.09;1944;7103;agile yummy;false;9313;complement whether;../fake-data/blob/hipster.png;image/png;ACTIVE;4
+5;upbeat;before;muffle phooey;5494.72;15403.14;13709;8505;throughout;true;10031;barring;../fake-data/blob/hipster.png;image/png;INACTIVE;5
+6;inasmuch strictly kissing;and;so sociable very;784.21;32033.08;26515;1063;dowse duh foolishly;false;3895;worth befog;../fake-data/blob/hipster.png;image/png;ACTIVE;6
+7;parlay oh;interestingly;aside whenever instantly;23105.46;10776.27;22715;6026;forge so ew;false;24979;anenst hence geez;../fake-data/blob/hipster.png;image/png;BLOCKED;7
+8;save weird whether;murmurings long active;although plus third;25556.37;1911.54;7888;5113;founding;false;32230;awkwardly meanwhile;../fake-data/blob/hipster.png;image/png;ON_HOLD;8
+9;headbutt whoever mmm;chalet anenst;briefly;5598.71;18592.58;25987;26832;stimulating;false;31013;reassuringly temp;../fake-data/blob/hipster.png;image/png;PENDENT;9
+10;as;near currency freak;joshingly;27059.68;3590.67;25377;12917;marmalade following;true;23150;mushy per openly;../fake-data/blob/hipster.png;image/png;ACTIVE;10

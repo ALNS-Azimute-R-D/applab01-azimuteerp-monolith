@@ -77,23 +77,32 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="status">
+            <th scope="col" jhiSortBy="statusPayment">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.status">Status</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.statusPayment">Status Payment</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="extraDetails">
+            <th scope="col" jhiSortBy="customAttributesDetailsJSON">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.extraDetails">Extra Details</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.customAttributesDetailsJSON"
+                  >Custom Attributes Details JSON</span
+                >
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="paymentMethod.code">
+            <th scope="col" jhiSortBy="activationStatus">
               <div class="d-flex">
-                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.paymentMethod">Payment Method</span>
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.activationStatus">Activation Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paymentGateway.aliasCode">
+              <div class="d-flex">
+                <span jhiTranslate="azimuteErpSpringAngularMonolith01App.payment.paymentGateway">Payment Gateway</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -117,14 +126,27 @@
                   ]
                 }}
               </td>
-              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PaymentStatusEnum.' + (payment.status ?? 'null')">
-                {{ { null: '', OPEN: 'OPEN', DELAYED: 'DELAYED', PAID: 'PAID', CANCELLED: 'CANCELLED' }[payment.status ?? 'null'] }}
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.PaymentStatusEnum.' + (payment.statusPayment ?? 'null')">
+                {{ { null: '', OPEN: 'OPEN', DELAYED: 'DELAYED', PAID: 'PAID', CANCELLED: 'CANCELLED' }[payment.statusPayment ?? 'null'] }}
               </td>
-              <td>{{ payment.extraDetails }}</td>
+              <td>{{ payment.customAttributesDetailsJSON }}</td>
+              <td [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (payment.activationStatus ?? 'null')">
+                {{
+                  {
+                    null: '',
+                    INACTIVE: 'INACTIVE',
+                    ACTIVE: 'ACTIVE',
+                    ON_HOLD: 'ON_HOLD',
+                    PENDENT: 'PENDENT',
+                    BLOCKED: 'BLOCKED',
+                    INVALID: 'INVALID'
+                  }[payment.activationStatus ?? 'null']
+                }}
+              </td>
               <td>
-                @if (payment.paymentMethod) {
+                @if (payment.paymentGateway) {
                   <div>
-                    <a [routerLink]="['/payment-method', payment.paymentMethod.id, 'view']">{{ payment.paymentMethod.code }}</a>
+                    <a [routerLink]="['/payment-gateway', payment.paymentGateway.id, 'view']">{{ payment.paymentGateway.aliasCode }}</a>
                   </div>
                 }
               </td>

@@ -14,6 +14,7 @@ import { IBrand } from 'app/entities/brand/brand.model';
 import { BrandService } from 'app/entities/brand/service/brand.service';
 import { ISupplier } from 'app/entities/supplier/supplier.model';
 import { SupplierService } from 'app/entities/supplier/service/supplier.service';
+import { ActivationStatusEnum } from 'app/entities/enumerations/activation-status-enum.model';
 import { ProductService } from '../service/product.service';
 import { IProduct } from '../product.model';
 import { ProductFormService, ProductFormGroup } from './product-form.service';
@@ -27,6 +28,7 @@ import { ProductFormService, ProductFormGroup } from './product-form.service';
 export class ProductUpdateComponent implements OnInit {
   isSaving = false;
   product: IProduct | null = null;
+  activationStatusEnumValues = Object.keys(ActivationStatusEnum);
 
   brandsSharedCollection: IBrand[] = [];
   suppliersSharedCollection: ISupplier[] = [];
@@ -114,7 +116,7 @@ export class ProductUpdateComponent implements OnInit {
     this.brandsSharedCollection = this.brandService.addBrandToCollectionIfMissing<IBrand>(this.brandsSharedCollection, product.brand);
     this.suppliersSharedCollection = this.supplierService.addSupplierToCollectionIfMissing<ISupplier>(
       this.suppliersSharedCollection,
-      ...(product.suppliersLists ?? []),
+      ...(product.toSuppliers ?? []),
     );
   }
 
@@ -130,7 +132,7 @@ export class ProductUpdateComponent implements OnInit {
       .pipe(map((res: HttpResponse<ISupplier[]>) => res.body ?? []))
       .pipe(
         map((suppliers: ISupplier[]) =>
-          this.supplierService.addSupplierToCollectionIfMissing<ISupplier>(suppliers, ...(this.product?.suppliersLists ?? [])),
+          this.supplierService.addSupplierToCollectionIfMissing<ISupplier>(suppliers, ...(this.product?.toSuppliers ?? [])),
         ),
       )
       .subscribe((suppliers: ISupplier[]) => (this.suppliersSharedCollection = suppliers));

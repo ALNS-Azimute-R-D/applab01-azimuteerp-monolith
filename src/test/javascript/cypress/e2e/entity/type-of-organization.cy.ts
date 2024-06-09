@@ -15,7 +15,7 @@ describe('TypeOfOrganization e2e test', () => {
   const typeOfOrganizationPageUrlPattern = new RegExp('/type-of-organization(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const typeOfOrganizationSample = { acronym: 'nurse', name: 'though off before', description: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=' };
+  const typeOfOrganizationSample = { acronym: 'given', name: 'barring tap times', description: 'session joyfully' };
 
   let typeOfOrganization;
 
@@ -160,17 +160,17 @@ describe('TypeOfOrganization e2e test', () => {
     });
 
     it('should create an instance of TypeOfOrganization', () => {
-      cy.get(`[data-cy="acronym"]`).type('anxious');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'anxious');
+      cy.get(`[data-cy="acronym"]`).type('anti mid');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'anti mid');
 
-      cy.get(`[data-cy="name"]`).type('since slide');
-      cy.get(`[data-cy="name"]`).should('have.value', 'since slide');
+      cy.get(`[data-cy="name"]`).type('before ew');
+      cy.get(`[data-cy="name"]`).should('have.value', 'before ew');
 
-      cy.get(`[data-cy="description"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="description"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="description"]`).type('as');
+      cy.get(`[data-cy="description"]`).should('have.value', 'as');
 
-      cy.get(`[data-cy="businessHandlerClazz"]`).type('degree finally millennium');
-      cy.get(`[data-cy="businessHandlerClazz"]`).should('have.value', 'degree finally millennium');
+      cy.get(`[data-cy="businessHandlerClazz"]`).type('overconfidently');
+      cy.get(`[data-cy="businessHandlerClazz"]`).should('have.value', 'overconfidently');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

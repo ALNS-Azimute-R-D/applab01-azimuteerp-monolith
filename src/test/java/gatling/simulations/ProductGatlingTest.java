@@ -110,7 +110,7 @@ public class ProductGatlingTest extends Simulation {
                                 "{" +
                                 "\"productSKU\": \"SAMPLE_TEXT\"" +
                                 ", \"productName\": \"SAMPLE_TEXT\"" +
-                                ", \"description\": null" +
+                                ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"standardCost\": 0" +
                                 ", \"listPrice\": 0" +
                                 ", \"reorderLevel\": 0" +
@@ -120,7 +120,7 @@ public class ProductGatlingTest extends Simulation {
                                 ", \"minimumReorderQuantity\": 0" +
                                 ", \"suggestedCategory\": \"SAMPLE_TEXT\"" +
                                 ", \"attachments\": null" +
-                                ", \"supplierIds\": null" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

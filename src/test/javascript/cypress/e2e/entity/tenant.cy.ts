@@ -16,11 +16,11 @@ describe('Tenant e2e test', () => {
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const tenantSample = {
-    acronym: 'qualified until geez',
-    name: 'sizzling unused',
-    description: 'output till near',
-    customerBusinessCode: 'portfolio onto',
-    activationStatus: 'INVALID',
+    acronym: 'skinny',
+    name: 'until easy',
+    description: 'competition joyfully',
+    customerBusinessCode: 'trowel best',
+    activationStatus: 'ACTIVE',
   };
 
   let tenant;
@@ -166,36 +166,36 @@ describe('Tenant e2e test', () => {
     });
 
     it('should create an instance of Tenant', () => {
-      cy.get(`[data-cy="acronym"]`).type('upon strident');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'upon strident');
+      cy.get(`[data-cy="acronym"]`).type('skipper furthermore ');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'skipper furthermore ');
 
-      cy.get(`[data-cy="name"]`).type('apud');
-      cy.get(`[data-cy="name"]`).should('have.value', 'apud');
+      cy.get(`[data-cy="name"]`).type('under afore');
+      cy.get(`[data-cy="name"]`).should('have.value', 'under afore');
 
-      cy.get(`[data-cy="description"]`).type('worriedly');
-      cy.get(`[data-cy="description"]`).should('have.value', 'worriedly');
+      cy.get(`[data-cy="description"]`).type('long so after');
+      cy.get(`[data-cy="description"]`).should('have.value', 'long so after');
 
-      cy.get(`[data-cy="customerBusinessCode"]`).type('best speedily');
-      cy.get(`[data-cy="customerBusinessCode"]`).should('have.value', 'best speedily');
+      cy.get(`[data-cy="customerBusinessCode"]`).type('whoa outgun ton');
+      cy.get(`[data-cy="customerBusinessCode"]`).should('have.value', 'whoa outgun ton');
 
-      cy.get(`[data-cy="businessHandlerClazz"]`).type('shyly');
-      cy.get(`[data-cy="businessHandlerClazz"]`).should('have.value', 'shyly');
+      cy.get(`[data-cy="businessHandlerClazz"]`).type('composed');
+      cy.get(`[data-cy="businessHandlerClazz"]`).should('have.value', 'composed');
 
-      cy.get(`[data-cy="mainContactPersonDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="mainContactPersonDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="mainContactPersonDetailsJSON"]`).type('matter');
+      cy.get(`[data-cy="mainContactPersonDetailsJSON"]`).should('have.value', 'matter');
 
-      cy.get(`[data-cy="billingDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="billingDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="billingDetailsJSON"]`).type('dearly against');
+      cy.get(`[data-cy="billingDetailsJSON"]`).should('have.value', 'dearly against');
 
-      cy.get(`[data-cy="technicalEnvironmentsDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="technicalEnvironmentsDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="technicalEnvironmentsDetailsJSON"]`).type('avalanche ugh');
+      cy.get(`[data-cy="technicalEnvironmentsDetailsJSON"]`).should('have.value', 'avalanche ugh');
 
-      cy.get(`[data-cy="commonCustomAttributesDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="commonCustomAttributesDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('harsh');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'harsh');
 
       cy.setFieldImageAsBytesOfEntity('logoImg', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="activationStatus"]`).select('PENDENT');
+      cy.get(`[data-cy="activationStatus"]`).select('INVALID');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting

@@ -30,7 +30,7 @@ describe('BusinessUnit e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/organizations',
-      body: {"acronym":"wetly","businessCode":"marionberry","hierarchicalLevel":"for salaam worthless","name":"patiently oof","description":"sans landmine wonderfully","businessHandlerClazz":"furiously wobbly","mainContactPersonDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","technicalEnvironmentsDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","commonCustomAttributesDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","organizationStatus":"ONBOARDING","activationStatus":"ACTIVE","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
+      body: {"acronym":"misty ugh brightly","businessCode":"failing clash s","hierarchicalLevel":"indicator ew times","name":"fake meanwhile mealy","description":"over","businessHandlerClazz":"modulate usefully","mainContactPersonDetailsJSON":"modern boo","technicalEnvironmentsDetailsJSON":"extemporise ha","customAttributesDetailsJSON":"trained","organizationStatus":"ONBOARDING","activationStatus":"BLOCKED","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
     }).then(({ body }) => {
       organization = body;
     });

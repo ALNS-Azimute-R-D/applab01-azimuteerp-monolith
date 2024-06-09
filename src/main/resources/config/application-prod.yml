@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: INFO
     tech.jhipster: INFO
-    de.org.dexterity.azimuteerp.monolith: INFO
+    org.dexterity.darueira.azimuteerp.monolith.spring: INFO
 
 management:
   prometheus:

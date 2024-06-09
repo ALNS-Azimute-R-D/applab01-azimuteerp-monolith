@@ -72,9 +72,19 @@
               </div>
             }
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.product.supplierIds">Supplier Ids</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.product.activationStatus">Activation Status</span></dt>
           <dd>
-            <span>{{ product()!.supplierIds }}</span>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (product()!.activationStatus ?? 'null')">{{
+              {
+                null: '',
+                INACTIVE: 'INACTIVE',
+                ACTIVE: 'ACTIVE',
+                ON_HOLD: 'ON_HOLD',
+                PENDENT: 'PENDENT',
+                BLOCKED: 'BLOCKED',
+                INVALID: 'INVALID'
+              }[product()!.activationStatus ?? 'null']
+            }}</span>
           </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.product.brand">Brand</span></dt>
           <dd>
@@ -84,11 +94,11 @@
               </div>
             }
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.product.suppliersList">Suppliers List</span></dt>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.product.toSupplier">To Supplier</span></dt>
           <dd>
-            @for (suppliersList of product()!.suppliersLists; track $index; let last = $last) {
+            @for (toSupplier of product()!.toSuppliers; track $index; let last = $last) {
               <span>
-                <a [routerLink]="['/supplier', suppliersList.id, 'view']">{{ suppliersList?.id }}</a
+                <a [routerLink]="['/supplier', toSupplier.id, 'view']">{{ toSupplier?.id }}</a
                 >{{ last ? '' : ', ' }}
               </span>
             }

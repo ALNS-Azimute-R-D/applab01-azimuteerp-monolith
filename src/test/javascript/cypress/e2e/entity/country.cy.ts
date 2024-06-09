@@ -15,7 +15,7 @@ describe('Country e2e test', () => {
   const countryPageUrlPattern = new RegExp('/country(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const countrySample = { acronym: 'who', name: 'indeed', continent: 'SOUTH_AMERICA' };
+  const countrySample = { acronym: 'whe', name: 'enormously', continent: 'ASIA' };
 
   let country;
 
@@ -160,13 +160,13 @@ describe('Country e2e test', () => {
     });
 
     it('should create an instance of Country', () => {
-      cy.get(`[data-cy="acronym"]`).type('pla');
-      cy.get(`[data-cy="acronym"]`).should('have.value', 'pla');
+      cy.get(`[data-cy="acronym"]`).type('tim');
+      cy.get(`[data-cy="acronym"]`).should('have.value', 'tim');
 
-      cy.get(`[data-cy="name"]`).type('off magic whose');
-      cy.get(`[data-cy="name"]`).should('have.value', 'off magic whose');
+      cy.get(`[data-cy="name"]`).type('frank once');
+      cy.get(`[data-cy="name"]`).should('have.value', 'frank once');
 
-      cy.get(`[data-cy="continent"]`).select('OCEANIA');
+      cy.get(`[data-cy="continent"]`).select('AFRICA');
 
       cy.setFieldImageAsBytesOfEntity('geoPolygonArea', 'integration-test.png', 'image/png');
 

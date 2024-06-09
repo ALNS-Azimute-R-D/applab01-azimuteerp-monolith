@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603204345"
+    "changelogDate": "20240607191123"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "dto": "mapstruct",

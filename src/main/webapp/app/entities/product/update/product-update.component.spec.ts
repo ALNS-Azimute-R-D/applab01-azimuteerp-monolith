@@ -53,10 +53,10 @@ describe('Product Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Brand query and add missing value', () => {
       const product: IProduct = { id: 456 };
-      const brand: IBrand = { id: 13915 };
+      const brand: IBrand = { id: 29437 };
       product.brand = brand;
 
-      const brandCollection: IBrand[] = [{ id: 8261 }];
+      const brandCollection: IBrand[] = [{ id: 4342 }];
       jest.spyOn(brandService, 'query').mockReturnValue(of(new HttpResponse({ body: brandCollection })));
       const additionalBrands = [brand];
       const expectedCollection: IBrand[] = [...additionalBrands, ...brandCollection];
@@ -75,12 +75,12 @@ describe('Product Management Update Component', () => {
 
     it('Should call Supplier query and add missing value', () => {
       const product: IProduct = { id: 456 };
-      const suppliersLists: ISupplier[] = [{ id: 20060 }];
-      product.suppliersLists = suppliersLists;
+      const toSuppliers: ISupplier[] = [{ id: 19113 }];
+      product.toSuppliers = toSuppliers;
 
-      const supplierCollection: ISupplier[] = [{ id: 22089 }];
+      const supplierCollection: ISupplier[] = [{ id: 19045 }];
       jest.spyOn(supplierService, 'query').mockReturnValue(of(new HttpResponse({ body: supplierCollection })));
-      const additionalSuppliers = [...suppliersLists];
+      const additionalSuppliers = [...toSuppliers];
       const expectedCollection: ISupplier[] = [...additionalSuppliers, ...supplierCollection];
       jest.spyOn(supplierService, 'addSupplierToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -97,16 +97,16 @@ describe('Product Management Update Component', () => {
 
     it('Should update editForm', () => {
       const product: IProduct = { id: 456 };
-      const brand: IBrand = { id: 31829 };
+      const brand: IBrand = { id: 24767 };
       product.brand = brand;
-      const suppliersList: ISupplier = { id: 27659 };
-      product.suppliersLists = [suppliersList];
+      const toSupplier: ISupplier = { id: 17732 };
+      product.toSuppliers = [toSupplier];
 
       activatedRoute.data = of({ product });
       comp.ngOnInit();
 
       expect(comp.brandsSharedCollection).toContain(brand);
-      expect(comp.suppliersSharedCollection).toContain(suppliersList);
+      expect(comp.suppliersSharedCollection).toContain(toSupplier);
       expect(comp.product).toEqual(product);
     });
   });

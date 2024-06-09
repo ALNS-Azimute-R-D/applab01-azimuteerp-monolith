@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603211055"
+    "changelogDate": "20240607193523"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "dto": "mapstruct",
@@ -21,8 +21,14 @@
     },
     {
       "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "512"
+    },
+    {
+      "fieldName": "logoBrand",
       "fieldType": "byte[]",
-      "fieldTypeBlobContent": "text"
+      "fieldTypeBlobContent": "image"
     }
   ],
   "name": "Brand",

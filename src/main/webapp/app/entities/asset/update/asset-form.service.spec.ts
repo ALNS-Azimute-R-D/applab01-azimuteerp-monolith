@@ -20,15 +20,16 @@ describe('Asset Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            uid: expect.any(Object),
             name: expect.any(Object),
             storageTypeUsed: expect.any(Object),
             fullFilenamePath: expect.any(Object),
             status: expect.any(Object),
             preferredPurpose: expect.any(Object),
             assetContentAsBlob: expect.any(Object),
+            activationStatus: expect.any(Object),
             assetType: expect.any(Object),
             rawAssetProcTmp: expect.any(Object),
+            assetCollections: expect.any(Object),
           }),
         );
       });
@@ -39,15 +40,16 @@ describe('Asset Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            uid: expect.any(Object),
             name: expect.any(Object),
             storageTypeUsed: expect.any(Object),
             fullFilenamePath: expect.any(Object),
             status: expect.any(Object),
             preferredPurpose: expect.any(Object),
             assetContentAsBlob: expect.any(Object),
+            activationStatus: expect.any(Object),
             assetType: expect.any(Object),
             rawAssetProcTmp: expect.any(Object),
+            assetCollections: expect.any(Object),
           }),
         );
       });

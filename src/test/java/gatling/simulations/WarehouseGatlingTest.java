@@ -110,7 +110,7 @@ public class WarehouseGatlingTest extends Simulation {
                                 "{" +
                                 "\"acronym\": \"SAMPLE_TEXT\"" +
                                 ", \"name\": \"SAMPLE_TEXT\"" +
-                                ", \"description\": null" +
+                                ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"streetAddress\": \"SAMPLE_TEXT\"" +
                                 ", \"houseNumber\": \"SAMPLE_TEXT\"" +
                                 ", \"locationName\": \"SAMPLE_TEXT\"" +
@@ -120,7 +120,8 @@ public class WarehouseGatlingTest extends Simulation {
                                 ", \"landPhoneNumber\": \"SAMPLE_TEXT\"" +
                                 ", \"mobilePhoneNumber\": \"SAMPLE_TEXT\"" +
                                 ", \"faxNumber\": \"SAMPLE_TEXT\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

@@ -1,28 +1,32 @@
 import { IBrand, NewBrand } from './brand.model';
 
 export const sampleWithRequiredData: IBrand = {
-  id: 25485,
-  acronym: 'mmm',
-  name: 'jam despite slight',
+  id: 1105,
+  acronym: 'sea',
+  name: 'finally following gaseous',
 };
 
 export const sampleWithPartialData: IBrand = {
-  id: 4316,
-  acronym: 'archeology',
-  name: 'unique even',
-  description: '../fake-data/blob/hipster.txt',
+  id: 9085,
+  acronym: 'exposure powerful ac',
+  name: 'yet',
+  description: 'anti',
+  logoBrand: '../fake-data/blob/hipster.png',
+  logoBrandContentType: 'unknown',
 };
 
 export const sampleWithFullData: IBrand = {
-  id: 350,
-  acronym: 'yet',
-  name: 'anti',
-  description: '../fake-data/blob/hipster.txt',
+  id: 26658,
+  acronym: 'nor scratchy made-up',
+  name: 'shelter impure',
+  description: 'salsa',
+  logoBrand: '../fake-data/blob/hipster.png',
+  logoBrandContentType: 'unknown',
 };
 
 export const sampleWithNewData: NewBrand = {
-  acronym: 'supposing throb whim',
-  name: 'than phew',
+  acronym: 'exterminate',
+  name: 'caramelize',
   id: null,
 };
 

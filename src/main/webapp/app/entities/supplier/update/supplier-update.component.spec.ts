@@ -5,10 +5,12 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { of, Subject, from } from 'rxjs';
 
+import { IPerson } from 'app/entities/person/person.model';
+import { PersonService } from 'app/entities/person/service/person.service';
 import { IProduct } from 'app/entities/product/product.model';
 import { ProductService } from 'app/entities/product/service/product.service';
-import { SupplierService } from '../service/supplier.service';
 import { ISupplier } from '../supplier.model';
+import { SupplierService } from '../service/supplier.service';
 import { SupplierFormService } from './supplier-form.service';
 
 import { SupplierUpdateComponent } from './supplier-update.component';
@@ -19,6 +21,7 @@ describe('Supplier Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let supplierFormService: SupplierFormService;
   let supplierService: SupplierService;
+  let personService: PersonService;
   let productService: ProductService;
 
   beforeEach(() => {
@@ -41,20 +44,43 @@ describe('Supplier Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     supplierFormService = TestBed.inject(SupplierFormService);
     supplierService = TestBed.inject(SupplierService);
+    personService = TestBed.inject(PersonService);
     productService = TestBed.inject(ProductService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
+    it('Should call Person query and add missing value', () => {
+      const supplier: ISupplier = { id: 456 };
+      const representativePerson: IPerson = { id: 17407 };
+      supplier.representativePerson = representativePerson;
+
+      const personCollection: IPerson[] = [{ id: 23889 }];
+      jest.spyOn(personService, 'query').mockReturnValue(of(new HttpResponse({ body: personCollection })));
+      const additionalPeople = [representativePerson];
+      const expectedCollection: IPerson[] = [...additionalPeople, ...personCollection];
+      jest.spyOn(personService, 'addPersonToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ supplier });
+      comp.ngOnInit();
+
+      expect(personService.query).toHaveBeenCalled();
+      expect(personService.addPersonToCollectionIfMissing).toHaveBeenCalledWith(
+        personCollection,
+        ...additionalPeople.map(expect.objectContaining),
+      );
+      expect(comp.peopleSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should call Product query and add missing value', () => {
       const supplier: ISupplier = { id: 456 };
-      const productsLists: IProduct[] = [{ id: 10707 }];
-      supplier.productsLists = productsLists;
+      const toProducts: IProduct[] = [{ id: 10707 }];
+      supplier.toProducts = toProducts;
 
       const productCollection: IProduct[] = [{ id: 25843 }];
       jest.spyOn(productService, 'query').mockReturnValue(of(new HttpResponse({ body: productCollection })));
-      const additionalProducts = [...productsLists];
+      const additionalProducts = [...toProducts];
       const expectedCollection: IProduct[] = [...additionalProducts, ...productCollection];
       jest.spyOn(productService, 'addProductToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -71,13 +97,16 @@ describe('Supplier Management Update Component', () => {
 
     it('Should update editForm', () => {
       const supplier: ISupplier = { id: 456 };
-      const productsList: IProduct = { id: 4528 };
-      supplier.productsLists = [productsList];
+      const representativePerson: IPerson = { id: 25466 };
+      supplier.representativePerson = representativePerson;
+      const toProduct: IProduct = { id: 4528 };
+      supplier.toProducts = [toProduct];
 
       activatedRoute.data = of({ supplier });
       comp.ngOnInit();
 
-      expect(comp.productsSharedCollection).toContain(productsList);
+      expect(comp.peopleSharedCollection).toContain(representativePerson);
+      expect(comp.productsSharedCollection).toContain(toProduct);
       expect(comp.supplier).toEqual(supplier);
     });
   });
@@ -151,6 +180,16 @@ describe('Supplier Management Update Component', () => {
   });
 
   describe('Compare relationships', () => {
+    describe('comparePerson', () => {
+      it('Should forward to personService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(personService, 'comparePerson');
+        comp.comparePerson(entity, entity2);
+        expect(personService.comparePerson).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
     describe('compareProduct', () => {
       it('Should forward to productService', () => {
         const entity = { id: 123 };

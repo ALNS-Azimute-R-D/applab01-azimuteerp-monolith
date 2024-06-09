@@ -19,10 +19,6 @@
           <dd>
             <span>{{ order()!.businessCode }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.customerUserId">Customer User Id</span></dt>
-          <dd>
-            <span>{{ order()!.customerUserId }}</span>
-          </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.placedDate">Placed Date</span></dt>
           <dd>
             <span>{{ order()!.placedDate | formatMediumDatetime }}</span>
@@ -41,13 +37,39 @@
               { null: '', COMPLETED: 'COMPLETED', PENDING: 'PENDING', CANCELLED: 'CANCELLED' }[order()!.status ?? 'null']
             }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.invoiceId">Invoice Id</span></dt>
-          <dd>
-            <span>{{ order()!.invoiceId }}</span>
-          </dd>
           <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.estimatedDeliveryDate">Estimated Delivery Date</span></dt>
           <dd>
             <span>{{ order()!.estimatedDeliveryDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.activationStatus">Activation Status</span></dt>
+          <dd>
+            <span [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (order()!.activationStatus ?? 'null')">{{
+              {
+                null: '',
+                INACTIVE: 'INACTIVE',
+                ACTIVE: 'ACTIVE',
+                ON_HOLD: 'ON_HOLD',
+                PENDENT: 'PENDENT',
+                BLOCKED: 'BLOCKED',
+                INVALID: 'INVALID'
+              }[order()!.activationStatus ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.invoice">Invoice</span></dt>
+          <dd>
+            @if (order()!.invoice) {
+              <div>
+                <a [routerLink]="['/invoice', order()!.invoice?.id, 'view']">{{ order()!.invoice?.description }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.order.customer">Customer</span></dt>
+          <dd>
+            @if (order()!.customer) {
+              <div>
+                <a [routerLink]="['/customer', order()!.customer?.id, 'view']">{{ order()!.customer?.fullname }}</a>
+              </div>
+            }
           </dd>
         </dl>
 

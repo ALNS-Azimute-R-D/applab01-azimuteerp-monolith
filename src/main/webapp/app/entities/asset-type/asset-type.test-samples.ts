@@ -10,20 +10,20 @@ export const sampleWithPartialData: IAssetType = {
   acronym: 'rail',
   name: 'gosh',
   handlerClazzName: 'till unless',
-  extraDetails: '../fake-data/blob/hipster.txt',
+  customAttributesDetailsJSON: 'crook attest elegantly',
 };
 
 export const sampleWithFullData: IAssetType = {
-  id: 25171,
-  acronym: 'lumber out caffeine',
-  name: 'captor throughout toward',
-  description: 'lest particularize',
-  handlerClazzName: 'unlike',
-  extraDetails: '../fake-data/blob/hipster.txt',
+  id: 3938,
+  acronym: 'captor throughout toward',
+  name: 'lest particularize',
+  description: 'unlike',
+  handlerClazzName: 'consult phew oily',
+  customAttributesDetailsJSON: 'phooey',
 };
 
 export const sampleWithNewData: NewAssetType = {
-  name: 'consult phew oily',
+  name: 'what',
   id: null,
 };
 

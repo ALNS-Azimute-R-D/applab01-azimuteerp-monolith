@@ -114,7 +114,7 @@ public class RawAssetProcTmpGatlingTest extends Simulation {
                                 ", \"statusRawProcessing\": \"UPLOADING\"" +
                                 ", \"fullFilenamePath\": \"SAMPLE_TEXT\"" +
                                 ", \"assetRawContentAsBlob\": null" +
-                                ", \"extraDetails\": null" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 "}"
                             )
                         )

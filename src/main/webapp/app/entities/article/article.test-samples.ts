@@ -1,33 +1,35 @@
 import { IArticle, NewArticle } from './article.model';
 
 export const sampleWithRequiredData: IArticle = {
-  id: 4156,
-  inventoryProductId: 27978,
+  id: 3986,
+  inventoryProductId: 15524,
   itemSize: 'XXL',
+  activationStatus: 'BLOCKED',
 };
 
 export const sampleWithPartialData: IArticle = {
-  id: 30496,
-  inventoryProductId: 4863,
-  customName: 'furthermore apropos',
-  customDescription: '../fake-data/blob/hipster.txt',
-  itemSize: 'XL',
+  id: 16451,
+  inventoryProductId: 3126,
+  customDescription: 'of merit',
+  itemSize: 'M',
+  activationStatus: 'INVALID',
 };
 
 export const sampleWithFullData: IArticle = {
-  id: 22977,
-  inventoryProductId: 18200,
-  customName: 'before',
-  customDescription: '../fake-data/blob/hipster.txt',
-  priceValue: 24991.54,
-  itemSize: 'XXXL',
-  assetsCollectionUUID: 'recall spiritual flush',
-  isEnabled: false,
+  id: 18190,
+  inventoryProductId: 12470,
+  skuCode: 'rev',
+  customName: 'hesitate overview',
+  customDescription: 'warmhearted real',
+  priceValue: 29947.64,
+  itemSize: 'XXL',
+  activationStatus: 'PENDENT',
 };
 
 export const sampleWithNewData: NewArticle = {
-  inventoryProductId: 21742,
+  inventoryProductId: 25841,
   itemSize: 'XXXL',
+  activationStatus: 'ACTIVE',
   id: null,
 };
 

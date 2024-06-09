@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603205838"
+    "changelogDate": "20240607192523"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "documentation": "- RawAssetProcTmp\\n- AssetType\\n- Asset\\n- AssetMetadata",
@@ -32,9 +32,10 @@
       "fieldValidateRulesMaxlength": "255"
     },
     {
-      "fieldName": "extraDetails",
-      "fieldType": "byte[]",
-      "fieldTypeBlobContent": "text"
+      "fieldName": "customAttributesDetailsJSON",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2048"
     }
   ],
   "name": "AssetType",

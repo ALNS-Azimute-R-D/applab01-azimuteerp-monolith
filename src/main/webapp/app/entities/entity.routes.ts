@@ -22,9 +22,9 @@ const routes: Routes = [
     loadChildren: () => import('./district/district.routes'),
   },
   {
-    path: 'locality',
-    data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.locality.home.title' },
-    loadChildren: () => import('./locality/locality.routes'),
+    path: 'common-locality',
+    data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.commonLocality.home.title' },
+    loadChildren: () => import('./common-locality/common-locality.routes'),
   },
   {
     path: 'tenant',
@@ -102,14 +102,19 @@ const routes: Routes = [
     loadChildren: () => import('./asset-metadata/asset-metadata.routes'),
   },
   {
+    path: 'asset-collection',
+    data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.assetCollection.home.title' },
+    loadChildren: () => import('./asset-collection/asset-collection.routes'),
+  },
+  {
     path: 'invoice',
     data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.invoice.home.title' },
     loadChildren: () => import('./invoice/invoice.routes'),
   },
   {
-    path: 'payment-method',
-    data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.paymentMethod.home.title' },
-    loadChildren: () => import('./payment-method/payment-method.routes'),
+    path: 'payment-gateway',
+    data: { pageTitle: 'azimuteErpSpringAngularMonolith01App.paymentGateway.home.title' },
+    loadChildren: () => import('./payment-gateway/payment-gateway.routes'),
   },
   {
     path: 'payment',

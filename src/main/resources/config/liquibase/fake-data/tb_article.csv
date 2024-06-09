@@ -1,11 +1,11 @@
-id;inventory_product_id;custom_name;custom_description;price_value;item_size;assets_collection_uuid;is_enabled
-1;20418;majestic chief prelude;../fake-data/blob/hipster.txt;14831.24;S;aw;false
-2;498;joyful gynaecology;../fake-data/blob/hipster.txt;14821.82;M;yowza;false
-3;27268;scholarly;../fake-data/blob/hipster.txt;29648.54;XL;now ew;true
-4;15044;judgementally obtain;../fake-data/blob/hipster.txt;15807.09;L;until following ack;true
-5;7129;slim unlawful gadzooks;../fake-data/blob/hipster.txt;32487.44;M;eek whoa drill;true
-6;9747;psst;../fake-data/blob/hipster.txt;32508.71;L;ha formalise;false
-7;2564;aha ouch;../fake-data/blob/hipster.txt;18529.33;XXL;unkempt;true
-8;19813;naturally;../fake-data/blob/hipster.txt;4541.3;M;yowza;true
-9;24412;gah;../fake-data/blob/hipster.txt;7333.96;XXXL;sans;false
-10;6628;oof;../fake-data/blob/hipster.txt;10575.74;M;aha;false
+id;inventory_product_id;sku_code;custom_name;custom_description;price_value;item_size;activation_status
+1;20418;majestic chief prelude;inasmuch unlike;leapfrog compassionate;1343.17;XXXL;ON_HOLD
+2;24311;festival popular;now ew;and behind;6701.88;XL;ON_HOLD
+3;11505;until following ack;roast;ragged when cautiously;14056.94;S;ON_HOLD
+4;19820;antibody;enchant;psst;32508.71;L;PENDENT
+5;12219;bashfully;meanwhile;correctly midst;22829.89;M;ON_HOLD
+6;20628;brake naturally customize;woot throw affront;educated uh-huh over;2105.05;XXL;INACTIVE
+7;1179;exhausted vigorous boohoo;respectful vague piece;sweet;21441.27;XXL;ON_HOLD
+8;26847;and lull;rim blame;maintain defiantly;9131.34;XXL;ON_HOLD
+9;19560;why including hiccup;provided enigma yowza;concrete;5708.94;L;INACTIVE
+10;11955;angrily obediently;vitrify increase yum;but likewise pail;11340.05;XXL;INACTIVE

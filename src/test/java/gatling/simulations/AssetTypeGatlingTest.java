@@ -112,7 +112,7 @@ public class AssetTypeGatlingTest extends Simulation {
                                 ", \"name\": \"SAMPLE_TEXT\"" +
                                 ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"handlerClazzName\": \"SAMPLE_TEXT\"" +
-                                ", \"extraDetails\": null" +
+                                ", \"customAttributesDetailsJSON\": \"SAMPLE_TEXT\"" +
                                 "}"
                             )
                         )

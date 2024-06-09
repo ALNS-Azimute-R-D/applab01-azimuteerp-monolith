@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240603204343"
+    "changelogDate": "20240607190923"
   },
   "applications": ["azimuteERPSpringAngularMonolith01"],
   "documentation": "- Country\\n- Province\\n- TownCity\\n- District\\n- Locality",
@@ -38,13 +38,6 @@
       "otherEntityName": "province",
       "otherEntityRelationshipName": "country",
       "relationshipName": "provincesList",
-      "relationshipSide": "right",
-      "relationshipType": "one-to-many"
-    },
-    {
-      "otherEntityName": "locality",
-      "otherEntityRelationshipName": "country",
-      "relationshipName": "localitiesList",
       "relationshipSide": "right",
       "relationshipType": "one-to-many"
     }

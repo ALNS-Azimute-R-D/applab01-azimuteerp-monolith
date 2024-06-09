@@ -1,11 +1,11 @@
-id;business_code;original_order_id;invoice_date;due_date;description;tax_value;shipping_value;amount_due_value;number_of_installments_original;number_of_installments_paid;amount_paid_value;status;extra_details
-1;distinguish vic;7599;2024-06-03T08:53:06;2024-06-03T20:57:57;outside regularly;2515.13;8336.82;5228.87;12519;30534;5577.5;CANCELLED;../fake-data/blob/hipster.txt
-2;aboard duh;32518;2024-06-02T23:17:26;2024-06-03T11:01:17;begonia;13692.52;1930.31;5648.47;31157;18713;26377.33;PAID_ONCE;../fake-data/blob/hipster.txt
-3;lively annually;6292;2024-06-03T09:26:35;2024-06-03T12:56:12;solace;22909.93;4696.88;6372.95;13792;21473;30065.82;CANCELLED;../fake-data/blob/hipster.txt
-4;unless remunera;19586;2024-06-03T20:41:16;2024-06-03T01:06:08;fibroblast hm;21065.27;30474.99;15703.79;16407;23970;28889.68;PAID_ONCE;../fake-data/blob/hipster.txt
-5;photocopy;25161;2024-06-03T20:38:49;2024-06-02T21:18:21;notwithstanding out;10337.64;2745.79;2851.65;5313;31603;30094.93;PAID_ONCE;../fake-data/blob/hipster.txt
-6;ha although hap;7627;2024-06-03T11:55:02;2024-06-03T15:50:59;carve over;30409.6;22780.2;6026.11;21246;25885;15686.73;PAYING_IN_INSTALLMENTS;../fake-data/blob/hipster.txt
-7;loyally;16537;2024-06-02T23:25:26;2024-06-03T02:53:42;shortage unto calmly;270.21;15130.19;9187.53;11653;1113;7922.4;PAYING_IN_INSTALLMENTS;../fake-data/blob/hipster.txt
-8;substantial sim;14877;2024-06-03T19:47:58;2024-06-03T08:03:10;supposing downforce against;31793.58;20338.46;21778;30310;30044;5349.47;CANCELLED;../fake-data/blob/hipster.txt
-9;unloosen gah hm;18613;2024-06-03T15:17:33;2024-06-02T21:15:43;bah deliberately;28436.53;21731.11;15865.86;30502;6363;22753.75;CANCELLED;../fake-data/blob/hipster.txt
-10;utilize;29400;2024-06-03T16:10:52;2024-06-03T18:09:35;meh;26665.94;9769.29;7735.3;28412;21826;27618.04;ISSUED;../fake-data/blob/hipster.txt
+id;business_code;invoice_date;due_date;description;tax_value;shipping_value;amount_due_value;number_of_installments_original;number_of_installments_paid;amount_paid_value;status;custom_attributes_details_json;activation_status
+1;distinguish vic;2024-06-07T13:56:25;2024-06-07T07:16:33;calmly;22093.38;26142.69;30030.01;20793;6907;31685.72;PAYING_IN_INSTALLMENTS;ack knowledgeable;INACTIVE
+2;wrench;2024-06-06T21:40:53;2024-06-07T09:24:44;begonia;13692.52;1930.31;5648.47;31157;18713;26377.33;PAID_ONCE;lively annually between;ACTIVE
+3;bartender reass;2024-06-06T21:29:05;2024-06-06T23:05:51;unless remunerate remount;19585.89;583.43;27323.79;20483;4070;27451.21;PAID_ONCE;shabby latter;BLOCKED
+4;wallpaper kenne;2024-06-07T05:38:39;2024-06-07T10:07:42;anenst watchful sleepily;7407.74;12298.41;2409.07;860;27664;28847.77;CANCELLED;page carve over;INVALID
+5;purse leek usel;2024-06-07T01:21:03;2024-06-07T15:25:05;unto calmly yum;23030.33;9581.23;16516.42;19835;27495;12089.13;ISSUED;similar order circa;INVALID
+6;extremely;2024-06-07T12:45:45;2024-06-07T12:49:02;waggle why;9747.7;5203.35;2596.2;5442;17272;1621.75;CANCELLED;whoa mister meaty;PENDENT
+7;boo;2024-06-07T15:30:39;2024-06-06T22:40:41;knavishly zowie;6736.54;4035.1;3406.34;321;32319;5943.3;PAID_ONCE;out less;BLOCKED
+8;lest full;2024-06-07T19:27:02;2024-06-07T00:29:24;psst well-documented;26296.59;22488.86;6051.57;6222;12803;13715.05;ISSUED;gadzooks;INACTIVE
+9;incidentally sc;2024-06-07T10:09:07;2024-06-07T18:53:22;noisily ouch puzzled;24095.43;1938.63;3928.13;9095;15604;30140.23;ISSUED;mislead tot;INVALID
+10;alien however;2024-06-06T20:42:45;2024-06-06T23:12:06;visor as;26951.47;13951.25;3493.19;24927;7224;23076.7;ISSUED;queasy prejudge celsius;BLOCKED

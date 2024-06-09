@@ -53,10 +53,10 @@ describe('StockLevel Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Warehouse query and add missing value', () => {
       const stockLevel: IStockLevel = { id: 456 };
-      const warehouse: IWarehouse = { id: 7950 };
+      const warehouse: IWarehouse = { id: 17102 };
       stockLevel.warehouse = warehouse;
 
-      const warehouseCollection: IWarehouse[] = [{ id: 21648 }];
+      const warehouseCollection: IWarehouse[] = [{ id: 16106 }];
       jest.spyOn(warehouseService, 'query').mockReturnValue(of(new HttpResponse({ body: warehouseCollection })));
       const additionalWarehouses = [warehouse];
       const expectedCollection: IWarehouse[] = [...additionalWarehouses, ...warehouseCollection];
@@ -75,10 +75,10 @@ describe('StockLevel Management Update Component', () => {
 
     it('Should call Product query and add missing value', () => {
       const stockLevel: IStockLevel = { id: 456 };
-      const product: IProduct = { id: 16676 };
+      const product: IProduct = { id: 17412 };
       stockLevel.product = product;
 
-      const productCollection: IProduct[] = [{ id: 25140 }];
+      const productCollection: IProduct[] = [{ id: 7427 }];
       jest.spyOn(productService, 'query').mockReturnValue(of(new HttpResponse({ body: productCollection })));
       const additionalProducts = [product];
       const expectedCollection: IProduct[] = [...additionalProducts, ...productCollection];
@@ -97,9 +97,9 @@ describe('StockLevel Management Update Component', () => {
 
     it('Should update editForm', () => {
       const stockLevel: IStockLevel = { id: 456 };
-      const warehouse: IWarehouse = { id: 30677 };
+      const warehouse: IWarehouse = { id: 30516 };
       stockLevel.warehouse = warehouse;
-      const product: IProduct = { id: 3464 };
+      const product: IProduct = { id: 16776 };
       stockLevel.product = product;
 
       activatedRoute.data = of({ stockLevel });

@@ -16,16 +16,17 @@ describe('Payment e2e test', () => {
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const paymentSample = {
-    installmentNumber: 27145,
-    paymentDueDate: '2024-06-03T07:20:38.724Z',
-    paymentPaidDate: '2024-06-03T11:50:09.331Z',
-    paymentAmount: 24910.69,
-    typeOfPayment: 'DEBIT',
-    status: 'DELAYED',
+    installmentNumber: 64,
+    paymentDueDate: '2024-06-07T11:56:23.841Z',
+    paymentPaidDate: '2024-06-07T06:11:46.178Z',
+    paymentAmount: 28176.33,
+    typeOfPayment: 'BANK_TRANSFER',
+    statusPayment: 'OPEN',
+    activationStatus: 'INACTIVE',
   };
 
   let payment;
-  let paymentMethod;
+  let paymentGateway;
 
   beforeEach(() => {
     cy.login(username, password);
@@ -35,10 +36,10 @@ describe('Payment e2e test', () => {
     // create an instance at the required relationship entity:
     cy.authenticatedRequest({
       method: 'POST',
-      url: '/api/payment-methods',
-      body: { code: 'when why t', description: 'in seriously', businessHandlerClazz: 'eek at unexpectedly' },
+      url: '/api/payment-gateways',
+      body: { aliasCode: 'secret achiever retu', description: 'weakly', businessHandlerClazz: 'of', activationStatus: 'ON_HOLD' },
     }).then(({ body }) => {
-      paymentMethod = body;
+      paymentGateway = body;
     });
   });
 
@@ -50,9 +51,9 @@ describe('Payment e2e test', () => {
 
   beforeEach(() => {
     // Simulate relationships api for better performance and reproducibility.
-    cy.intercept('GET', '/api/payment-methods', {
+    cy.intercept('GET', '/api/payment-gateways', {
       statusCode: 200,
-      body: [paymentMethod],
+      body: [paymentGateway],
     });
   });
 
@@ -68,12 +69,12 @@ describe('Payment e2e test', () => {
   });
 
   afterEach(() => {
-    if (paymentMethod) {
+    if (paymentGateway) {
       cy.authenticatedRequest({
         method: 'DELETE',
-        url: `/api/payment-methods/${paymentMethod.id}`,
+        url: `/api/payment-gateways/${paymentGateway.id}`,
       }).then(() => {
-        paymentMethod = undefined;
+        paymentGateway = undefined;
       });
     }
   });
@@ -119,7 +120,7 @@ describe('Payment e2e test', () => {
           url: '/api/payments',
           body: {
             ...paymentSample,
-            paymentMethod: paymentMethod,
+            paymentGateway: paymentGateway,
           },
         }).then(({ body }) => {
           payment = body;
@@ -201,28 +202,30 @@ describe('Payment e2e test', () => {
     });
 
     it('should create an instance of Payment', () => {
-      cy.get(`[data-cy="installmentNumber"]`).type('11149');
-      cy.get(`[data-cy="installmentNumber"]`).should('have.value', '11149');
+      cy.get(`[data-cy="installmentNumber"]`).type('17844');
+      cy.get(`[data-cy="installmentNumber"]`).should('have.value', '17844');
 
-      cy.get(`[data-cy="paymentDueDate"]`).type('2024-06-03T19:24');
+      cy.get(`[data-cy="paymentDueDate"]`).type('2024-06-07T13:36');
       cy.get(`[data-cy="paymentDueDate"]`).blur();
-      cy.get(`[data-cy="paymentDueDate"]`).should('have.value', '2024-06-03T19:24');
+      cy.get(`[data-cy="paymentDueDate"]`).should('have.value', '2024-06-07T13:36');
 
-      cy.get(`[data-cy="paymentPaidDate"]`).type('2024-06-03T00:10');
+      cy.get(`[data-cy="paymentPaidDate"]`).type('2024-06-06T23:02');
       cy.get(`[data-cy="paymentPaidDate"]`).blur();
-      cy.get(`[data-cy="paymentPaidDate"]`).should('have.value', '2024-06-03T00:10');
+      cy.get(`[data-cy="paymentPaidDate"]`).should('have.value', '2024-06-06T23:02');
 
-      cy.get(`[data-cy="paymentAmount"]`).type('29924.37');
-      cy.get(`[data-cy="paymentAmount"]`).should('have.value', '29924.37');
+      cy.get(`[data-cy="paymentAmount"]`).type('16902.03');
+      cy.get(`[data-cy="paymentAmount"]`).should('have.value', '16902.03');
 
-      cy.get(`[data-cy="typeOfPayment"]`).select('CREDIT');
+      cy.get(`[data-cy="typeOfPayment"]`).select('BANK_TRANSFER');
 
-      cy.get(`[data-cy="status"]`).select('OPEN');
+      cy.get(`[data-cy="statusPayment"]`).select('DELAYED');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('nor unbearably');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'nor unbearably');
 
-      cy.get(`[data-cy="paymentMethod"]`).select(1);
+      cy.get(`[data-cy="activationStatus"]`).select('PENDENT');
+
+      cy.get(`[data-cy="paymentGateway"]`).select(1);
 
       cy.get(entityCreateSaveButtonSelector).click();
 

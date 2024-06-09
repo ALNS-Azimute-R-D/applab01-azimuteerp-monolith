@@ -15,7 +15,7 @@ describe('Product e2e test', () => {
   const productPageUrlPattern = new RegExp('/product(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productSample = { listPrice: 18714.72, discontinued: true };
+  const productSample = { listPrice: 25886.01, discontinued: false, activationStatus: 'INACTIVE' };
 
   let product;
   let brand;
@@ -29,7 +29,13 @@ describe('Product e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/brands',
-      body: { acronym: 'whereas general safe', name: 'monitor', description: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=' },
+      body: {
+        acronym: 'gosh zowie nice',
+        name: 'unnaturally',
+        description: 'unto',
+        logoBrand: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=',
+        logoBrandContentType: 'unknown',
+      },
     }).then(({ body }) => {
       brand = body;
     });
@@ -48,17 +54,17 @@ describe('Product e2e test', () => {
       body: [brand],
     });
 
+    cy.intercept('GET', '/api/suppliers', {
+      statusCode: 200,
+      body: [],
+    });
+
     cy.intercept('GET', '/api/inventory-transactions', {
       statusCode: 200,
       body: [],
     });
 
     cy.intercept('GET', '/api/stock-levels', {
-      statusCode: 200,
-      body: [],
-    });
-
-    cy.intercept('GET', '/api/suppliers', {
       statusCode: 200,
       body: [],
     });
@@ -209,44 +215,43 @@ describe('Product e2e test', () => {
     });
 
     it('should create an instance of Product', () => {
-      cy.get(`[data-cy="productSKU"]`).type('lining meaningfully corne');
-      cy.get(`[data-cy="productSKU"]`).should('have.value', 'lining meaningfully corne');
+      cy.get(`[data-cy="productSKU"]`).type('gee and');
+      cy.get(`[data-cy="productSKU"]`).should('have.value', 'gee and');
 
-      cy.get(`[data-cy="productName"]`).type('aw tattered boo');
-      cy.get(`[data-cy="productName"]`).should('have.value', 'aw tattered boo');
+      cy.get(`[data-cy="productName"]`).type('whether gee');
+      cy.get(`[data-cy="productName"]`).should('have.value', 'whether gee');
 
-      cy.get(`[data-cy="description"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="description"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="description"]`).type('vacantly');
+      cy.get(`[data-cy="description"]`).should('have.value', 'vacantly');
 
-      cy.get(`[data-cy="standardCost"]`).type('26484.77');
-      cy.get(`[data-cy="standardCost"]`).should('have.value', '26484.77');
+      cy.get(`[data-cy="standardCost"]`).type('23479.42');
+      cy.get(`[data-cy="standardCost"]`).should('have.value', '23479.42');
 
-      cy.get(`[data-cy="listPrice"]`).type('30950.09');
-      cy.get(`[data-cy="listPrice"]`).should('have.value', '30950.09');
+      cy.get(`[data-cy="listPrice"]`).type('26608.02');
+      cy.get(`[data-cy="listPrice"]`).should('have.value', '26608.02');
 
-      cy.get(`[data-cy="reorderLevel"]`).type('3345');
-      cy.get(`[data-cy="reorderLevel"]`).should('have.value', '3345');
+      cy.get(`[data-cy="reorderLevel"]`).type('4312');
+      cy.get(`[data-cy="reorderLevel"]`).should('have.value', '4312');
 
-      cy.get(`[data-cy="targetLevel"]`).type('8757');
-      cy.get(`[data-cy="targetLevel"]`).should('have.value', '8757');
+      cy.get(`[data-cy="targetLevel"]`).type('28444');
+      cy.get(`[data-cy="targetLevel"]`).should('have.value', '28444');
 
-      cy.get(`[data-cy="quantityPerUnit"]`).type('ultimately school woot');
-      cy.get(`[data-cy="quantityPerUnit"]`).should('have.value', 'ultimately school woot');
+      cy.get(`[data-cy="quantityPerUnit"]`).type('after grunt mortally');
+      cy.get(`[data-cy="quantityPerUnit"]`).should('have.value', 'after grunt mortally');
 
       cy.get(`[data-cy="discontinued"]`).should('not.be.checked');
       cy.get(`[data-cy="discontinued"]`).click();
       cy.get(`[data-cy="discontinued"]`).should('be.checked');
 
-      cy.get(`[data-cy="minimumReorderQuantity"]`).type('29188');
-      cy.get(`[data-cy="minimumReorderQuantity"]`).should('have.value', '29188');
+      cy.get(`[data-cy="minimumReorderQuantity"]`).type('3713');
+      cy.get(`[data-cy="minimumReorderQuantity"]`).should('have.value', '3713');
 
-      cy.get(`[data-cy="suggestedCategory"]`).type('whose closed');
-      cy.get(`[data-cy="suggestedCategory"]`).should('have.value', 'whose closed');
+      cy.get(`[data-cy="suggestedCategory"]`).type('than');
+      cy.get(`[data-cy="suggestedCategory"]`).should('have.value', 'than');
 
       cy.setFieldImageAsBytesOfEntity('attachments', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="supplierIds"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="supplierIds"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="activationStatus"]`).select('BLOCKED');
 
       cy.get(`[data-cy="brand"]`).select(1);
 

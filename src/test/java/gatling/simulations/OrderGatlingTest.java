@@ -109,13 +109,12 @@ public class OrderGatlingTest extends Simulation {
                             StringBody(
                                 "{" +
                                 "\"businessCode\": \"SAMPLE_TEXT\"" +
-                                ", \"customerUserId\": \"SAMPLE_TEXT\"" +
                                 ", \"placedDate\": \"2020-01-01T00:00:00.000Z\"" +
                                 ", \"totalTaxValue\": 0" +
                                 ", \"totalDueValue\": 0" +
                                 ", \"status\": \"COMPLETED\"" +
-                                ", \"invoiceId\": 0" +
                                 ", \"estimatedDeliveryDate\": \"2020-01-01T00:00:00.000Z\"" +
+                                ", \"activationStatus\": \"INACTIVE\"" +
                                 "}"
                             )
                         )

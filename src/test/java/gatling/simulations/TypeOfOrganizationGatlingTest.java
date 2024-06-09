@@ -115,7 +115,7 @@ public class TypeOfOrganizationGatlingTest extends Simulation {
                                 "{" +
                                 "\"acronym\": \"SAMPLE_TEXT\"" +
                                 ", \"name\": \"SAMPLE_TEXT\"" +
-                                ", \"description\": null" +
+                                ", \"description\": \"SAMPLE_TEXT\"" +
                                 ", \"businessHandlerClazz\": \"SAMPLE_TEXT\"" +
                                 "}"
                             )

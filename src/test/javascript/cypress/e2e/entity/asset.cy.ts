@@ -15,7 +15,7 @@ describe('Asset e2e test', () => {
   const assetPageUrlPattern = new RegExp('/asset(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const assetSample = { name: 'plus' };
+  const assetSample = { name: 'at jive meh', activationStatus: 'ON_HOLD' };
 
   let asset;
   let assetType;
@@ -30,11 +30,11 @@ describe('Asset e2e test', () => {
       method: 'POST',
       url: '/api/asset-types',
       body: {
-        acronym: 'that',
-        name: 'instead pillow coordinated',
-        description: 'jumble',
-        handlerClazzName: 'duh',
-        extraDetails: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=',
+        acronym: 'um uh-huh leading',
+        name: 'wetly vice',
+        description: 'barring exactly',
+        handlerClazzName: 'glittering properly',
+        customAttributesDetailsJSON: 'astride',
       },
     }).then(({ body }) => {
       assetType = body;
@@ -60,6 +60,11 @@ describe('Asset e2e test', () => {
     });
 
     cy.intercept('GET', '/api/asset-metadata', {
+      statusCode: 200,
+      body: [],
+    });
+
+    cy.intercept('GET', '/api/asset-collections', {
       statusCode: 200,
       body: [],
     });
@@ -210,22 +215,21 @@ describe('Asset e2e test', () => {
     });
 
     it('should create an instance of Asset', () => {
-      cy.get(`[data-cy="uid"]`).type('4cde7ac4-5b49-4ca5-b112-b2529ed701ba');
-      cy.get(`[data-cy="uid"]`).invoke('val').should('match', new RegExp('4cde7ac4-5b49-4ca5-b112-b2529ed701ba'));
+      cy.get(`[data-cy="name"]`).type('very nor grim');
+      cy.get(`[data-cy="name"]`).should('have.value', 'very nor grim');
 
-      cy.get(`[data-cy="name"]`).type('stunning');
-      cy.get(`[data-cy="name"]`).should('have.value', 'stunning');
+      cy.get(`[data-cy="storageTypeUsed"]`).select('BLOB_IN_DB');
 
-      cy.get(`[data-cy="storageTypeUsed"]`).select('LOCAL_MINIO');
+      cy.get(`[data-cy="fullFilenamePath"]`).type('till through limo');
+      cy.get(`[data-cy="fullFilenamePath"]`).should('have.value', 'till through limo');
 
-      cy.get(`[data-cy="fullFilenamePath"]`).type('shopping');
-      cy.get(`[data-cy="fullFilenamePath"]`).should('have.value', 'shopping');
+      cy.get(`[data-cy="status"]`).select('DISABLED');
 
-      cy.get(`[data-cy="status"]`).select('ENABLED');
-
-      cy.get(`[data-cy="preferredPurpose"]`).select('USER_AVATAR');
+      cy.get(`[data-cy="preferredPurpose"]`).select('LOGO_IMG');
 
       cy.setFieldImageAsBytesOfEntity('assetContentAsBlob', 'integration-test.png', 'image/png');
+
+      cy.get(`[data-cy="activationStatus"]`).select('PENDENT');
 
       cy.get(`[data-cy="assetType"]`).select(1);
 

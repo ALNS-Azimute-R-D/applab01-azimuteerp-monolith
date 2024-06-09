@@ -15,30 +15,23 @@ describe('OrderItem e2e test', () => {
   const orderItemPageUrlPattern = new RegExp('/order-item(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const orderItemSample = { quantity: 20202, totalPrice: 28409.89, status: 'AVAILABLE' };
+  // const orderItemSample = {"quantity":20202,"totalPrice":28409.89,"status":"AVAILABLE"};
 
   let orderItem;
-  let article;
-  let order;
+  // let article;
+  // let order;
 
   beforeEach(() => {
     cy.login(username, password);
   });
 
+  /* Disabled due to incompatibility
   beforeEach(() => {
     // create an instance at the required relationship entity:
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/articles',
-      body: {
-        inventoryProductId: 18409,
-        customName: 'of crinkle',
-        customDescription: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=',
-        priceValue: 27617.5,
-        itemSize: 'XXXL',
-        assetsCollectionUUID: 'incubation',
-        isEnabled: true,
-      },
+      body: {"inventoryProductId":20891,"skuCode":"heavily","customName":"filthy other boring","customDescription":"assist","priceValue":19930.78,"itemSize":"XL","activationStatus":"ACTIVE"},
     }).then(({ body }) => {
       article = body;
     });
@@ -46,20 +39,12 @@ describe('OrderItem e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/orders',
-      body: {
-        businessCode: 'courageously',
-        customerUserId: 'vice following meaty',
-        placedDate: '2024-06-03T03:34:50.691Z',
-        totalTaxValue: 12200.97,
-        totalDueValue: 29794.47,
-        status: 'COMPLETED',
-        invoiceId: 15138,
-        estimatedDeliveryDate: '2024-06-03T18:53:12.525Z',
-      },
+      body: {"businessCode":"out enlightened","placedDate":"2024-06-06T22:50:35.809Z","totalTaxValue":30592.85,"totalDueValue":71.5,"status":"COMPLETED","estimatedDeliveryDate":"2024-06-07T10:52:29.680Z","activationStatus":"ON_HOLD"},
     }).then(({ body }) => {
       order = body;
     });
   });
+   */
 
   beforeEach(() => {
     cy.intercept('GET', '/api/order-items+(?*|)').as('entitiesRequest');
@@ -67,6 +52,7 @@ describe('OrderItem e2e test', () => {
     cy.intercept('DELETE', '/api/order-items/*').as('deleteEntityRequest');
   });
 
+  /* Disabled due to incompatibility
   beforeEach(() => {
     // Simulate relationships api for better performance and reproducibility.
     cy.intercept('GET', '/api/articles', {
@@ -78,7 +64,9 @@ describe('OrderItem e2e test', () => {
       statusCode: 200,
       body: [order],
     });
+
   });
+   */
 
   afterEach(() => {
     if (orderItem) {
@@ -91,6 +79,7 @@ describe('OrderItem e2e test', () => {
     }
   });
 
+  /* Disabled due to incompatibility
   afterEach(() => {
     if (article) {
       cy.authenticatedRequest({
@@ -109,6 +98,7 @@ describe('OrderItem e2e test', () => {
       });
     }
   });
+   */
 
   it('OrderItems menu should load OrderItems page', () => {
     cy.visit('/');
@@ -145,6 +135,7 @@ describe('OrderItem e2e test', () => {
     });
 
     describe('with existing value', () => {
+      /* Disabled due to incompatibility
       beforeEach(() => {
         cy.authenticatedRequest({
           method: 'POST',
@@ -169,13 +160,24 @@ describe('OrderItem e2e test', () => {
                 link: '<http://localhost/api/order-items?page=0&size=20>; rel="last",<http://localhost/api/order-items?page=0&size=20>; rel="first"',
               },
               body: [orderItem],
-            },
+            }
           ).as('entitiesRequestInternal');
         });
 
         cy.visit(orderItemPageUrl);
 
         cy.wait('@entitiesRequestInternal');
+      });
+       */
+
+      beforeEach(function () {
+        cy.visit(orderItemPageUrl);
+
+        cy.wait('@entitiesRequest').then(({ response }) => {
+          if (response?.body.length === 0) {
+            this.skip();
+          }
+        });
       });
 
       it('detail button click should load details OrderItem page', () => {
@@ -209,7 +211,7 @@ describe('OrderItem e2e test', () => {
         cy.url().should('match', orderItemPageUrlPattern);
       });
 
-      it('last delete button click should delete instance of OrderItem', () => {
+      it.skip('last delete button click should delete instance of OrderItem', () => {
         cy.get(entityDeleteButtonSelector).last().click();
         cy.getEntityDeleteDialogHeading('orderItem').should('exist');
         cy.get(entityConfirmDeleteButtonSelector).click();
@@ -233,7 +235,7 @@ describe('OrderItem e2e test', () => {
       cy.getEntityCreateUpdateHeading('OrderItem');
     });
 
-    it('should create an instance of OrderItem', () => {
+    it.skip('should create an instance of OrderItem', () => {
       cy.get(`[data-cy="quantity"]`).type('2425');
       cy.get(`[data-cy="quantity"]`).should('have.value', '2425');
 

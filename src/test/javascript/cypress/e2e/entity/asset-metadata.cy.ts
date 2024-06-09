@@ -30,7 +30,7 @@ describe('AssetMetadata e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/assets',
-      body: {"uid":"6577a605-d557-4611-bb97-bb3996258143","name":"stallion","storageTypeUsed":"REMOTE_MINIO","fullFilenamePath":"sharply high sprinkle","status":"DISABLED","preferredPurpose":"OTHER","assetContentAsBlob":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","assetContentAsBlobContentType":"unknown"},
+      body: {"name":"zoom","storageTypeUsed":"REMOTE_MINIO","fullFilenamePath":"beside anenst","status":"DISABLED","preferredPurpose":"PHOTO_ALBUM","assetContentAsBlob":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","assetContentAsBlobContentType":"unknown","activationStatus":"ACTIVE"},
     }).then(({ body }) => {
       asset = body;
     });
@@ -213,8 +213,8 @@ describe('AssetMetadata e2e test', () => {
     });
 
     it.skip('should create an instance of AssetMetadata', () => {
-      cy.get(`[data-cy="metadataDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="metadataDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="metadataDetailsJSON"]`).type('gentle');
+      cy.get(`[data-cy="metadataDetailsJSON"]`).should('have.value', 'gentle');
 
       cy.get(`[data-cy="asset"]`).select(1);
 

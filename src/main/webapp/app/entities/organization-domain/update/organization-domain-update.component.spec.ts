@@ -49,10 +49,10 @@ describe('OrganizationDomain Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Organization query and add missing value', () => {
       const organizationDomain: IOrganizationDomain = { id: 456 };
-      const organization: IOrganization = { id: 27098 };
+      const organization: IOrganization = { id: 25253 };
       organizationDomain.organization = organization;
 
-      const organizationCollection: IOrganization[] = [{ id: 30893 }];
+      const organizationCollection: IOrganization[] = [{ id: 15676 }];
       jest.spyOn(organizationService, 'query').mockReturnValue(of(new HttpResponse({ body: organizationCollection })));
       const additionalOrganizations = [organization];
       const expectedCollection: IOrganization[] = [...additionalOrganizations, ...organizationCollection];
@@ -71,7 +71,7 @@ describe('OrganizationDomain Management Update Component', () => {
 
     it('Should update editForm', () => {
       const organizationDomain: IOrganizationDomain = { id: 456 };
-      const organization: IOrganization = { id: 8321 };
+      const organization: IOrganization = { id: 2450 };
       organizationDomain.organization = organization;
 
       activatedRoute.data = of({ organizationDomain });

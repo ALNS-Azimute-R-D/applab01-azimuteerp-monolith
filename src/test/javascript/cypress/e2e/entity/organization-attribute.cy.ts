@@ -30,7 +30,7 @@ describe('OrganizationAttribute e2e test', () => {
     cy.authenticatedRequest({
       method: 'POST',
       url: '/api/organizations',
-      body: {"acronym":"failing clash sheepi","businessCode":"indicator ew ti","hierarchicalLevel":"fake meanwhile mealy","name":"over","description":"modulate usefully","businessHandlerClazz":"modern boo","mainContactPersonDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","technicalEnvironmentsDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","commonCustomAttributesDetails":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=","organizationStatus":"WORKING","activationStatus":"INVALID","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
+      body: {"acronym":"crisis about nicely","businessCode":"psst relieved","hierarchicalLevel":"trim eventually paralyse","name":"nor upside-down","description":"meanwhile phooey elongation","businessHandlerClazz":"amidst","mainContactPersonDetailsJSON":"clueless boohoo veto","technicalEnvironmentsDetailsJSON":"helpfully","customAttributesDetailsJSON":"gosh robotics","organizationStatus":"IN_FAILURE","activationStatus":"ACTIVE","logoImg":"Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci5wbmc=","logoImgContentType":"unknown"},
     }).then(({ body }) => {
       organization = body;
     });

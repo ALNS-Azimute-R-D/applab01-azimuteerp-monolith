@@ -74,9 +74,30 @@
           <dd>
             <span>{{ warehouse()!.faxNumber }}</span>
           </dd>
-          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.warehouse.extraDetails">Extra Details</span></dt>
+          <dt>
+            <span jhiTranslate="azimuteErpSpringAngularMonolith01App.warehouse.customAttributesDetailsJSON"
+              >Custom Attributes Details JSON</span
+            >
+          </dt>
           <dd>
-            <span>{{ warehouse()!.extraDetails }}</span>
+            <span>{{ warehouse()!.customAttributesDetailsJSON }}</span>
+          </dd>
+          <dt><span jhiTranslate="azimuteErpSpringAngularMonolith01App.warehouse.activationStatus">Activation Status</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + (warehouse()!.activationStatus ?? 'null')"
+              >{{
+                {
+                  null: '',
+                  INACTIVE: 'INACTIVE',
+                  ACTIVE: 'ACTIVE',
+                  ON_HOLD: 'ON_HOLD',
+                  PENDENT: 'PENDENT',
+                  BLOCKED: 'BLOCKED',
+                  INVALID: 'INVALID'
+                }[warehouse()!.activationStatus ?? 'null']
+              }}</span
+            >
           </dd>
         </dl>
 

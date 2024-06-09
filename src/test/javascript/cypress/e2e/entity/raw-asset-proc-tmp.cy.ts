@@ -15,7 +15,7 @@ describe('RawAssetProcTmp e2e test', () => {
   const rawAssetProcTmpPageUrlPattern = new RegExp('/raw-asset-proc-tmp(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const rawAssetProcTmpSample = { name: 'yum without' };
+  const rawAssetProcTmpSample = { name: 'hence' };
 
   let rawAssetProcTmp;
   let assetType;
@@ -30,11 +30,11 @@ describe('RawAssetProcTmp e2e test', () => {
       method: 'POST',
       url: '/api/asset-types',
       body: {
-        acronym: 'hourly following',
-        name: 'underneath',
-        description: 'smog',
-        handlerClazzName: 'sociable',
-        extraDetails: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=',
+        acronym: 'for',
+        name: 'caring that',
+        description: 'instead pillow coordinated',
+        handlerClazzName: 'jumble',
+        customAttributesDetailsJSON: 'duh',
       },
     }).then(({ body }) => {
       assetType = body;
@@ -205,18 +205,18 @@ describe('RawAssetProcTmp e2e test', () => {
     });
 
     it('should create an instance of RawAssetProcTmp', () => {
-      cy.get(`[data-cy="name"]`).type('supposing');
-      cy.get(`[data-cy="name"]`).should('have.value', 'supposing');
+      cy.get(`[data-cy="name"]`).type('sculpt');
+      cy.get(`[data-cy="name"]`).should('have.value', 'sculpt');
 
-      cy.get(`[data-cy="statusRawProcessing"]`).select('UPLOADED');
+      cy.get(`[data-cy="statusRawProcessing"]`).select('WAITING_FOR_PROCESSING');
 
-      cy.get(`[data-cy="fullFilenamePath"]`).type('infatuated');
-      cy.get(`[data-cy="fullFilenamePath"]`).should('have.value', 'infatuated');
+      cy.get(`[data-cy="fullFilenamePath"]`).type('yum without');
+      cy.get(`[data-cy="fullFilenamePath"]`).should('have.value', 'yum without');
 
       cy.setFieldImageAsBytesOfEntity('assetRawContentAsBlob', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="extraDetails"]`).type('../fake-data/blob/hipster.txt');
-      cy.get(`[data-cy="extraDetails"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).type('tenant gerrymander');
+      cy.get(`[data-cy="customAttributesDetailsJSON"]`).should('have.value', 'tenant gerrymander');
 
       cy.get(`[data-cy="assetType"]`).select(1);
 

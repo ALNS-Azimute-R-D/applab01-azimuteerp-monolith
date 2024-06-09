@@ -68,80 +68,6 @@
         </div>
 
         <div class="mb-3">
-          <label
-            class="form-label"
-            for="field_representativeLastName"
-            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativeLastName"
-            >Representative Last Name</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="representativeLastName"
-            id="field_representativeLastName"
-            data-cy="representativeLastName"
-            formControlName="representativeLastName"
-          />
-          @if (
-            editForm.get('representativeLastName')!.invalid &&
-            (editForm.get('representativeLastName')!.dirty || editForm.get('representativeLastName')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('representativeLastName')?.errors?.maxlength) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '50' }"
-                  >This field cannot be longer than 50 characters.</small
-                >
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label
-            class="form-label"
-            for="field_representativeFirstName"
-            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativeFirstName"
-            >Representative First Name</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="representativeFirstName"
-            id="field_representativeFirstName"
-            data-cy="representativeFirstName"
-            formControlName="representativeFirstName"
-          />
-          @if (
-            editForm.get('representativeFirstName')!.invalid &&
-            (editForm.get('representativeFirstName')!.dirty || editForm.get('representativeFirstName')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('representativeFirstName')?.errors?.maxlength) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '50' }"
-                  >This field cannot be longer than 50 characters.</small
-                >
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="field_jobTitle" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.jobTitle"
-            >Job Title</label
-          >
-          <input type="text" class="form-control" name="jobTitle" id="field_jobTitle" data-cy="jobTitle" formControlName="jobTitle" />
-          @if (editForm.get('jobTitle')!.invalid && (editForm.get('jobTitle')!.dirty || editForm.get('jobTitle')!.touched)) {
-            <div>
-              @if (editForm.get('jobTitle')?.errors?.maxlength) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '50' }"
-                  >This field cannot be longer than 50 characters.</small
-                >
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
           <label class="form-label" for="field_streetAddress" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.streetAddress"
             >Street Address</label
           >
@@ -297,13 +223,6 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_webPage" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.webPage"
-            >Web Page</label
-          >
-          <textarea class="form-control" name="webPage" id="field_webPage" data-cy="webPage" formControlName="webPage"></textarea>
-        </div>
-
-        <div class="mb-3">
           <label class="form-label" for="field_pointLocation" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.pointLocation"
             >Point Location</label
           >
@@ -375,22 +294,43 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_landPhoneNumber" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.landPhoneNumber"
-            >Land Phone Number</label
+          <label class="form-label" for="field_phoneNumber1" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.phoneNumber1"
+            >Phone Number 1</label
           >
           <input
             type="text"
             class="form-control"
-            name="landPhoneNumber"
-            id="field_landPhoneNumber"
-            data-cy="landPhoneNumber"
-            formControlName="landPhoneNumber"
+            name="phoneNumber1"
+            id="field_phoneNumber1"
+            data-cy="phoneNumber1"
+            formControlName="phoneNumber1"
           />
-          @if (
-            editForm.get('landPhoneNumber')!.invalid && (editForm.get('landPhoneNumber')!.dirty || editForm.get('landPhoneNumber')!.touched)
-          ) {
+          @if (editForm.get('phoneNumber1')!.invalid && (editForm.get('phoneNumber1')!.dirty || editForm.get('phoneNumber1')!.touched)) {
             <div>
-              @if (editForm.get('landPhoneNumber')?.errors?.maxlength) {
+              @if (editForm.get('phoneNumber1')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '15' }"
+                  >This field cannot be longer than 15 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_phoneNumber2" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.phoneNumber2"
+            >Phone Number 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber2"
+            id="field_phoneNumber2"
+            data-cy="phoneNumber2"
+            formControlName="phoneNumber2"
+          />
+          @if (editForm.get('phoneNumber2')!.invalid && (editForm.get('phoneNumber2')!.dirty || editForm.get('phoneNumber2')!.touched)) {
+            <div>
+              @if (editForm.get('phoneNumber2')?.errors?.maxlength) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '15' }"
                   >This field cannot be longer than 15 characters.</small
                 >
@@ -402,26 +342,26 @@
         <div class="mb-3">
           <label
             class="form-label"
-            for="field_mobilePhoneNumber"
-            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.mobilePhoneNumber"
-            >Mobile Phone Number</label
+            for="field_customAttributesDetailsJSON"
+            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.customAttributesDetailsJSON"
+            >Custom Attributes Details JSON</label
           >
           <input
             type="text"
             class="form-control"
-            name="mobilePhoneNumber"
-            id="field_mobilePhoneNumber"
-            data-cy="mobilePhoneNumber"
-            formControlName="mobilePhoneNumber"
+            name="customAttributesDetailsJSON"
+            id="field_customAttributesDetailsJSON"
+            data-cy="customAttributesDetailsJSON"
+            formControlName="customAttributesDetailsJSON"
           />
           @if (
-            editForm.get('mobilePhoneNumber')!.invalid &&
-            (editForm.get('mobilePhoneNumber')!.dirty || editForm.get('mobilePhoneNumber')!.touched)
+            editForm.get('customAttributesDetailsJSON')!.invalid &&
+            (editForm.get('customAttributesDetailsJSON')!.dirty || editForm.get('customAttributesDetailsJSON')!.touched)
           ) {
             <div>
-              @if (editForm.get('mobilePhoneNumber')?.errors?.maxlength) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '15' }"
-                  >This field cannot be longer than 15 characters.</small
+              @if (editForm.get('customAttributesDetailsJSON')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '2048' }"
+                  >This field cannot be longer than 2048 characters.</small
                 >
               }
             </div>
@@ -429,43 +369,81 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_faxNumber" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.faxNumber"
-            >Fax Number</label
+          <label
+            class="form-label"
+            for="field_activationStatus"
+            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.activationStatus"
+            >Activation Status</label
           >
-          <input type="text" class="form-control" name="faxNumber" id="field_faxNumber" data-cy="faxNumber" formControlName="faxNumber" />
-          @if (editForm.get('faxNumber')!.invalid && (editForm.get('faxNumber')!.dirty || editForm.get('faxNumber')!.touched)) {
-            <div>
-              @if (editForm.get('faxNumber')?.errors?.maxlength) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '15' }"
-                  >This field cannot be longer than 15 characters.</small
-                >
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="field_extraDetails" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.extraDetails"
-            >Extra Details</label
-          >
-          <textarea
-            class="form-control"
-            name="extraDetails"
-            id="field_extraDetails"
-            data-cy="extraDetails"
-            formControlName="extraDetails"
-          ></textarea>
-        </div>
-
-        <div class="mb-3">
-          <label for="field_productsLists" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.productsList">Products List</label>
           <select
             class="form-control"
-            id="field_productsLists"
-            data-cy="productsList"
+            name="activationStatus"
+            formControlName="activationStatus"
+            id="field_activationStatus"
+            data-cy="activationStatus"
+          >
+            <option [ngValue]="null">{{ 'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.null' | translate }}</option>
+            @for (activationStatusEnum of activationStatusEnumValues; track $index) {
+              <option [value]="activationStatusEnum">
+                {{ 'azimuteErpSpringAngularMonolith01App.ActivationStatusEnum.' + activationStatusEnum | translate }}
+              </option>
+            }
+          </select>
+          @if (
+            editForm.get('activationStatus')!.invalid &&
+            (editForm.get('activationStatus')!.dirty || editForm.get('activationStatus')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('activationStatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_representativePerson"
+            jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.representativePerson"
+            >Representative Person</label
+          >
+          <select
+            class="form-control"
+            id="field_representativePerson"
+            data-cy="representativePerson"
+            name="representativePerson"
+            formControlName="representativePerson"
+            [compareWith]="comparePerson"
+          >
+            @if (editForm.get(['representativePerson'])!.value == null) {
+              <option [ngValue]="null" selected></option>
+            }
+            @for (personOption of peopleSharedCollection; track $index) {
+              <option [ngValue]="personOption">{{ personOption.lastname }}</option>
+            }
+          </select>
+        </div>
+        @if (
+          editForm.get(['representativePerson'])!.invalid &&
+          (editForm.get(['representativePerson'])!.dirty || editForm.get(['representativePerson'])!.touched)
+        ) {
+          <div>
+            @if (editForm.get(['representativePerson'])?.errors?.required) {
+              <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+            }
+          </div>
+        }
+
+        <div class="mb-3">
+          <label for="field_toProducts" jhiTranslate="azimuteErpSpringAngularMonolith01App.supplier.toProduct">To Product</label>
+          <select
+            class="form-control"
+            id="field_toProducts"
+            data-cy="toProduct"
             multiple
-            name="productsLists"
-            formControlName="productsLists"
+            name="toProducts"
+            formControlName="toProducts"
             [compareWith]="compareProduct"
           >
             @for (productOption of productsSharedCollection; track $index) {
