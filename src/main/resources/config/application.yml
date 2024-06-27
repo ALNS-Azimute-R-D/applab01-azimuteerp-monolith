@@ -142,7 +142,7 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: https://sso.darueira-devlocal.org.de:8522/auth/realms/dexterity-apps
+            issuer-uri: https://sso.darueira-devlocal.org.de/auth/realms/dexterity-apps
         registration:
           oidc:
             client-id: applab01-azimuteerp-monolith
